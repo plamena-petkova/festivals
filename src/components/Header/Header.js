@@ -1,33 +1,35 @@
+import {NavLink} from 'react-router-dom';
+
 
 
 const Header = () => {
     return (
-        <header>
-        <nav class="navigation">
+    <header>
+        <nav className="navigation">
 
-            <ul class="nav">
-                <div class="logo-wrapper">
+            <ul className="nav">
+                <div className="logo-wrapper">
 
-                    <li class="nav-links"><a href="" class="links">Home</a></li>
+                    <li className="nav-links"><NavLink to="" className="links">Home</NavLink></li>
                 </div>
-                <div class="wrapper">
+                <div className="wrapper">
 
-                    <li class="nav-links"><a href="" class="links">Festivals</a></li>
-                    <li class="nav-links"><a href="" class="links">Add Festival</a></li>
-                    <li class="nav-links"><a href="" class="links">Login</a></li>
-                    <li class="nav-links"><a href="" class="links">Register</a></li>
-                    <li class="nav-links"><a href="" class="links">Logout</a></li>
-                    <li class="nav-links"><a href="" class="links"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li className="nav-links"><NavLink to="" className="links">Festivals</NavLink></li>
+                    <li className="nav-links"><NavLink to="" className="links">Add Festival</NavLink></li>
+                    <li className="nav-links"><NavLink to="" className="links">Login</NavLink></li>
+                    <li className="nav-links"><NavLink to="" className="links">Register</NavLink></li>
+                    <li className="nav-links"><NavLink to="" className="links">Logout</NavLink></li>
+                    <li className="nav-links"><NavLink to="" className="links"><i className="fa-solid fa-cart-shopping"></i></NavLink></li>
                 </div>
             </ul>
 
-            <article class="img-background">
-                <img src="https://cdn.pixabay.com/photo/2015/09/05/20/39/acoustic-925174_1280.jpg" alt="picture"/>
+            <article className="img-background">
+                <img src="https://cdn.pixabay.com/photo/2015/09/05/20/39/acoustic-925174_1280.jpg" alt="pic"/>
             </article>
 
 
         </nav>
-    </header>
+        </header>
     )
 }
 
