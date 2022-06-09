@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 const Footer = () => {
@@ -9,17 +9,17 @@ const Footer = () => {
                 <ul className="contact-links">
                     <li className="contact-links-item">&copy; 2022 Plamena Petkova</li>
                     <li className="contact-links-item">Varna, Bulgaria</li>
-                    <li className="contact-links-item"><NavLink to="mailto:pl.petkova@gmail.com"
-                            className="email">pl.petkova@gmail.com</NavLink></li>
+                    <li className="contact-links-item"><Link to="mailto:pl.petkova@gmail.com"
+                            className="email">pl.petkova@gmail.com</Link></li>
                 </ul>
                 <ul className="socials">
-                    <li className="social-facebook"><NavLink to="" className="social-links"><i
-                                className="fa-brands fa-facebook"></i></NavLink></li>
-                    <li className="social-instagram"><NavLink to="" className="social-links"><i
-                                className="fa-brands fa-instagram"></i></NavLink></li>
-                    <li className="social-twitter"><NavLink to="" className="social-links"><i className="fa-brands fa-twitter"></i></NavLink>
+                    <li className="social-facebook"><Link to="/" className="social-links"><i
+                                className="fa-brands fa-facebook"></i></Link></li>
+                    <li className="social-instagram"><Link to="/" className="social-links"><i
+                                className="fa-brands fa-instagram"></i></Link></li>
+                    <li className="social-twitter"><Link to="/" className="social-links"><i className="fa-brands fa-twitter"></i></Link>
                     </li>
-                    <li className="social-youtube"><NavLink to="" className="social-links"><i className="fa-brands fa-youtube"></i></NavLink>
+                    <li className="social-youtube"><Link to="/" className="social-links"><i className="fa-brands fa-youtube"></i></Link>
                     </li>
                 </ul>
             </article>

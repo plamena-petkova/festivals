@@ -1,8 +1,8 @@
 body {
     margin:0;
     font-family: 'Lato', 'sans-serif';
-    background-color: #fefae0;
-    /* background-image: linear-gradient(180deg, #22c1c3, #fdbb2d); */
+    background-color: #F4E4D8;
+    background-image: ('');
     /* background: rgb(195,95,34);
     background: linear-gradient(0deg, rgba(195,95,34,1) 6%, rgba(253,191,45,1) 60%); */
   }
@@ -10,6 +10,7 @@ body {
   *, **, ::before, ::after {
     box-sizing: border-box;
   }
+
   
 
 
@@ -19,6 +20,7 @@ body {
     justify-content: space-between;  
     margin-bottom: 0;
     margin-top: 0;
+    background-color:#CEA581;
 }
 
 .wrapper {
@@ -107,7 +109,7 @@ body {
     text-decoration: none;
     margin: 20px 0;
     padding: 10px 10px;
-    background-color: #1C4670;
+    background-color: #704632;
     border-radius: 10px;
     color: white;
     font-weight: bold;
@@ -138,7 +140,7 @@ body {
     
     font-weight: bold;
     text-transform: uppercase;
-    background-color: #1C4670;
+    background-color: #704632;
     color: white;
     margin-top: -13px;
 }
@@ -160,7 +162,7 @@ body {
 }
 
 footer{
-    background-color: #1C4670;
+    background-color: #CEA581;
 }
 
 .contact {
@@ -170,7 +172,7 @@ footer{
 
 .contact-links-item a {
     text-decoration: none;
-    color: white;
+    color: #704632;
 }
 
 .socials li {
@@ -190,13 +192,13 @@ footer{
     list-style: none;
     line-height: 2;
     font-weight: bold;
-    color: white;
+    color: #704632;
     
 }
 
 .social-links {
     text-decoration: none;
-    color:white;
+    color:#704632;
 }
 
 .footer-content {
@@ -214,15 +216,17 @@ footer{
     padding: 10px 25px;
     margin: 60px 20px;
     border-radius: 25px;
-    background-color: #1C4670;
+    background-color: #704632;
     color: white;
     text-decoration: none;
     font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 
 .city-btn {
     text-decoration: none;
-    color: white;
+    color: #F4E4D8;
 }
 
 .login-container {
@@ -237,7 +241,7 @@ footer{
     height: 500px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px;
-    padding: 30px 30px;
+    padding: 10px 30px;
 }
 
 form {
@@ -265,7 +269,7 @@ input[type=text], input[type=password], input[type=url] {
     outline: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color:#fefae0;
+    background-color:#F4E4D8;
 }
 
 
@@ -305,10 +309,12 @@ input[type=text], input[type=password], input[type=url] {
     padding: 10px 35px;
     margin: 30px 0px;
     border-radius: 25px;
-    background-color: #1C4670;
+    background-color: #704632;
     color: white;
     text-decoration: none;
     font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-container {
@@ -338,10 +344,12 @@ input[type=text], input[type=password], input[type=url] {
     padding: 10px 35px;
     margin: 30px 0px;
     border-radius: 25px;
-    background-color: #1C4670;
+    background-color: #704632;
     color: white;
     text-decoration: none;
-    font-weight: bold
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 
 .firstName, .lastName {
@@ -388,6 +396,8 @@ input[type=text], input[type=password], input[type=url] {
 .btn-add-fest {
     display: flex;
     justify-content: center;
+    border: none;
+    cursor: pointer;
     /* padding: 20px 30px; */
 }
 
@@ -395,10 +405,12 @@ input[type=text], input[type=password], input[type=url] {
     padding: 10px 25px;
     margin: 10px 20px;
     border-radius: 25px;
-    background-color: #1C4670;
+    background-color: #704632;
     color: white;
     text-decoration: none;
     font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 
 .ticket-wrapper {
@@ -412,7 +424,7 @@ input[type=text], input[type=password], input[type=url] {
     padding: 8px 20px;
     margin: 10px 0px;
     border-radius: 25px;
-    background-color: #1C4670;
+    background-color: #704632;
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -446,13 +458,15 @@ input[type=text], input[type=password], input[type=url] {
 .user-btn {
     display: flex;
     justify-content: space-between;
+    border: none;
+    cursor: pointer;
 }
 
 .delete, .edit, .save {
     padding: 10px 25px;
     margin: 35px 10px;
     border-radius: 25px;
-    background-color: #1C4670;
+    background-color: #704632;
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -462,4 +476,31 @@ input[type=text], input[type=password], input[type=url] {
 
 
 
+.my-tickets {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+   
+    
+  
+}
 
+
+.table-my-tickets {
+    width: 500px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px;
+    padding: 30px 30px;
+    margin: 30px 10px;
+}
+
+
+.cart {
+    width: 500px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px;
+    padding: 30px 30px;
+    margin: 30px 10px;
+}

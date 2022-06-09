@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -12,7 +12,7 @@ const HomeCard = () => {
         <p className="popular-fest-text">OPEN BUZLUDZHNavLink 2022</p>
         <p className="popular-fest-dates">10.02.2022-13.02.2022</p>
         <section className="tickets">
-            <NavLink to="#" className="ticket-btn">Buy Ticket</NavLink>
+            <Link to="/" className="ticket-btn">Buy Ticket</Link>
         </section>
     </article>
     );

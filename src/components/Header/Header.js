@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 
@@ -10,24 +10,19 @@ const Header = () => {
             <ul className="nav">
                 <div className="logo-wrapper">
 
-                    <li className="nav-links"><NavLink to="" className="links">Home</NavLink></li>
+                    <li className="nav-links"><Link to="/home" className="links">Home</Link></li>
                 </div>
                 <div className="wrapper">
 
-                    <li className="nav-links"><NavLink to="" className="links">Festivals</NavLink></li>
-                    <li className="nav-links"><NavLink to="" className="links">Add Festival</NavLink></li>
-                    <li className="nav-links"><NavLink to="" className="links">Login</NavLink></li>
-                    <li className="nav-links"><NavLink to="" className="links">Register</NavLink></li>
-                    <li className="nav-links"><NavLink to="" className="links">Logout</NavLink></li>
-                    <li className="nav-links"><NavLink to="" className="links"><i className="fa-solid fa-cart-shopping"></i></NavLink></li>
+                    <li className="nav-links"><Link to="/festivals" className="links">Festivals</Link></li>
+                    <li className="nav-links"><Link to="/add-festival" className="links">Add Festival</Link></li>
+                    <li className="nav-links"><Link to="/login" className="links">Login</Link></li>
+                    <li className="nav-links"><Link to="/register" className="links">Register</Link></li>
+                    <li className="nav-links"><Link to="/logout" className="links">Logout</Link></li>
+                    <li className="nav-links"><Link to="/my-tickets" className="links">My tickets</Link></li>
+                    <li className="nav-links"><Link to="/cart" className="links"><i className="fa-solid fa-cart-shopping"></i></Link></li>
                 </div>
             </ul>
-
-            <article className="img-background">
-                <img src="https://cdn.pixabay.com/photo/2015/09/05/20/39/acoustic-925174_1280.jpg" alt="pic"/>
-            </article>
-
-
         </nav>
         </header>
     )
