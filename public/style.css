@@ -2,9 +2,9 @@ body {
     margin:0;
     font-family: 'Lato', 'sans-serif';
     background-color: #F4E4D8;
-    background-image: ('');
-    /* background: rgb(195,95,34);
-    background: linear-gradient(0deg, rgba(195,95,34,1) 6%, rgba(253,191,45,1) 60%); */
+    /* position: relative; */
+    /* min-height: 100vh; */
+
   }
   
   *, **, ::before, ::after {
@@ -75,7 +75,7 @@ body {
 }
 
 .img-fest {
-    width: 420px;
+    width: 418px;
     height: 230px;
     object-fit: cover;
     padding: 0px 0px;
@@ -129,7 +129,8 @@ body {
     border-radius: 200px;
     height: 250px;
     width: 250px;
-    padding: 20px 20px;
+    padding-bottom: 100px;
+    padding-top: 0;
     text-align: center;
 
 }
@@ -163,6 +164,10 @@ body {
 
 footer{
     background-color: #CEA581;
+    /* position:absolute;
+    left:0;
+    bottom:0;
+    right:0; */
 }
 
 .contact {
@@ -202,7 +207,7 @@ footer{
 }
 
 .footer-content {
-    margin: 0 80px;
+    margin: 0 60px;
 }
 
 
@@ -247,7 +252,7 @@ footer{
 form {
     display: flex;
     justify-content: center;
-    padding: 100px 100px;
+    padding: 60px 100px;
 }
 
 
@@ -503,4 +508,33 @@ input[type=text], input[type=password], input[type=url] {
     box-shadow: 0px 0px 10px;
     padding: 30px 30px;
     margin: 30px 10px;
+}
+
+.cart-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+.cart-ticket-btn {
+    padding: 10px 25px;
+    margin: 20px 20px;
+    border-radius: 25px;
+    background-color: #704632;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.tickets-cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.total-cart-wrapper {
+    display: flex;
+    justify-content: center;
 }
