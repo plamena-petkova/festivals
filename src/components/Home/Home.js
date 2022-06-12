@@ -1,24 +1,14 @@
 import HomeCard from './HomeCard';
-// import Location from './LocationCard';
 // import * as festivalService from '../../services/festivalService'
 import { useEffect, useState } from 'react';
-import { collection, getDocs} from 'firebase/firestore'
-import { db } from '../../firebase-config';
 import LocationCityCard from './LocationCityCard';
 
 const Home = () => {
 
     const [festivals, setFestivals] = useState([]);
 
-    const festivalsRef = collection(db, 'festivals')
 
     useEffect(()=> {
-        const getAll = async () => {
-            const festivals = await getDocs(festivalsRef);
-            setFestivals(festivals.docs.map((festival) => ({...festival.data(), id: festival.id})))
-        }
-
-        getAll()
 
     }, []);
 
