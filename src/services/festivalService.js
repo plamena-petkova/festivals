@@ -1,9 +1,10 @@
 
-export function getAll() {
-    return fetch('https://firestore.googleapis.com/v1/projects/festivals-50ce8/databases/(default)/documents/festivals/')
-           .then(res => res.json())
+// export function getAll() {
 
-}
+//     return fetch('https://parseapi.back4app.com/classes/festival'
+//            .then(res => res.json()))
+
+// }
 
 
 

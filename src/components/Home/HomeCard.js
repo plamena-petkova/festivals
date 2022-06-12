@@ -2,15 +2,17 @@ import { Link } from "react-router-dom";
 
 
 
-const HomeCard = (festival) => {
+const HomeCard = (props) => {
+
+    
     return (
         <article className="popular-fest-item">
         <article className="img-fest"><img
-                src={festival.imgUrlName}
+                src={props.festival.imgUrlFest}
                 alt=""/></article>
 
-        <p className="popular-fest-text">{festival.name}</p>
-        <p className="popular-fest-dates">{festival.date}</p>
+        <p className="popular-fest-text">{props.festival.festivalName}</p>
+        <p className="popular-fest-dates">{props.festival.date}</p>
         <section className="tickets">
             <Link to="/" className="ticket-btn">Buy Ticket</Link>
         </section>
