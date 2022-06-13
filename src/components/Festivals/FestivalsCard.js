@@ -6,6 +6,14 @@ const FestivalCard = (props) => {
 
     let [counter, setCounter] = useState(1);
 
+    if(counter < 1) {
+        setCounter(1);
+    }
+
+    if(counter > 5) {
+        setCounter(5);
+    }
+
 
     return (
          <article className="fest-item">
