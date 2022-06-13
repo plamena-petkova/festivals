@@ -12,7 +12,7 @@ const Home = () => {
 
     useEffect(()=> {
         
-        festivalService.getAll()
+        festivalService.getLatest()
                        .then(result => setFestivals(result))
         
     },
@@ -28,7 +28,7 @@ const Home = () => {
     <h1 className="popular-fests-title">Latest Summer Music Festivals</h1>
     <section className="popular-fests">
 
-    {festivals.length > 0
+    {festivals.length > 0 
         ? festivals.map(x => <HomeCard key={x.id} festival={x} />)
         : <h1 className="popular-fests-title">No Summer Music Festivals</h1>
     }

@@ -10,14 +10,26 @@ Parse.serverURL = PARSE_HOST_URL;
 export async function getAll() {
     // create your Parse Query using the Person Class you've created
     const query = new Parse.Query('festival');
-    
     // run the query
     const Festival = await query.find();
+    
     //add id to the result
     const result = Festival.map((x, id) => ({...x.attributes, id: x.id}) );
 
     return result;
 
+}
+
+export async function getLatest() {
+    const query = new Parse.Query('festival');
+    query.limit(3);
+    // run the query
+    const Festival = await query.find();
+    
+    //add id to the result
+    const result = Festival.map((x, id) => ({...x.attributes, id: x.id}) );
+
+    return result;
 }
 
 export async function addFestival(data) {
