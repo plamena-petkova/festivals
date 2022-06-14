@@ -44,7 +44,8 @@ export async function addFestival(data) {
         date: data.date,
         location: data.location,
         imgUrlLoc: data.imgUrlLoc,
-        ticketPrice: Number(data.ticketPrice)
+        ticketPrice: Number(data.ticketPrice),
+        userId: user.objectId
     });
 
 
@@ -58,6 +59,10 @@ export async function addFestival(data) {
             // error is a Parse.Error with an error code and message.
         alert('Failed to create new object, with error code: ' + error.message);
         });
+
+}
+
+export async function getById(userId) {
 
 }
 

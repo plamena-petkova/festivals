@@ -2,14 +2,16 @@
 
 
 const MyTickets = () => {
+
+
     return (
-        <section class="my-tickets">
-        <article class="table-my-tickets">
-        <h1 class="cart-title">My Tickets</h1>
-        <ul class="cart-content">
-            <li class="cart-item">Buzludzha Fest Peak Buzludhza qty:3 25lv Total:75lv </li>
-            <li class="cart-item">Buzludzha Fest Peak Buzludhza qty:3 25lv Total:75lv</li>
-            <li class="cart-item">Buzludzha Fest Peak Buzludhza qty:3 25lv Total:75lv</li>
+        <section className="my-tickets">
+        <article className="table-my-tickets">
+        <h1 className="cart-title">My Tickets</h1>
+        <ul className="cart-content">
+            <li className="cart-item">Buzludzha Fest Peak Buzludhza qty:3 25lv Total:75lv </li>
+            <li className="cart-item">Buzludzha Fest Peak Buzludhza qty:3 25lv Total:75lv</li>
+            <li className="cart-item">Buzludzha Fest Peak Buzludhza qty:3 25lv Total:75lv</li>
         </ul>
     </article>
     </section>
