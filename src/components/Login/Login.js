@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as authService from '../../services/authService';
 
 const Login = () => {
+
+    const [user, setUser] = useState([]);
 
     const navigate = useNavigate();
 
@@ -10,13 +13,15 @@ const Login = () => {
 
         let formData = new FormData(e.currentTarget);
 
+        let username = formData.get('username');
+        let password = formData.get('password');
         let email = formData.get('email');
-        let pass = formData.get('pass');
 
-        authService.login(email, pass)
-                .then(authData => {
-                    console.log('Logged');
-                    navigate('/')
+
+        authService.login(username, password, email)
+                .then(user => {
+                   setUser(user);
+                    navigate('/home')
                 });     
     }
 
@@ -30,8 +35,12 @@ const Login = () => {
                     <i className="fa-solid fa-envelope"></i>
                     <input type="text" className="email" placeholder="Email" name="email" id="email" />
                 </div>
+                <div className="wrapper-mail">
+                    <i className="fa-solid fa-envelope"></i>
+                    <input type="text" className="email" placeholder="Username" name="username" id="username" />
+                </div>
                 <div className="wrapper-pass">
-                    <i className="fa-solid fa-lock"></i><input type="password" className="pass" placeholder="Password" name="pass" id="pass" />
+                    <i className="fa-solid fa-lock"></i><input type="password" className="pass" placeholder="Password" name="password" id="pass" />
                 </div>
                 <div className="btn-container">
                     <button className="login-btn" type="submit">Login</button >

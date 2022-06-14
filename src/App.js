@@ -9,6 +9,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Cart from "./components/Cart/Cart";
 import Parse from 'parse/dist/parse.min.js';
+import Logout from "./components/Logout/Logout";
 
 const PARSE_APPLICATION_ID = 'N7Xz8vuxjzsKbiffxZeYoXrjo7nBno2e3pksZnai';
 const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
@@ -32,6 +33,7 @@ function App() {
       <Route path="/festivals" element={<Festivals />} />
       <Route path="/my-tickets" element={<MyTickets />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/logout" element={<Logout />} />
     </Routes>
     </main>
     <Footer />
