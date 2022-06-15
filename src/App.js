@@ -11,6 +11,7 @@ import Cart from "./components/Cart/Cart";
 import Parse from 'parse/dist/parse.min.js';
 import Logout from "./components/Logout/Logout";
 
+
 const PARSE_APPLICATION_ID = 'N7Xz8vuxjzsKbiffxZeYoXrjo7nBno2e3pksZnai';
 const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
 const PARSE_JAVASCRIPT_KEY = 'aLbkqUoj7IW2es6QQwiMLdxa9Ly8MYY4UhLqE3dO';
@@ -20,8 +21,10 @@ Parse.serverURL = PARSE_HOST_URL;
 
 
 function App() {
+
   return (
     <>    
+   
      <Header />
     <main>
     <Routes>
@@ -34,10 +37,10 @@ function App() {
       <Route path="/my-tickets" element={<MyTickets />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/logout" element={<Logout />} />
-    </Routes>
+    </Routes> 
     </main>
     <Footer />
-    
+   
     </>
 
   );

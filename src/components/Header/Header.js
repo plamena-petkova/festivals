@@ -1,8 +1,14 @@
+
 import {Link} from 'react-router-dom';
 
 
 
+
+
 const Header = () => {
+
+    console.log(localStorage)
+
 
     const userNavigation = (
         <>
@@ -32,10 +38,11 @@ const Header = () => {
                 </div>
                 <div className="wrapper">
 
-                {localStorage.length > 0 
+                {localStorage.length > 0
                 ? userNavigation
                 : guestNavigation
                 }
+                
 
                 
                     

@@ -8,6 +8,8 @@ Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
 
 
+
+
 export async function register({username, password, email, firstName, lastName, repass}) {
 
     const user = new Parse.User();
@@ -26,6 +28,8 @@ export async function register({username, password, email, firstName, lastName, 
 
 export async function login(data) {
 
+  
+
   try {
     const user = await Parse.User.logIn(data);
     console.log(user);
@@ -37,7 +41,11 @@ export async function login(data) {
 }
 
 export async function logout() {
+  
 
   localStorage.clear();
+
+ 
+ 
 
 }
