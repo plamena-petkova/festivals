@@ -32,7 +32,7 @@ const FestivalCard = (props) => {
         <button onClick={() => setCounter(counter + 1)} className="plus">+</button>
     </div>
     <article className="tickets">
-        <button type="submit" className="ticket-btn">Buy Ticket</button>
+        <button type="submit" className="ticket-btn">Buy</button>
     </article>
     <article className="user-btn">
         <Link to="/delete/:id" className="delete">Delete</Link>

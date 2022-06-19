@@ -19,8 +19,10 @@ const Login = () => {
 
 
         authService.login(username, password, email)
-                .then(user => {
-                   setUser(user);
+                   .then((user) => {
+                    console.log(user); 
+                    setUser(user);
+                     
                     navigate('/home')
                 });     
     }

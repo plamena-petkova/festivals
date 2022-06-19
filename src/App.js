@@ -10,6 +10,9 @@ import Register from "./components/Register/Register";
 import Cart from "./components/Cart/Cart";
 import Parse from 'parse/dist/parse.min.js';
 import Logout from "./components/Logout/Logout";
+// import { useState } from "react";
+import { AuthContex } from "./context/AuthContext";
+
 
 
 const PARSE_APPLICATION_ID = 'N7Xz8vuxjzsKbiffxZeYoXrjo7nBno2e3pksZnai';
@@ -22,8 +25,16 @@ Parse.serverURL = PARSE_HOST_URL;
 
 function App() {
 
+  // const [] = useState([]);
+
+  // const onLogin = (authData) => {
+  //   console.log(authData);
+  // }
+
+
   return (
     <>    
+    <AuthContex.Provider value={true}>
    
      <Header />
     <main>
@@ -40,7 +51,7 @@ function App() {
     </Routes> 
     </main>
     <Footer />
-   
+    </AuthContex.Provider>
     </>
 
   );
