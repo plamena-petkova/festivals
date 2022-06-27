@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
+import * as festivalService from "../../services/festivalService"
 
 
 const FestivalCard = (props) => {
+
+    const navigate = useNavigate();
 
     let [counter, setCounter] = useState(1);
 
@@ -12,6 +15,16 @@ const FestivalCard = (props) => {
 
     if(counter > 5) {
         setCounter(5);
+    }
+
+    const onDeleteHandler = (e) => {
+        e.eventPreventDefault();
+
+        festivalService.remove(props.festival.objectId)
+                        .then(() => {
+                            navigate('/home')
+                        })
+
     }
 
 
@@ -35,7 +48,7 @@ const FestivalCard = (props) => {
         <button type="submit" className="ticket-btn">Buy</button>
     </article>
     <article className="user-btn">
-        <Link to="/delete/:id" className="delete">Delete</Link>
+        <Link to={`/festivals/${props.festival.objectId}`} className="delete" onClick={onDeleteHandler}>Delete</Link>
         <Link to="/edit/:id" className="edit">Edit</Link>
         <Link to="" className="save">Save</Link>
     </article>

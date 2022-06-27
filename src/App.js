@@ -12,6 +12,7 @@ import Parse from 'parse/dist/parse.min.js';
 import Logout from "./components/Logout/Logout";
 // import { useState } from "react";
 import { AuthContex } from "./context/AuthContext";
+import FestivalCard from "./components/Festivals/FestivalsCard";
 
 
 
@@ -45,6 +46,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/add-festival" element={<AddFestival />} />
       <Route path="/festivals" element={<Festivals />} />
+      <Route path="/festivals/:id" element={<FestivalCard />} />
       <Route path="/my-tickets" element={<MyTickets />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/logout" element={<Logout />} />

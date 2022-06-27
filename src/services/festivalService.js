@@ -32,6 +32,7 @@ export async function getLatest() {
     return result;
 }
 
+
 export async function addFestival(data) {
 
     const Festival = Parse.Object.extend("festival");
@@ -64,5 +65,23 @@ export async function addFestival(data) {
 
 export async function getById(userId) {
 
+
 }
 
+
+export async function remove(festivalId) {
+    
+        const query = new Parse.Query('MyCustomClassName');
+        try {
+          // here you put the objectId that you want to delete
+          const object = await query.get(festivalId);
+          try {
+            const response = await object.destroy();
+            console.log('Deleted ParseObject', response);
+          } catch (error) {
+            console.error('Error while deleting ParseObject', error);
+          }
+        } catch (error) {
+          console.error('Error while retrieving ParseObject', error);
+        }
+}
