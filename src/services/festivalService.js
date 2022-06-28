@@ -37,7 +37,6 @@ export async function getById(festivalId) {
   const query = new Parse.Query('festival');
   // run the query
   const Festival = await query.get(festivalId);
-  console.log(Festival)
   const result = ({...Festival.attributes, id: Festival.id});
 
     return result;
@@ -76,10 +75,11 @@ export async function addFestival(data) {
 
 export async function remove(festivalId) {
     
-        const query = new Parse.Query('Festival');
+        const query = new Parse.Query('festival');
         try {
           // here you put the objectId that you want to delete
           const object = await query.get(festivalId);
+          console.log(object)
           try {
             const response = await object.destroy();
             console.log('Deleted ParseObject', response);

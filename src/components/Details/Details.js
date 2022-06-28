@@ -16,10 +16,6 @@ const Details = () => {
         .then(result => setFestival(result))
 
     }, [params.id]);
-
-    console.log(festival);
-
-
     
     const navigate = useNavigate();
 
@@ -34,7 +30,10 @@ const Details = () => {
     }
 
     const onDeleteHandler = (e) => {
-        e.eventPreventDefault();
+        e.preventDefault();
+
+        console.log('clicked');
+        console.log(festival.objectId)
 
         festivalService.remove(festival.id)
                         .then(() => {
@@ -46,7 +45,7 @@ const Details = () => {
 
 
     return (
-    <article className="fest-item">
+    <article className="fest-item details">
                 <article className="img-fest">
                     <img src={festival.imgUrlFest} alt="fest"/>
                 </article>
@@ -67,7 +66,7 @@ const Details = () => {
         <button type="submit" className="ticket-btn">Buy</button>
     </article>
     <article className="user-btn">
-        <Link to={`/festivals/${festival.id}`} className="delete" onClick={onDeleteHandler}>Delete</Link>
+        <button className="delete" onClick={onDeleteHandler}>Delete</button>
         <Link to={`/edit/${festival.id}`} className="edit">Edit</Link>
         <button to="" className="save" type="submit">Save</button>
     </article>

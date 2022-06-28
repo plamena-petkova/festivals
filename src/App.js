@@ -47,7 +47,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/add-festival" element={<AddFestival />} />
       <Route path="/festivals" element={<Festivals />} />
-      <Route path="/festivals/:id" element={<Details />} />
+      <Route path="/festivals/:festivalId" element={<Details />} />
       <Route path="/my-tickets" element={<MyTickets />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/logout" element={<Logout />} />

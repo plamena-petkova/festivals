@@ -214,12 +214,12 @@ footer{
 .tickets {
     display: flex;
     justify-content: center;
-    margin: -45px 0;
+    margin: 0 0;
 }
 
 .ticket-btn {
     padding: 10px 25px;
-    margin: 60px 20px;
+    margin: 10px 20px;
     border-radius: 25px;
     background-color: #704632;
     color: white;
@@ -444,20 +444,23 @@ input[type=text], input[type=password], input[type=url] {
     
 }
 
-.fest-item {
+.fest-item, .fest-item .details {
     width: 337px;
-
     border: none;
     box-shadow: 0px 0px 10px;
     border-radius: 15px;
     margin: 20px 20px;
 }
 
+.details {
+    margin: 30px auto;
+}
+
 .fest-text, .fest-dates, .catalog-summary, .catalog-location {
-    margin: 0px 0;
-    padding: 20px 0px;
+    margin: 10px 0;
+    padding: 0px 0px;
     text-align: center;
-    margin-top: -20px;
+    margin-top: 0px;
 }
 
 .user-btn {
