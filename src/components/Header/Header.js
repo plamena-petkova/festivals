@@ -7,8 +7,6 @@ import {Link} from 'react-router-dom';
 
 const Header = () => {
 
-    console.log(localStorage)
-
 
     const userNavigation = (
         <>

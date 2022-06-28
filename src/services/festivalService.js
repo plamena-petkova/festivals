@@ -33,6 +33,16 @@ export async function getLatest() {
 }
 
 
+export async function getById(festivalId) {
+  const query = new Parse.Query('festival');
+  // run the query
+  const Festival = await query.get(festivalId);
+  console.log(Festival)
+  const result = ({...Festival.attributes, id: Festival.id});
+
+    return result;
+}
+
 export async function addFestival(data) {
 
     const Festival = Parse.Object.extend("festival");
@@ -63,15 +73,10 @@ export async function addFestival(data) {
 
 }
 
-export async function getById(userId) {
-
-
-}
-
 
 export async function remove(festivalId) {
     
-        const query = new Parse.Query('MyCustomClassName');
+        const query = new Parse.Query('Festival');
         try {
           // here you put the objectId that you want to delete
           const object = await query.get(festivalId);
