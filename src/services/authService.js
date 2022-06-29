@@ -26,13 +26,18 @@ export async function register({username, password, email, firstName, lastName, 
 }
 
 
-export async function login(data) {
+export async function login(email, username, password) {
 
-  
 
   try {
-    const user = await Parse.User.logIn(data);
-    console.log(user);
+    const userData = await Parse.User.logIn(email, username, password);
+    
+    const user = {...userData.attributes, id: userData.id};
+
+    console.log(user)
+
+    return user;
+
   } catch (error) {
     console.error('Error while logging in user', error);
   }

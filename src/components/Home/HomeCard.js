@@ -14,7 +14,7 @@ const HomeCard = (props) => {
         <p className="popular-fest-text">{props.festival.festivalName}</p>
         <p className="popular-fest-dates">{props.festival.date}</p>
         <section className="tickets">
-            <Link to="/" className="ticket-btn">Details</Link>
+            <Link to={`/festivals/${props.festival.id}`} className="ticket-btn">Details</Link>
         </section>
     </article>
     );
