@@ -13,6 +13,7 @@ import Logout from "./components/Logout/Logout";
 // import { useState } from "react";
 import { AuthContex } from "./context/AuthContext";
 import Details from "./components/Details/Details";
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import FestivalCard from "./components/Festivals/FestivalsCard";
 
 
@@ -48,7 +49,7 @@ function App() {
       <Route path="/add-festival" element={<AddFestival />} />
       <Route path="/festivals" element={<Festivals />} />
       <Route path="/festivals/:festivalId" element={<Details />} />
-      <Route path="/my-tickets" element={<MyTickets />} />
+      <Route path="/my-tickets/:userId" element={<MyTickets />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/logout" element={<Logout />} />
     </Routes> 

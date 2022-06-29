@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as authService from '../../services/authService';
 
@@ -13,20 +13,24 @@ const Login = () => {
 
         let formData = new FormData(e.currentTarget);
 
-        let username = formData.get('username');
-        let password = formData.get('password');
         let email = formData.get('email');
+        let username = formData.get('username');
+        let password = formData.get('password');      
 
-
-        authService.login(username, password, email)
+        authService.login(email, username, password, )
                    .then((user) => {
-                    console.log(user); 
                     setUser(user);
-                     
                     navigate('/home')
                 });     
+    
     }
 
+    useEffect(() => {
+        
+    })
+
+
+    console.log(user); 
     return (
 
         <form method="POST" className="login" onSubmit={onLoginHandler}>

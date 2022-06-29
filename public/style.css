@@ -74,7 +74,7 @@ body {
     margin: 60px 40px;
 }
 
-.img-fest {
+/* .img-fest {
     width: 420px;
     height: 230px;
     object-fit: cover;
@@ -88,7 +88,7 @@ body {
     height: 80%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-}
+} */
 
 
 .popular-fest-text, .popular-fest-dates {
@@ -211,13 +211,13 @@ footer{
 }
 
 
-.tickets {
+/* .tickets {
     display: flex;
     justify-content: center;
     margin: 0 0;
-}
+} */
 
-.ticket-btn {
+/* .ticket-btn {
     padding: 10px 25px;
     margin: 10px 20px;
     border-radius: 25px;
@@ -227,7 +227,7 @@ footer{
     font-weight: bold;
     border: none;
     cursor: pointer;
-}
+} */
 
 .city-btn {
     text-decoration: none;
@@ -371,7 +371,7 @@ input[type=text], input[type=password], input[type=url] {
     border-bottom-left-radius: 5px;
 }
 
-.festival-wrapper {
+/* .festival-wrapper {
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -379,18 +379,18 @@ input[type=text], input[type=password], input[type=url] {
     border-radius: 15px;
     box-shadow: 0px 0px 10px;
     padding: 30px 30px;
-}
+} */
 
 
 
-.add-festival-title {
+/* .add-festival-title {
     display: flex;
     flex-direction: column;
     line-height: 2;
     text-align: center;
     font-size: 40px;
     margin: 5px;
-}
+} */
 
 .fa-music {
     font-size: 45px;
@@ -398,15 +398,15 @@ input[type=text], input[type=password], input[type=url] {
     padding: 30px;
 }
 
-.btn-add-fest {
+/* .btn-add-fest {
     display: flex;
     justify-content: center;
     border: none;
     cursor: pointer;
-    /* padding: 20px 30px; */
-}
+    padding: 20px 30px;
+} */
 
-.fest-btn {
+/* .fest-btn {
     padding: 10px 25px;
     margin: 10px 20px;
     border-radius: 25px;
@@ -416,16 +416,16 @@ input[type=text], input[type=password], input[type=url] {
     font-weight: bold;
     border: none;
     cursor: pointer;
-}
+} */
 
-.ticket-wrapper {
+/* .ticket-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 10px;
-}
+} */
 
-.plus, .minus {
+/* .plus, .minus {
     padding: 8px 20px;
     margin: 10px 0px;
     border-radius: 25px;
@@ -435,7 +435,7 @@ input[type=text], input[type=password], input[type=url] {
     font-weight: bold;
     border: none;
     cursor: pointer;
-}
+} */
 
 .catalog {
     display: flex;
@@ -452,25 +452,25 @@ input[type=text], input[type=password], input[type=url] {
     margin: 20px 20px;
 }
 
-.details {
+/* .details {
     margin: 30px auto;
-}
+} */
 
-.fest-text, .fest-dates, .catalog-summary, .catalog-location {
+/* .fest-text, .fest-dates, .catalog-summary, .catalog-location {
     margin: 10px 0;
     padding: 0px 0px;
     text-align: center;
     margin-top: 0px;
-}
+} */
 
-.user-btn {
+/* .user-btn {
     display: flex;
     justify-content: space-between;
     border: none;
     cursor: pointer;
-}
+} */
 
-.delete, .edit, .save {
+/* .delete, .edit, .save {
     padding: 10px 25px;
     margin: 35px 10px;
     border-radius: 25px;
@@ -480,7 +480,7 @@ input[type=text], input[type=password], input[type=url] {
     font-weight: bold;
     border: none;
     cursor: pointer;
-}
+} */
 
 
 
@@ -504,22 +504,22 @@ input[type=text], input[type=password], input[type=url] {
 }
 
 
-.cart {
+/* .cart {
     width: 500px;
     height: 300px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px;
     padding: 30px 30px;
     margin: 30px 10px;
-}
+} */
 
-.cart-wrapper {
+/* .cart-wrapper {
     display: flex;
     justify-content: center;
-}
+} */
 
 
-.cart-ticket-btn {
+/* .cart-ticket-btn {
     padding: 10px 25px;
     margin: 20px 20px;
     border-radius: 25px;
@@ -529,15 +529,15 @@ input[type=text], input[type=password], input[type=url] {
     font-weight: bold;
     border: none;
     cursor: pointer;
-}
+} */
 
-.tickets-cart {
+/* .tickets-cart {
     display: flex;
     flex-direction: row;
     justify-content: end;
-}
+} */
 
-.total-cart-wrapper {
+/* .total-cart-wrapper {
     display: flex;
     justify-content: center;
-}
+} */

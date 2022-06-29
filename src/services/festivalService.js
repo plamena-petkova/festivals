@@ -35,11 +35,18 @@ export async function getLatest() {
 
 export async function getById(festivalId) {
   const query = new Parse.Query('festival');
-  // run the query
-  const Festival = await query.get(festivalId);
-  const result = ({...Festival.attributes, id: Festival.id});
+    try {
+      const Festival = await query.get(festivalId);
+    
+      const result = ({...Festival.attributes, id: Festival.id});
+    
+      return result;
+    } catch(err) {
+      console.log(err)
+    }
+    
 
-    return result;
+
 }
 
 export async function addFestival(data) {

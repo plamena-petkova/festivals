@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 
+import "./details.css"
 import * as festivalService from "../../services/festivalService"
+import ConfirmDialog from "../common/modal/ConfirmDialog";
 
 const Details = () => {
 
     const params = useParams();
 
-       const [festival, setFestival] = useState([]);
-
+    const [festival, setFestival] = useState([]);
+    const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
     useEffect(()=> {
-
-        festivalService.getById(params.id)
+        festivalService.getById(params.festivalId)
         .then(result => setFestival(result))
 
-    }, [params.id]);
+    }, [params.festivalId]);
+
     
     const navigate = useNavigate();
 
@@ -24,27 +26,33 @@ const Details = () => {
     if(counter < 1) {
         setCounter(1);
     }
-
+ 
     if(counter > 5) {
         setCounter(5);
     }
 
-    const onDeleteHandler = (e) => {
+    const deleteHandler = (e) => {
         e.preventDefault();
-
-        console.log('clicked');
-        console.log(festival.objectId)
 
         festivalService.remove(festival.id)
                         .then(() => {
                             navigate('/home')
                         })
+                        .finally(() => {
+                            showDeleteDialog(false);
+                    });
+    };
+
+    const deleteClickHandler = (e) => {
+        e.preventDefault();
+        setShowDeleteDialog(true);
+
 
     }
 
-
-
     return (
+        <>
+    <ConfirmDialog show={showDeleteDialog} onClose={()=> setShowDeleteDialog(false)} onSave={deleteHandler} />
     <article className="fest-item details">
                 <article className="img-fest">
                     <img src={festival.imgUrlFest} alt="fest"/>
@@ -66,12 +74,14 @@ const Details = () => {
         <button type="submit" className="ticket-btn">Buy</button>
     </article>
     <article className="user-btn">
-        <button className="delete" onClick={onDeleteHandler}>Delete</button>
+        <button className="delete" onClick={deleteClickHandler}>Delete</button>
         <Link to={`/edit/${festival.id}`} className="edit">Edit</Link>
         <button to="" className="save" type="submit">Save</button>
     </article>
         </article>
+        </>
     );
+    
 }
 
 export default Details;

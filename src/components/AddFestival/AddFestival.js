@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import './addFestival.css'
 import * as festivaService from '../../services/festivalService';
 
 const AddFestival = () => {

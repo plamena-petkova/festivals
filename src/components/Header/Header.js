@@ -13,7 +13,7 @@ const Header = () => {
         <li className="nav-links"><Link to="/festivals" className="links">Festivals</Link></li>  
         <li className="nav-links"><Link to="/add-festival" className="links">Add Festival</Link></li>   
         <li className="nav-links"><Link to="/my-tickets" className="links">My tickets</Link></li>
-        {/* <li className="nav-links"><Link to="/cart" className="links"><i className="fa-solid fa-cart-shopping"></i></Link></li> */}
+        <li className="nav-links"><Link to="/cart" className="links"><i className="fa-solid fa-cart-shopping"></i></Link></li>
         <li className="nav-links"><Link to="/logout" className="links">Logout</Link></li>
         </>
         )
