@@ -66,9 +66,9 @@ const Details = () => {
 
     <div className="ticket-wrapper">
         <p className="price">Price: {festival.ticketPrice}lv</p>
-        <button onClick={() => setCounter(counter - 1)} className="minus">-</button>
+        <button onClick={() => setCounter(counter => counter - 1)} className="minus">-</button>
         <p  className="ticket-number">{counter}</p>
-        <button onClick={() => setCounter(counter + 1)} className="plus">+</button>
+        <button onClick={() => setCounter(counter => counter + 1)} className="plus">+</button>
     </div>
     <article className="tickets">
         <button type="submit" className="ticket-btn">Buy</button>
