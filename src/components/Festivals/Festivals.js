@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import FestivalCard from "./FestivalsCard";
 import * as festivalService from '../../services/festivalService'
+import "./festival.css";
 
 
 const Festivals = () => {

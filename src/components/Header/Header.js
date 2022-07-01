@@ -36,12 +36,7 @@ const Header = () => {
                 {localStorage.length > 0
                 ? userNavigation
                 : guestNavigation
-                }
-                
-
-                
-                    
-                    
+                }    
                 </div>
             </ul>
         </nav>
