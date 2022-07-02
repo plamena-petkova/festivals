@@ -1,11 +1,12 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../context/AuthContext";
 import * as authService from '../../services/authService';
 import "./login.css"
 
 const Login = () => {
-
-    const [user, setUser] = useState([]);
+    const { login } = useAuthContext();
+    // const [user, setUser] = useState([]);
 
     const navigate = useNavigate();
 
@@ -21,9 +22,11 @@ const Login = () => {
         
         authService.login(username, password, email)
                    .then((userData) => {
-                    setUser(userData);
+                    login(userData);
+                    console.log(userData)
                     navigate('/home')
-                });     
+                });  
+                
     
     }
 

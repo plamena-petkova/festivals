@@ -21,7 +21,7 @@ const ConfirmDialog = ({
             Close
           </Button>
           <Button variant="primary" onClick={onSave}>
-            Save Changes
+            Delete
           </Button>
         </Modal.Footer>
       </Modal>

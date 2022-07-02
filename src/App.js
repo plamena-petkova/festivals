@@ -10,11 +10,12 @@ import Register from "./components/Register/Register";
 import Cart from "./components/Cart/Cart";
 import Parse from 'parse/dist/parse.min.js';
 import Logout from "./components/Logout/Logout";
-// import { useState } from "react";
-import { AuthContex } from "./context/AuthContext";
 import Details from "./components/Details/Details";
+import {Edit} from "./components/Edit/Edit"
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import FestivalCard from "./components/Festivals/FestivalsCard";
+import { AuthProvider } from "./context/AuthContext";
+
+
 
 
 
@@ -28,17 +29,10 @@ Parse.serverURL = PARSE_HOST_URL;
 
 function App() {
 
-  // const [] = useState([]);
-
-  // const onLogin = (authData) => {
-  //   console.log(authData);
-  // }
-
-
   return (
     <>    
-    <AuthContex.Provider value={true}>
-   
+
+   <AuthProvider>
      <Header />
     <main>
     <Routes>
@@ -49,13 +43,14 @@ function App() {
       <Route path="/add-festival" element={<AddFestival />} />
       <Route path="/festivals" element={<Festivals />} />
       <Route path="/festivals/:festivalId" element={<Details />} />
+      <Route path="/edit/:festivalId" element={<Edit />} />
       <Route path="/my-tickets/:userId" element={<MyTickets />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/logout" element={<Logout />} />
     </Routes> 
     </main>
     <Footer />
-    </AuthContex.Provider>
+    </AuthProvider>
     </>
 
   );

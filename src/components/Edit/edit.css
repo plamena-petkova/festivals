@@ -1,0 +1,109 @@
+
+
+.fest-item, .details {
+    width: 420px;
+    border: none;
+    box-shadow: 0px 0px 10px;
+    border-radius: 15px;
+    margin: 30px auto;
+}
+
+.img-fest {
+    width: 420px;
+    height: 230px;
+    object-fit: cover;
+    padding: 0px 0px;
+    
+}
+
+
+.img-fest img {
+    width: 80%;
+    height: 80%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.fest-text, .fest-dates, .catalog-summary, .catalog-location {
+    margin: 10px 0;
+    padding: 0px 0px;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.tickets {
+    display: flex;
+    justify-content: center;
+    margin: 0 0;
+}
+
+.ticket-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.ticket-wrapper p {
+    margin-top: 17px;
+}
+
+.plus, .minus {
+    padding: 8px 20px;
+    margin: 10px 0px;
+    border-radius: 25px;
+    background-color: #704632;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.tickets {
+    display: flex;
+    justify-content: center;
+    margin: 0 0;
+}
+
+.ticket-btn {
+    padding: 10px 25px;
+    margin: 10px 20px;
+    border-radius: 25px;
+    background-color: #704632;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.user-btn {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    cursor: pointer;
+}
+
+.delete, .edit, .save, .cancel {
+    padding: 10px 25px;
+    margin: 35px 10px;
+    border-radius: 25px;
+    background-color: #704632;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=text], input[type=url] {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+    border-radius: 5px;
+    background-color:#F4E4D8;
+}

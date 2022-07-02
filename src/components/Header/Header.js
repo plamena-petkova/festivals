@@ -2,8 +2,12 @@ import {Link} from 'react-router-dom';
 
 import "./header.css"
 
+// import { useAuthContext } from "../../context/AuthContext";
+
 
 const Header = () => {
+
+
 
 
     const userNavigation = (
@@ -35,10 +39,10 @@ const Header = () => {
                 </div>
                 <div className="wrapper">
 
-                {localStorage.length > 0
-                ? userNavigation
-                : guestNavigation
-                }    
+               
+                     {userNavigation}
+                     {guestNavigation}
+                
                 </div>
             </ul>
         </nav>

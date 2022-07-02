@@ -49,6 +49,42 @@ export async function getById(festivalId) {
 
 }
 
+export async function update(festivalId, festivalData) {
+        
+        const query = new Parse.Query('festival');
+
+       
+
+       try { 
+        const festival = await query.get(festivalId);
+
+        console.log(festival);
+        festival.set('imgUrlFest', festivalData.imgUrlFest);
+        festival.set('name', festivalData.name);
+        festival.set('date', festivalData.date);
+        festival.set('summary', festivalData.summary);
+        festival.set('location', festivalData.location);
+    
+    try {
+      const response = await festival.save();
+      response.get('imgUrlFest', festivalData.imgUrlFest);
+      response.get('name', festivalData.name);
+      response.get('date', festivalData.date);
+      response.get('summary', festivalData.summary);
+      response.get('location', festivalData.location);
+     
+      return response;
+
+    } catch (err) {
+      console.error('Error while updating ', err);
+    } 
+  } catch(err) {
+
+    console.error('Error while retrieving object ', err);
+  }
+
+}
+
 export async function addFestival(data) {
 
     const Festival = Parse.Object.extend("festival");

@@ -34,7 +34,8 @@ export async function login(email, username, password) {
     
     const user = {...userData.attributes, id: userData.id};
 
-    console.log(user)
+    console.log(user  );
+    // Object.values(localStorage)[0]
 
     return user;
 
@@ -44,6 +45,17 @@ export async function login(email, username, password) {
 
 
 }
+
+// export async function currentUser(email, username, password) {
+//   try {
+//     let userItem = await login(email, username, password);
+//     const currentUser = Parse.User.current();
+//     const user = {...currentUser.attributes, id: currentUser.id};
+//     console.log('Current logged in user', user);
+//   } catch (error) {
+//     console.error('Error while logging in user', error);
+//   }
+// }
 
 export async function logout() {
   
