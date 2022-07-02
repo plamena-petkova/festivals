@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import * as authService from '../../services/authService';
+import "./register.css"
 
 const Register = () => {
 

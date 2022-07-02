@@ -14,30 +14,30 @@ body {
   
 
 
-.nav {
+/* .nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;  
     margin-bottom: 0;
     margin-top: 0;
     background-color:#CEA581;
-}
+} */
 
-.wrapper {
+/* .wrapper {
     display: flex;
     margin: 20px;
     justify-content: center;
     
-}
+} */
 
-.logo-wrapper {
+/* .logo-wrapper {
     display: flex;
     flex-direction: row;
     margin: 20px 5px;
     justify-content: center; 
-}
+} */
 
-.img-background {
+/* .img-background {
     display: flex;
     justify-content: center;
     object-fit: cover;
@@ -67,7 +67,7 @@ body {
     box-shadow: 0px 0px 10px;
     border-radius: 15px;
     margin: 20px 20px;
-}
+} */
 
 /* .popular-fests-title, .fest-city-title {
     text-align: center;
@@ -91,21 +91,21 @@ body {
 } */
 
 
-.popular-fest-text, .popular-fest-dates {
+/* .popular-fest-text, .popular-fest-dates {
     margin: 0px 0;
     padding: 20px 0px;
     text-align: center;
     margin-top: -20px;
-}
+} */
 
-.nav-links {
+/* .nav-links {
     list-style-type: none;
     margin: 10px 10px;
     padding: 10px 10px;
 
-}
+} */
 
-.links {
+/* .links {
     text-decoration: none;
     margin: 20px 0;
     padding: 10px 10px;
@@ -113,7 +113,7 @@ body {
     border-radius: 10px;
     color: white;
     font-weight: bold;
-}
+} */
 
 
 
@@ -124,7 +124,7 @@ body {
     background-repeat: no-repeat;
 } */
 
-.city-item {
+/* .city-item {
     margin: 20px 42px;
     border-radius: 200px;
     height: 250px;
@@ -133,9 +133,9 @@ body {
     padding-top: 0;
     text-align: center;
 
-}
+} */
 
-.city-name {
+/* .city-name {
     margin-left: 20px;
     margin-right: 20px;
     
@@ -144,23 +144,22 @@ body {
     background-color: #704632;
     color: white;
     margin-top: -13px;
-}
+} */
 
-.fest-city {
+/* .fest-city {
     display: flex;
-    /* flex-wrap: wrap; */
     margin: 0px 60px;
     justify-content: space-between;
-}
+} */
 
-.city-item img {
+/* .city-item img {
     width: 170px;
     height: 170px;
     object-fit: cover;
     margin: 10px 0px;
     border-radius: 50%;
    
-}
+} */
 
 /* footer{
     background-color: #CEA581;
@@ -229,25 +228,25 @@ body {
     cursor: pointer;
 } */
 
-.city-btn {
+/* .city-btn {
     text-decoration: none;
     color: #F4E4D8;
-}
+} */
 
-.login-container {
+/* .login-container {
     width: 350px;
     height: 500px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px;
-}
+} */
 
-.wrapper-login {
+/* .wrapper-login {
     width: 350px;
     height: 600px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px;
     padding: 10px 30px;
-}
+} */
 
 form {
     display: flex;
@@ -256,16 +255,16 @@ form {
 }
 
 
-.login-title {
+/* .login-title {
     display: flex;
     flex-direction: column;
     line-height: 2.7;
     text-align: center;
     font-size: 40px;
-}
+} */
 
 
-input[type=text], input[type=password], input[type=url] {
+/* input[type=text], input[type=password], input[type=url] {
     width: 100%;
     padding: 10px 10px;
     margin: 8px 0;
@@ -275,17 +274,17 @@ input[type=text], input[type=password], input[type=url] {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color:#F4E4D8;
-}
+} */
 
 
 
-.fa-right-to-bracket {
+/* .fa-right-to-bracket {
     font-size: 45px;
     align-items: center;
-}
+} */
 
 
-.wrapper-mail i, .wrapper-pass i {
+/* .wrapper-mail i, .wrapper-pass i {
     margin: 8px auto;   
     border:1px solid black;
     padding: 10px 10px;
@@ -293,24 +292,24 @@ input[type=text], input[type=password], input[type=url] {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 
-}
+} */
 
 
-.wrapper-mail, .wrapper-pass {
+/* .wrapper-mail, .wrapper-pass {
     display: flex;
-}
+} */
 
 
 
-.login-redirect {
+/* .login-redirect {
     text-align: center;
-}
+} */
 
-.login-redirect a {
+/* .login-redirect a {
     text-decoration: none;
-}
+} */
 
-.login-btn {
+/* .login-btn {
     padding: 10px 35px;
     margin: 30px 0px;
     border-radius: 25px;
@@ -320,15 +319,15 @@ input[type=text], input[type=password], input[type=url] {
     font-weight: bold;
     border: none;
     cursor: pointer;
-}
+} */
 
-.btn-container {
+/* .btn-container {
     display: flex;
     justify-content: center;
-}
+} */
 
 
-.wrapper-register {
+/* .wrapper-register {
     width: 350px;
     height: 600px;
     border-radius: 15px;
@@ -369,7 +368,7 @@ input[type=text], input[type=password], input[type=url] {
     box-sizing: border-box;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-}
+} */
 
 /* .festival-wrapper {
     display: flex;
@@ -392,11 +391,11 @@ input[type=text], input[type=password], input[type=url] {
     margin: 5px;
 } */
 
-.fa-music {
+/* .fa-music {
     font-size: 45px;
     text-align: center;
     padding: 30px;
-}
+} */
 
 /* .btn-add-fest {
     display: flex;
@@ -484,7 +483,7 @@ input[type=text], input[type=password], input[type=url] {
 
 
 
-.my-tickets {
+/* .my-tickets {
     display: flex;
     justify-content: center;  
     align-items: center;
@@ -501,7 +500,7 @@ input[type=text], input[type=password], input[type=url] {
     box-shadow: 0px 0px 10px;
     padding: 30px 30px;
     margin: 30px 10px;
-}
+} */
 
 
 /* .cart {

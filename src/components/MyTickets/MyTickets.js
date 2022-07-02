@@ -1,4 +1,4 @@
-
+import "./myTickets.css"
 
 
 const MyTickets = () => {

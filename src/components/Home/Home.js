@@ -2,6 +2,7 @@ import HomeCard from './HomeCard';
 import * as festivalService from '../../services/festivalService'
 import { useEffect, useState } from 'react';
 import LocationCityCard from './LocationCityCard';
+import "./home.css"
 
 
 
