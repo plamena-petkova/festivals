@@ -1,11 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import './addFestival.css'
 import * as festivaService from '../../services/festivalService';
+import { useAuthContext } from '../../context/AuthContext';
 
 const AddFestival = () => {
 
     const navigate = useNavigate();
-    
+
+    const { user } = useAuthContext();
+
+    let ownerId = user.id;
+
 
     function onFestivalAdd(e) {
         e.preventDefault();
@@ -27,10 +32,12 @@ const AddFestival = () => {
             date,
             location,
             imgUrlLoc,
-            ticketPrice
-        },)
+            ticketPrice,
+            ownerId
+        })
         .then(festival => {
-            navigate('/home')
+            navigate('/home');
+            console.log(festival)
         })
 
     }

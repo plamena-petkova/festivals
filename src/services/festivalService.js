@@ -90,7 +90,7 @@ export async function addFestival(data) {
         location: data.location,
         imgUrlLoc: data.imgUrlLoc,
         ticketPrice: Number(data.ticketPrice),
-        // userId: user.objectId
+        ownerId: data.ownerId
     });
 
 

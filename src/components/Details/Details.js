@@ -4,8 +4,11 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import "./details.css"
 import * as festivalService from "../../services/festivalService"
 import ConfirmDialog from "../common/modal/ConfirmDialog";
+import { useAuthContext } from "../../context/AuthContext";
 
 const Details = () => {
+
+    const {user} = useAuthContext();
 
     const params = useParams();
 
@@ -23,24 +26,28 @@ const Details = () => {
 
     let [counter, setCounter] = useState(1);
 
-    if(counter < 1) {
-        setCounter(1);
-    }
- 
     if(counter > 5) {
         setCounter(5);
     }
+    if(counter < 1) {
+        setCounter(1);
+    }
 
+    const author = Boolean(festival.ownerId === user.id);
+
+    
     const deleteHandler = (e) => {
         e.preventDefault();
 
-        festivalService.remove(festival.id)
-                        .then(() => {
-                            navigate('/home')
-                        })
-                        .finally(() => {
-                            showDeleteDialog(false);
-                    });
+        if(user.id === festival.ownerId) {
+            festivalService.remove(festival.id)
+            .then(() => {
+                navigate('/home')
+            })
+            .finally(() => {
+                showDeleteDialog(false);
+        });
+        }
     };
 
     const deleteClickHandler = (e) => {
@@ -49,6 +56,23 @@ const Details = () => {
 
 
     }
+
+    const ownerBtn = 
+        (
+        <>
+        <article className="user-btn">
+        <button className="delete" onClick={deleteClickHandler}>Delete</button>
+        <Link to={`/edit/${festival.id}`} className="edit">Edit</Link>
+        <button to="" className="save" type="submit">Save</button>
+        </article>
+        </>
+        )
+
+    const btn = (    
+                <article className="tickets">
+                    <button type="submit" className="ticket-btn">Buy</button>
+                </article>
+                )   
 
     return (
         <>
@@ -66,22 +90,19 @@ const Details = () => {
 
     <div className="ticket-wrapper">
         <p className="price">Price: {festival.ticketPrice}lv</p>
-        <button onClick={() => setCounter(counter => counter - 1)} className="minus">-</button>
+        <button onClick={()=> setCounter(counter => counter - 1)} className="minus">-</button>
         <p  className="ticket-number">{counter}</p>
-        <button onClick={() => setCounter(counter => counter + 1)} className="plus">+</button>
+        <button onClick={()=> setCounter(counter => counter + 1)} className="plus">+</button>
     </div>
-    <article className="tickets">
-        <button type="submit" className="ticket-btn">Buy</button>
-    </article>
-    <article className="user-btn">
-        <button className="delete" onClick={deleteClickHandler}>Delete</button>
-        <Link to={`/edit/${festival.id}`} className="edit">Edit</Link>
-        <button to="" className="save" type="submit">Save</button>
-    </article>
+
+        { author
+        ? ownerBtn
+        : btn }
         </article>
         </>
     );
     
 }
+    
 
 export default Details;
