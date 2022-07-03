@@ -60,10 +60,12 @@ const Details = () => {
     const ownerBtn = 
         (
         <>
+         <article className="tickets">
+            <button type="submit" className="ticket-btn">Buy</button>
+         </article>
         <article className="user-btn">
         <button className="delete" onClick={deleteClickHandler}>Delete</button>
         <Link to={`/edit/${festival.id}`} className="edit">Edit</Link>
-        <button to="" className="save" type="submit">Save</button>
         </article>
         </>
         )

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './addFestival.css'
-import * as festivaService from '../../services/festivalService';
+import * as festivalService from '../../services/festivalService';
 import { useAuthContext } from '../../context/AuthContext';
 
 const AddFestival = () => {
@@ -25,7 +25,7 @@ const AddFestival = () => {
         const ticketPrice = formData.get('ticketPrice');
 
 
-        festivaService.addFestival({
+        festivalService.addFestival({
             festivalName, 
             imgUrlFest,
             summary,

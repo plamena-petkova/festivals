@@ -15,9 +15,13 @@ export const Edit = () => {
     function onEdit(e) {
         e.preventDefault();
 
-        const festivalData = Object.fromEntries(new FormData(e.currentTarget))
+        const festivalData = Object.fromEntries(new FormData(e.currentTarget));
+        console.log(festivalData)
 
-        festivalService.update(params.festivalId, festivalData)
+        festivalService.update(festivalData)
+                        .then(data => {
+                            setFestival(data);
+                        })
 
     }
 

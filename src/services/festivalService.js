@@ -49,31 +49,42 @@ export async function getById(festivalId) {
 
 }
 
-export async function update(festivalId, festivalData) {
+export async function update(festival) {
         
-        const query = new Parse.Query('festival');
-
-       try { 
-        const festival = await query.get(festivalId);
-
-      
-        festival.set(['imgUrlFest', 'name', 'date', 'summary', 'location'], [festivalData]);
-
-    
+  const query = new Parse.Query(festival);
+  try {
+    // here you put the objectId that you want to update
+    const object = await query.get('xKue915KBG');
+    object.set('festivalName', 'A string');
+    object.set('imgUrlFest', 'A string');
+    object.set('summary', 'A string');
+    object.set('date', 'A string');
+    object.set('location', 'A string');
+    object.set('imgUrlLoc', 'A string');
+    object.set('ticketPrice', 1);
+    object.set('ownerId', 'A string');
+    object.set('QNaw5osINz', { foo: 'bar' });
     try {
-      const response = await festival.save();
-      response.set(['imgUrlFest', 'name', 'date', 'summary', 'location'], [festivalData]);
-      console.log(response)
-     
-      return response;
-
-    } catch (err) {
-      console.error('Error while updating ', err);
-    } 
-  } catch(err) {
-
-    console.error('Error while retrieving object ', err);
-  }
+      const response = await object.save();
+      // You can use the "get" method to get the value of an attribute
+      // Ex: response.get("<ATTRIBUTE_NAME>")
+      // Access the Parse Object attributes using the .GET method
+      console.log(response.get('festivalName'));
+      console.log(response.get('imgUrlFest'));
+      console.log(response.get('summary'));
+      console.log(response.get('date'));
+      console.log(response.get('location'));
+      console.log(response.get('imgUrlLoc'));
+      console.log(response.get('ticketPrice'));
+      console.log(response.get('ownerId'));
+      console.log(response.get('QNaw5osINz'));
+      console.log('festival updated', response);
+    } catch (error) {
+      console.error('Error while updating festival', error);
+      }
+    } catch (error) {
+      console.error('Error while retrieving object festival', error);
+    }
 
 }
 

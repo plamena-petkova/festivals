@@ -18,7 +18,8 @@
     display: flex;
     flex-wrap: wrap;
     margin: 50px 40px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: center;
 }
 
 
@@ -63,7 +64,8 @@
     display: flex;
     /* flex-wrap: wrap; */
     margin: 0px 60px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: center;
 }
 
 .city-item img {
