@@ -46,23 +46,27 @@ export async function login(email, username, password) {
 
 }
 
-// export async function currentUser(email, username, password) {
-//   try {
-//     let userItem = await login(email, username, password);
-//     const currentUser = Parse.User.current();
-//     const user = {...currentUser.attributes, id: currentUser.id};
-//     console.log('Current logged in user', user);
-//   } catch (error) {
-//     console.error('Error while logging in user', error);
-//   }
-// }
-
 export async function logout() {
-  
-
-  localStorage.clear();
-
- 
- 
-
+  try {
+    await Parse.User.logOut();
+    // To verify that current user is now empty, currentAsync can be used
+    const currentUser = await Parse.User.current();
+    if (currentUser === null) {
+      alert('Success! No user is logged in anymore!');
+    }
+    // Update state variable holding current user
+    getCurrentUser();
+    return true;
+  } catch (error) {
+    alert(`Error! ${error.message}`);
+    return false;
+  }
 }
+
+export async function getCurrentUser() {
+  const currentUser = await Parse.User.current();
+  console.log(currentUser);
+  return currentUser;
+
+};
+

@@ -28,7 +28,7 @@ export const Edit = () => {
                 <article className="img-fest">
                     <input type="url" defaultValue={festival.imgUrlFest}/>
                 </article>
-    <input type="text" className="fest-text" defaultValue={festival.name} />
+    <input type="text" className="fest-text" defaultValue={festival.festivalName} />
     <input type="text" className="fest-dates" defaultValue = {festival.date} />
     <input type="text" className="catalog-summary" defaultValue={festival.summary}/>
     <input type="text" className="catalog-location" defaultValue={festival.location} />

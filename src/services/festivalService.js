@@ -53,25 +53,17 @@ export async function update(festivalId, festivalData) {
         
         const query = new Parse.Query('festival');
 
-       
-
        try { 
         const festival = await query.get(festivalId);
 
-        console.log(festival);
-        festival.set('imgUrlFest', festivalData.imgUrlFest);
-        festival.set('name', festivalData.name);
-        festival.set('date', festivalData.date);
-        festival.set('summary', festivalData.summary);
-        festival.set('location', festivalData.location);
+      
+        festival.set(['imgUrlFest', 'name', 'date', 'summary', 'location'], [festivalData]);
+
     
     try {
       const response = await festival.save();
-      response.get('imgUrlFest', festivalData.imgUrlFest);
-      response.get('name', festivalData.name);
-      response.get('date', festivalData.date);
-      response.get('summary', festivalData.summary);
-      response.get('location', festivalData.location);
+      response.set(['imgUrlFest', 'name', 'date', 'summary', 'location'], [festivalData]);
+      console.log(response)
      
       return response;
 
@@ -122,7 +114,6 @@ export async function remove(festivalId) {
         try {
           // here you put the objectId that you want to delete
           const object = await query.get(festivalId);
-          console.log(object)
           try {
             const response = await object.destroy();
             console.log('Deleted ParseObject', response);
