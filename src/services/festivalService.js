@@ -44,8 +44,25 @@ export async function getById(festivalId) {
     } catch(err) {
       console.log(err)
     }
-    
+}
 
+export async function getByOwner(ownerId) {
+
+  const query = new Parse.Query('festival');
+
+  try {
+    // run the query
+    const Festival = await query.find(ownerId);
+   
+    
+    //add id to the result
+    // const result = Festival.map((x, id) => ({...x.attributes, id: x.id}) );
+   
+    return Festival;
+
+  } catch(err) {
+    console.log(err)
+  }
 
 }
 

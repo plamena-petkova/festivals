@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 
-import "./details.css"
+import styles from "./Details.module.css";
 import * as festivalService from "../../services/festivalService"
 import ConfirmDialog from "../common/modal/ConfirmDialog";
 import { useAuthContext } from "../../context/AuthContext";
@@ -61,11 +61,11 @@ const Details = () => {
         (
         <>
          <article className="tickets">
-            <button type="submit" className="ticket-btn">Buy</button>
+            <button type="submit" className={styles["ticket-btn"]}>Buy</button>
          </article>
         <article className="user-btn">
         <button className="delete" onClick={deleteClickHandler}>Delete</button>
-        <Link to={`/edit/${festival.id}`} className="edit">Edit</Link>
+        <Link to={`/edit/${festival.id}`} className={styles["edit"]}>Edit</Link>
         </article>
         </>
         )
@@ -79,22 +79,22 @@ const Details = () => {
     return (
         <>
     <ConfirmDialog show={showDeleteDialog} onClose={()=> setShowDeleteDialog(false)} onSave={deleteHandler} />
-    <article className="fest-item details">
-                <article className="img-fest">
+    <article className={styles["fest-item"]}>
+                <article className={styles["img-fest"]}>
                     <img src={festival.imgUrlFest} alt="fest"/>
                 </article>
-    <p className="fest-text">{festival.festivalName}</p>
-    <p className="fest-dates">{festival.date}</p>
-    <p className="catalog-summary">{festival.summary}</p>
-    <p className="catalog-location">{festival.location}</p>
+    <p className={styles["fest-text"]}>{festival.festivalName}</p>
+    <p className={styles["fest-dates"]}>{festival.date}</p>
+    <p className={styles["catalog-summary"]}>{festival.summary}</p>
+    <p className={styles["catalog-location"]}>{festival.location}</p>
     <article className="tickets">
     </article>
 
     <div className="ticket-wrapper">
-        <p className="price">Price: {festival.ticketPrice}lv</p>
-        <button onClick={()=> setCounter(counter => counter - 1)} className="minus">-</button>
+        <p className={styles["price"]}>Price: {festival.ticketPrice}lv</p>
+        <button onClick={()=> setCounter(counter => counter - 1)} className={styles["minus"]}>-</button>
         <p  className="ticket-number">{counter}</p>
-        <button onClick={()=> setCounter(counter => counter + 1)} className="plus">+</button>
+        <button onClick={()=> setCounter(counter => counter + 1)} className={styles["plus"]}>+</button>
     </div>
 
         { author
