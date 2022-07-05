@@ -1,11 +1,12 @@
 
 
-.fest-item, .details {
+.fest-item {
     width: 420px;
     border: none;
     box-shadow: 0px 0px 10px;
     border-radius: 15px;
     margin: 30px auto;
+    padding: 40px 30px;
 }
 
 .img-fest {
@@ -106,4 +107,8 @@ input[type=text], input[type=url] {
     outline: none;
     border-radius: 5px;
     background-color:#F4E4D8;
+}
+
+.edit-fest {
+    text-align: center;
 }

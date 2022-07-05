@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-import "./header.css"
+import styles from "./Header.module.css"
 
 import { useAuthContext } from "../../context/AuthContext";
 
@@ -13,33 +13,33 @@ const isUser = Boolean(user.username);
 
     const userNavigation = (
         <>
-        <li className="nav-links user">Hello, {user.username}</li>  
-        <li className="nav-links"><Link to="/festivals" className="links">Festivals</Link></li>  
-        <li className="nav-links"><Link to="/add-festival" className="links">Add Festival</Link></li>   
-        <li className="nav-links"><Link to={`/my-tickets/${user.id}`} className="links">My tickets</Link></li>
-        <li className="nav-links"><Link to="/cart/:userId" className="links"><i className="fa-solid fa-cart-shopping"></i></Link></li>
-        <li className="nav-links"><Link to="/logout" className="links">Logout</Link></li>
+        <li className={`${styles["user"]} ${styles["nav-links"]}`}>Hello, {user.username}</li>  
+        <li className={styles["nav-links"]}><Link to="/festivals" className={styles["links"]}>Festivals</Link></li>  
+        <li className={styles["nav-links"]}><Link to="/add-festival" className={styles["links"]}>Add Festival</Link></li>   
+        <li className={styles["nav-links"]}><Link to={`/my-tickets/${user.id}`} className={styles["links"]}>My tickets</Link></li>
+        <li className={styles["nav-links"]}><Link to="/cart/:userId" className={styles["links"]}><i className="fa-solid fa-cart-shopping"></i></Link></li>
+        <li className={styles["nav-links"]}><Link to="/logout" className={styles["links"]}>Logout</Link></li>
         </>
         )
     const guestNavigation = (
         <>
-        <li className="nav-links"><Link to="/festivals" className="links">Festivals</Link></li>         
-        <li className="nav-links"><Link to="/login" className="links">Login</Link></li>
-        <li  className="nav-links"><Link to="/register" className="links">Register</Link></li>
+        <li className={styles["nav-links"]}><Link to="/festivals" className={styles["links"]}>Festivals</Link></li>         
+        <li className={styles["nav-links"]}><Link to="/login" className={styles["links"]}>Login</Link></li>
+        <li  className={styles["nav-links"]}><Link to="/register" className={styles["links"]}>Register</Link></li>
         </>
     )
 
 
     return (
     <header>
-        <nav className="navigation">
+        <nav className={styles["navigation"]}>
 
-            <ul className="nav">
-                <div className="logo-wrapper">
+            <ul className={styles["nav"]}>
+                <div className={styles["logo-wrapper"]}>
 
-                    <li className="nav-links"><Link to="/home" className="links">Home</Link></li>
+                    <li className={styles["nav-links"]}><Link to="/home" className={styles["links"]}>Home</Link></li>
                 </div>
-                <div className="wrapper">
+                <div className={styles["wrapper"]}>
 
                     {isUser
                          ? userNavigation

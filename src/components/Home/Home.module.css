@@ -11,9 +11,6 @@
 }
 
 
-
-
-
 .popular-fests {
     display: flex;
     flex-wrap: wrap;
@@ -80,4 +77,59 @@
 .city-btn {
     text-decoration: none;
     color: #F4E4D8;
+}
+
+
+.img-fest {
+    width: 420px;
+    height: 230px;
+    object-fit: cover;
+    padding: 0px 0px;
+    
+}
+
+.img-fest img {
+    width: 80%;
+    height: 80%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.ticket-btn {
+    padding: 10px 25px;
+    margin: 10px 20px;
+    border-radius: 25px;
+    background-color: #704632;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.popular-fests {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px 40px;
+    justify-content: space-between;
+}
+
+.popular-fest-item {
+    width: 335px;
+    height: 420px;
+    border: none;
+    box-shadow: 0px 0px 10px;
+    border-radius: 15px;
+    margin: 20px 20px;
+} 
+
+.popular-fests-title, .fest-city-title {
+    text-align: center;
+    margin: 60px 40px;
+}
+
+.tickets {
+    display: flex;
+    justify-content: center;
+    margin: 0 0;
 }

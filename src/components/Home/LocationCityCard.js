@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
+import styles from "./Home.module.css";
 
 
 const LocationCityCard = (props) => {
     return (
-        <article className="city-item">
+        <article className={styles["city-item"]}>
     
-        <article className="city-item-img"><img
+        <article className={styles["city-item-img"]}><img
                 src={props.festival.imgUrlLoc} alt=""/>
-            <p className="city-name"><Link to="/" className="city-btn">{props.festival.location}</Link> </p>
+            <p className={styles["city-name"]}><Link to="/" className={styles["city-btn"]}>{props.festival.location}</Link> </p>
            
         </article>
     </article>
