@@ -7,8 +7,11 @@ input[type=text], input[type=password], input[type=url] {
     outline: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     background-color:#F4E4D8;
 }
+
 
 .wrapper-register {
     width: 450px;
@@ -57,4 +60,44 @@ form {
     display: flex;
     justify-content: center;
     padding: 60px 100px;
+}
+
+.wrapper-mail i, .wrapper-pass i {
+    margin: 8px auto;   
+    border:1px solid black;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+}
+
+
+.wrapper-mail, .wrapper-pass {
+    display: flex;
+}
+
+
+.register {
+    display: flex;
+    justify-content: center;
+    padding: 60px 100px;
+}
+
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-redirect {
+    text-align: center;
+}
+
+.login-redirect a {
+    text-decoration: none;
+}
+
+.fa-lock {
+    padding-right: 5px;
 }

@@ -60,11 +60,6 @@
     cursor: pointer;
 }
 
-.tickets {
-    display: flex;
-    justify-content: center;
-    margin: 0 0;
-}
 
 .ticket-btn {
     padding: 10px 25px;
@@ -95,4 +90,10 @@
     font-weight: bold;
     border: none;
     cursor: pointer;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    padding: 60px 100px;
 }

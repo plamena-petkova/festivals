@@ -7,7 +7,7 @@ import styles from "./Festival.module.css";
 const FestivalCard = (props) => {
 
     return (
-         <article className={styles["fest-item"]}>
+         <article className={`${styles["fest-item"]} ${styles["details"]}`}>
                 <article className={styles["img-fest"]}>
                     <img src={props.festival.imgUrlFest} alt=""/>
                 </article>

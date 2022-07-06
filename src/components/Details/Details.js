@@ -60,19 +60,19 @@ const Details = () => {
     const ownerBtn = 
         (
         <>
-         <article className="tickets">
+         <article className={styles["tickets"]}>
             <button type="submit" className={styles["ticket-btn"]}>Buy</button>
          </article>
-        <article className="user-btn">
-        <button className="delete" onClick={deleteClickHandler}>Delete</button>
+        <article className={styles["user-btn"]}>
+        <button className={styles["delete"]} onClick={deleteClickHandler}>Delete</button>
         <Link to={`/edit/${festival.id}`} className={styles["edit"]}>Edit</Link>
         </article>
         </>
         )
 
     const btn = (    
-                <article className="tickets">
-                    <button type="submit" className="ticket-btn">Buy</button>
+                <article className={styles["tickets"]}>
+                    <button type="submit" className={styles["ticket-btn"]}>Buy</button>
                 </article>
                 )   
 
@@ -87,13 +87,12 @@ const Details = () => {
     <p className={styles["fest-dates"]}>{festival.date}</p>
     <p className={styles["catalog-summary"]}>{festival.summary}</p>
     <p className={styles["catalog-location"]}>{festival.location}</p>
-    <article className="tickets">
-    </article>
+ 
 
-    <div className="ticket-wrapper">
+    <div className={styles["ticket-wrapper"]}>
         <p className={styles["price"]}>Price: {festival.ticketPrice}lv</p>
         <button onClick={()=> setCounter(counter => counter - 1)} className={styles["minus"]}>-</button>
-        <p  className="ticket-number">{counter}</p>
+        <p  className={styles["ticket-number"]}>{counter}</p>
         <button onClick={()=> setCounter(counter => counter + 1)} className={styles["plus"]}>+</button>
     </div>
 

@@ -45,12 +45,12 @@ const Login = () => {
                     <i className="fa-solid fa-envelope"></i>
                     <input type="text" className={styles["email"]} placeholder="Email" name="email" id="email" />
                 </div>
-                <div className="wrapper-mail">
-                    <i className={`${styles["fa-solid"]} ${styles["fa-envelope"]}`}></i>
+                <div className={styles["wrapper-mail"]}>
+                    <i className="fa-solid fa-envelope"></i>
                     <input type="text" className={styles["email"]} placeholder="Username" name="username" id="username" />
                 </div>
-                <div className="wrapper-pass">
-                    <i className={`${styles["fa-solid"]} ${styles["fa-lock"]}`}></i><input type="password" className={styles["pass"]} placeholder="Password" name="password" id="pass" />
+                <div className={styles["wrapper-pass"]}>
+                    <i className="fa-solid fa-lock" ></i><input type="password" className={styles["pass"]} placeholder="Password" name="password" id="pass" />
                 </div>
                 <div className={styles["btn-container"]}>
                     <button className={styles["login-btn"]} type="submit">Login</button >

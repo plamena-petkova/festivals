@@ -1,38 +1,37 @@
-import "./cart.css"
+import styles from "./Cart.module.css";
 
 const Cart = () => {
     return (
-    <section class="cart-wrapper">
-        <article class="cart">
-            <h4 class="fest-title">Festival:</h4> 
-                <div class="ticket-wrapper">
-                    <p class="fest-text-ticket">OPEN BUZLUDZHA 2022</p>
-                    <p class="price">Price: 25lv</p>
-                    <button class="minus">-</button>
-                    <p class="ticket-number">1</p>
-                    <button class="plus">+</button>
+    <section class={styles["cart-wrapper"]}>
+        <article className={styles["cart"]}>
+            <h4 className={styles["fest-title"]}>Festival:</h4> 
+                <div className={styles["ticket-wrapper"]}>
+                    <p className={styles["fest-text-ticket"]}>OPEN BUZLUDZHA 2022</p>
+                    <p className={styles["price"]}>Price: 25lv</p>
+                    <button className={styles["minus"]}>-</button>
+                    <p className={styles["ticket-number"]}>1</p>
+                    <button className={styles["plus"]}>+</button>
                 </div>
-                <div class="ticket-wrapper">
-                    <p class="fest-text-ticket">OPEN BUZLUDZHA 2022</p>
-                    <p class="price">Price: 25lv</p>
-                    <button class="minus">-</button>
-                    <p class="ticket-number">1</p>
-                    <button class="plus">+</button>
+                <div className={styles["ticket-wrapper"]}>
+                    <p className={styles["fest-text-ticket"]}>OPEN BUZLUDZHA 2022</p>
+                    <p className={styles["price"]}>Price: 25lv</p>
+                    <button className={styles["minus"]}>-</button>
+                    <p className={styles["ticket-number"]}>1</p>
+                    <button className={styles["plus"]}>+</button>
                 </div>
-                <div class="ticket-wrapper">
-                    <p class="fest-text-ticket">OPEN BUZLUDZHA 2022</p>
-                    <p class="price">Price: 25lv</p>
-                    <button class="minus">-</button>
-                    <p class="ticket-number">1</p>
-                    <button class="plus">+</button>
+                <div className={styles["ticket-wrapper"]}>
+                    <p className={styles["fest-text-ticket"]}>OPEN BUZLUDZHA 2022</p>
+                    <p className={styles["price"]}>Price: 25lv</p>
+                    <button className={styles["minus"]}>-</button>
+                    <p className={styles["ticket-number"]}>1</p>
+                    <button className={styles["plus"]}>+</button>
                 </div>
-                <article class="total-cart-wrapper">
-                    <p class="total-cart">Total: 75lv</p>
+                <article className={styles["total-cart-wrapper"]}>
+                    <p className={styles["total-cart"]}>Total: 75lv</p>
                 </article>
             
-                <article class="tickets-cart">
-                    
-                    <button type="submit" class="cart-ticket-btn">Check Out</button>
+                <article className={styles["tickets-cart"]}>
+                    <button type="submit" className={styles["cart-ticket-btn"]}>Check Out</button>
                 </article>
         
         </article>

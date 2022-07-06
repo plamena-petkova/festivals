@@ -51,8 +51,9 @@ input[type=text], input[type=url] {
     background-color:#F4E4D8;
 }
 
-.fa-music {
+.add-festival i {
     font-size: 45px;
     text-align: center;
     padding: 30px;
 }
+

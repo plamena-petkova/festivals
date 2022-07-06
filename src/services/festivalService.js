@@ -66,21 +66,19 @@ export async function getByOwner(ownerId) {
 
 }
 
-export async function update(festival) {
+export async function update(festivalId, festivalData) {
         
-  const query = new Parse.Query(festival);
+  const query = new Parse.Query('festival');
   try {
     // here you put the objectId that you want to update
-    const object = await query.get('xKue915KBG');
-    object.set('festivalName', 'A string');
-    object.set('imgUrlFest', 'A string');
-    object.set('summary', 'A string');
-    object.set('date', 'A string');
-    object.set('location', 'A string');
-    object.set('imgUrlLoc', 'A string');
-    object.set('ticketPrice', 1);
-    object.set('ownerId', 'A string');
-    object.set('QNaw5osINz', { foo: 'bar' });
+    const object = await query.get(festivalId);
+    object.set('festivalName', festivalData.festivalName);
+    object.set('imgUrlFest', festivalData.imgUrlFest);
+    object.set('summary', festivalData.summary);
+    object.set('date', festivalData.date);
+    object.set('location', festivalData.location);
+    object.set('imgUrlLoc', festivalData.imgUrlLoc);
+    object.set('ticketPrice', festivalData.ticketPrice);
     try {
       const response = await object.save();
       // You can use the "get" method to get the value of an attribute
@@ -94,8 +92,12 @@ export async function update(festival) {
       console.log(response.get('imgUrlLoc'));
       console.log(response.get('ticketPrice'));
       console.log(response.get('ownerId'));
-      console.log(response.get('QNaw5osINz'));
       console.log('festival updated', response);
+
+      let result = ({...response.attributes, id: response.id});
+    
+      return result;
+
     } catch (error) {
       console.error('Error while updating festival', error);
       }

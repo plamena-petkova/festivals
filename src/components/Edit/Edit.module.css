@@ -17,6 +17,16 @@
     
 }
 
+.festival-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 915px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px;
+    padding: 30px 30px;
+}
+
 
 .img-fest img {
     width: 80%;
@@ -112,3 +122,14 @@ input[type=text], input[type=url] {
 .edit-fest {
     text-align: center;
 }
+
+.edit-festival-title {
+    text-align: center;
+}
+
+.festival-wrapper i {
+    text-align: center;
+    font-size: 40px;
+    padding: 30px;
+}
+
