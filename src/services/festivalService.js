@@ -16,7 +16,11 @@ export async function getAll() {
     //add id to the result
     const result = Festival.map((x, id) => ({...x.attributes, id: x.id}) );
 
-    return result;
+    const filtered = result.filter(x => x.location === 'Varna')
+
+  
+
+    return {result, filtered};
 
 }
 
