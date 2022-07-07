@@ -1,31 +1,36 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { useAuthContext } from "../../context/AuthContext";
+import * as ticketService from "../../services/ticketService"
+// import * as festivalService from "../../services/festivalService"
 import styles from "./Cart.module.css";
+import CartItem from "./CartItem";
 
 const Cart = () => {
+
+    const {user} = useAuthContext();
+
+    const [tickets, setTickets] = useState([]);
+
+    useEffect(() => {
+        ticketService.getAllTickets(user.id)
+                     .then(data => {
+                        setTickets(data);
+                        console.log(data);
+
+                     })
+    }, [user.id])
+
+
+
     return (
-    <section class={styles["cart-wrapper"]}>
+    <section className={styles["cart-wrapper"]}>
         <article className={styles["cart"]}>
             <h4 className={styles["fest-title"]}>Festival:</h4> 
-                <div className={styles["ticket-wrapper"]}>
-                    <p className={styles["fest-text-ticket"]}>OPEN BUZLUDZHA 2022</p>
-                    <p className={styles["price"]}>Price: 25lv</p>
-                    <button className={styles["minus"]}>-</button>
-                    <p className={styles["ticket-number"]}>1</p>
-                    <button className={styles["plus"]}>+</button>
-                </div>
-                <div className={styles["ticket-wrapper"]}>
-                    <p className={styles["fest-text-ticket"]}>OPEN BUZLUDZHA 2022</p>
-                    <p className={styles["price"]}>Price: 25lv</p>
-                    <button className={styles["minus"]}>-</button>
-                    <p className={styles["ticket-number"]}>1</p>
-                    <button className={styles["plus"]}>+</button>
-                </div>
-                <div className={styles["ticket-wrapper"]}>
-                    <p className={styles["fest-text-ticket"]}>OPEN BUZLUDZHA 2022</p>
-                    <p className={styles["price"]}>Price: 25lv</p>
-                    <button className={styles["minus"]}>-</button>
-                    <p className={styles["ticket-number"]}>1</p>
-                    <button className={styles["plus"]}>+</button>
-                </div>
+             
+            {tickets.length > 0
+            ? tickets.map(x => <CartItem key={x.id} ticket={x}/>)
+            : <h3>No tickets in the cart</h3>}
                 <article className={styles["total-cart-wrapper"]}>
                     <p className={styles["total-cart"]}>Total: 75lv</p>
                 </article>

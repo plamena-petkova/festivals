@@ -38,7 +38,7 @@ const Home = () => {
  
     </section>
 
-        <h1 className={styles["fest-city-title"]}>Festival Location</h1>
+        <h1 className={styles["fest-city-title"]}>Festival Locations</h1>
         <section className={styles["fest-city"]}>
         {festivals.length > 0
         ? festivals.map(x => <LocationCityCard key={x.id} festival={x} />)

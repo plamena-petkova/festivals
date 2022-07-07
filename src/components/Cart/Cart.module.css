@@ -59,3 +59,7 @@
 .fest-title {
     text-align: center;
 }
+
+.fest-text-ticket, .price, .ticket-number, .total {
+    margin-top: 20px;
+}

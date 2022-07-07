@@ -1,26 +1,27 @@
 
 import { useEffect, useState } from "react";
-import {useParams} from "react-router-dom"
-// import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../context/AuthContext";
 import * as festivalService from '../../services/festivalService'
 import styles from "./MyTickets.module.css";
+import MyTicketsCard from "./MyTicketsCard";
 
 
 const MyTickets = () => {
 
-    const params = useParams();
+    const {user} = useAuthContext()
     
-    const [festival, setFestival] = useState();
+    const [festivals, setFestivals] = useState([]);
 
-    const ownerId = params.userId;
+
 
     useEffect(() => {
-        festivalService.getByOwner(ownerId)
+        festivalService.getByOwner(user.id)
                        .then(festivalData => {
-                        setFestival(festivalData);
-                        console.log(festivalData)
+                        console.log(festivalData);
+                        setFestivals(festivalData);
+                        
                        })
-    }, [ownerId])
+    }, [user.id])
 
 
     return (
@@ -28,7 +29,14 @@ const MyTickets = () => {
         <article className={styles["table-my-tickets"]}>
         <h1 className={styles["cart-title"]}>My Tickets</h1>
         <ul className={styles["cart-content"]}>
-            <li className={styles["cart-item"]}>Buzludzha Fest Peak Buzludhza qty:3 25lv Total:75lv</li>
+           {festivals.length > 0
+           ? festivals.map(x => <MyTicketsCard key={x.id} festival={x} />)
+           : <h1>No Music Festivals which you had created!</h1>
+           }
+
+   
+      
+     
         </ul>
     </article>
     </section>

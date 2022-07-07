@@ -15,7 +15,7 @@ const Register = () => {
         let email = formData.get('email');
         let firstName = formData.get('firstName');
         let lastName = formData.get('lastName');
-        let repass = formData.get('repass');
+        // let repass = formData.get('repass');
 
         const data = {
             username,
@@ -23,7 +23,7 @@ const Register = () => {
             email,
             firstName, 
             lastName,
-            repass
+            // repass
         }
 
         console.log(data)
@@ -58,9 +58,9 @@ const Register = () => {
                 <div className={styles["wrapper-pass"]}>
                     <i className="fa-solid fa-lock"></i><input type="password" className={styles["pass"]} name="password" placeholder="******"/>
                 </div>
-                <div className={styles["wrapper-pass"]}>
+                {/* <div className={styles["wrapper-pass"]}>
                     <i className="fa-solid fa-lock"></i><input type="password" className={styles["repass"]} name="repass" placeholder="******"/>
-                </div>
+                </div> */}
                 <div className={styles["btn-container"]}>
                     <button className={styles["register-btn"]} type="submit">Register</button>
                 </div>

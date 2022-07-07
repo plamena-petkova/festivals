@@ -16,11 +16,9 @@ export async function getAll() {
     //add id to the result
     const result = Festival.map((x, id) => ({...x.attributes, id: x.id}) );
 
-    const filtered = result.filter(x => x.location === 'Varna')
+    // const filtered = result.filter(x => x.location === 'Varna')
 
-  
-
-    return {result, filtered};
+    return result;
 
 }
 
@@ -56,13 +54,20 @@ export async function getByOwner(ownerId) {
 
   try {
     // run the query
-    const Festival = await query.find(ownerId);
+    const Festival = await query.find();
+
+    const result = Festival.map((x, id) => ({...x.attributes, id: x.id}) );
+
+    console.log(result);
+
+    const filtered = result.filter(x => x.ownerId === ownerId);
+
    
     
     //add id to the result
     // const result = Festival.map((x, id) => ({...x.attributes, id: x.id}) );
    
-    return Festival;
+    return filtered;
 
   } catch(err) {
     console.log(err)

@@ -10,11 +10,11 @@ Parse.serverURL = PARSE_HOST_URL;
 
 
 
-export async function register({username, password, email, firstName, lastName, repass}) {
+export async function register({username, password, email, firstName, lastName}) {
 
     const user = new Parse.User();
 
-    user.set({username, password, email, firstName, lastName, repass} );
+    user.set({username, password, email, firstName, lastName} );
     try {
         await user.signUp();
         // Hooray! Let them use the app now.

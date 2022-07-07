@@ -44,7 +44,7 @@ function App() {
       <Route path="/festivals" element={<Festivals />} />
       <Route path="/festivals/:festivalId" element={<Details />} />
       <Route path="/edit/:festivalId" element={<Edit />} />
-      <Route path="/my-tickets/:userId" element={<MyTickets />} />
+      <Route path="/my-tickets" element={<MyTickets />} />
       <Route path="/cart/:userId" element={<Cart />} />
       <Route path="/logout" element={<Logout />} />
     </Routes> 

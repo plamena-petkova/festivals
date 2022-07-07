@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
-
-import styles from "./Details.module.css";
-import * as festivalService from "../../services/festivalService"
 import ConfirmDialog from "../common/modal/ConfirmDialog";
+import styles from "./Details.module.css";
+import * as festivalService from "../../services/festivalService";
+import * as ticketService from "../../services/ticketService"
 import { useAuthContext } from "../../context/AuthContext";
 
 const Details = () => {
 
     const {user} = useAuthContext();
-
+    
+    const navigate = useNavigate();
     const params = useParams();
 
     const [festival, setFestival] = useState([]);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+    let [counter, setCounter] = useState(1);
+    const [ticketBought, setTicketBought] = useState(false);
 
     useEffect(()=> {
         festivalService.getById(params.festivalId)
@@ -21,17 +24,6 @@ const Details = () => {
 
     }, [params.festivalId]);
 
-    
-    const navigate = useNavigate();
-
-    let [counter, setCounter] = useState(1);
-
-    if(counter > 5) {
-        setCounter(5);
-    }
-    if(counter < 1) {
-        setCounter(1);
-    }
 
     const author = Boolean(festival.ownerId === user.id);
 
@@ -53,16 +45,26 @@ const Details = () => {
     const deleteClickHandler = (e) => {
         e.preventDefault();
         setShowDeleteDialog(true);
+    }
 
+    const addTicket = (e) => {
+        e.preventDefault();
 
+        try {
+            ticketService.addTickets({festival}, counter, user.id)
+            .then((ticket) => {
+                setTicketBought(true);
+                console.log(ticketBought);
+                navigate(`/cart/${user.id}`)});
+
+        } catch(err) {
+            console.log(err);
+        }
     }
 
     const ownerBtn = 
         (
         <>
-         <article className={styles["tickets"]}>
-            <button type="submit" className={styles["ticket-btn"]}>Buy</button>
-         </article>
         <article className={styles["user-btn"]}>
         <button className={styles["delete"]} onClick={deleteClickHandler}>Delete</button>
         <Link to={`/edit/${festival.id}`} className={styles["edit"]}>Edit</Link>
@@ -72,7 +74,10 @@ const Details = () => {
 
     const btn = (    
                 <article className={styles["tickets"]}>
-                    <button type="submit" className={styles["ticket-btn"]}>Buy</button>
+                    {(ticketBought || !user)
+                    ? <button className={styles["ticket-btn"]} onClick={addTicket}>Buy</button>
+                    : undefined}
+                    
                 </article>
                 )   
 
@@ -91,16 +96,19 @@ const Details = () => {
 
     <div className={styles["ticket-wrapper"]}>
         <p className={styles["price"]}>Price: {festival.ticketPrice}lv</p>
-        <button onClick={()=> setCounter(counter => counter - 1)} className={styles["minus"]}>-</button>
+        <button disabled={counter === 1} onClick={()=> setCounter(counter => counter - 1)} className={styles["minus"]}>-</button>
         <p  className={styles["ticket-number"]}>{counter}</p>
-        <button onClick={()=> setCounter(counter => counter + 1)} className={styles["plus"]}>+</button>
+        <button disabled={counter === 5} onClick={()=> setCounter(counter => counter + 1)} className={styles["plus"]}>+</button>
     </div>
 
         { author
         ? ownerBtn
-        : btn }
-        </article>
-        </>
+        : btn
+        }
+
+
+    </article>
+    </>
     );
     
 }
