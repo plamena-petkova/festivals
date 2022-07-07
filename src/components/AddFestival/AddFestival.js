@@ -47,20 +47,20 @@ const AddFestival = () => {
             <article className={styles["festival-wrapper"]}>
                 <h1 className={styles["add-festival-title"]}>Add new festival</h1>
                 <i className="fa-solid fa-music"></i>
-                    <label htmlFor="fest-title-title">Music Festival:</label>
+                <label htmlFor="fest-title-title">Music Festival:</label>
                     <input type="text" name="festivalName" className={styles["add-fest-title"]} placeholder="Varna Summer"/>
-                    <label htmlFor="fest-img">Music Festival Image:</label>
+                <label htmlFor="fest-img">Music Festival Image:</label>
                     <input type="url" name="imgUrlFest" className={styles["fest-img"]} placeholder="https://..."/>
                 <label htmlFor="summary">Summary:</label>
-                <input type="text" name="summary" className={styles["summary"]} placeholder="Music Festival in Varna!"/>
+                    <input type="text" name="summary" className={styles["summary"]} placeholder="Music Festival in Varna!"/>
                 <label htmlFor="dates">Date:</label>
-                <input type="text" className={styles["dates"]} name="date" placeholder="01.06.2022-03.06.2022"/>
+                    <input type="text" className={styles["dates"]} name="date" placeholder="01.06.2022-03.06.2022"/>
                 <label htmlFor="fest-city">Location:</label>
-                <input type="text" className={styles["fest-city"]} name="location" placeholder="Varna"/>
+                    <input type="text" className={styles["fest-city"]} name="location" placeholder="Varna"/>
                 <label htmlFor="fest-city-img">Location Image:</label>
-                <input type="url" className={styles["fest-city-img"]} name="imgUrlLoc" placeholder="https://..."/>    
+                    <input type="url" className={styles["fest-city-img"]} name="imgUrlLoc" placeholder="https://..."/>    
                 <label htmlFor="fest-price">Ticket Price:</label>
-                <input type="text" className={styles["fest-price"]} name="ticketPrice" placeholder="25lv"/>
+                    <input type="text" className={styles["fest-price"]} name="ticketPrice" placeholder="25lv"/>
                 <div className={styles["btn-add-fest"]}>
                     <button className={styles["fest-btn"]} type="submit">Add festval</button>
                 </div>

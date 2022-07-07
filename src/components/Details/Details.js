@@ -16,7 +16,7 @@ const Details = () => {
     const [festival, setFestival] = useState([]);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
     let [counter, setCounter] = useState(1);
-    const [ticketBought, setTicketBought] = useState(false);
+    const [ticketItem, setTicketItem] = useState([false]);
 
     useEffect(()=> {
         festivalService.getById(params.festivalId)
@@ -49,12 +49,13 @@ const Details = () => {
 
     const addTicket = (e) => {
         e.preventDefault();
+        setTicketItem(true);
 
         try {
             ticketService.addTickets({festival}, counter, user.id)
             .then((ticket) => {
-                setTicketBought(true);
-                console.log(ticketBought);
+                
+                console.log(ticketItem);
                 navigate(`/cart/${user.id}`)});
 
         } catch(err) {
@@ -74,9 +75,9 @@ const Details = () => {
 
     const btn = (    
                 <article className={styles["tickets"]}>
-                    {(ticketBought || !user)
-                    ? <button className={styles["ticket-btn"]} onClick={addTicket}>Buy</button>
-                    : undefined}
+                    {(ticketItem || !user)
+                    ? undefined
+                    : <button className={styles["ticket-btn"]} onClick={addTicket}>Buy</button>}
                     
                 </article>
                 )   

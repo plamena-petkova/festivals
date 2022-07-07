@@ -1,6 +1,6 @@
 import { Routes, Route  } from "react-router-dom";
 import AddFestival from "./components/AddFestival/AddFestival";
-import MyTickets from "./components/MyTickets/MyTickets";
+import MyFestival from "./components/MyFestival/MyFestival";
 import Festivals from "./components/Festivals/Festivals";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -44,7 +44,7 @@ function App() {
       <Route path="/festivals" element={<Festivals />} />
       <Route path="/festivals/:festivalId" element={<Details />} />
       <Route path="/edit/:festivalId" element={<Edit />} />
-      <Route path="/my-tickets" element={<MyTickets />} />
+      <Route path="/my-tickets" element={<MyFestival />} />
       <Route path="/cart/:userId" element={<Cart />} />
       <Route path="/logout" element={<Logout />} />
     </Routes> 

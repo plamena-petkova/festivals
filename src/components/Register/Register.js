@@ -39,11 +39,11 @@ const Register = () => {
         <form method="POST" className={styles["register"]} onSubmit={onRegisterHandler}>
             <article className={styles["wrapper-register"]}>
                 <h1 className={styles["register-title"]}>User Register<i className="fa-solid fa-id-card"></i></h1>
-                <div className={styles["firstName"]}>
+                <div className={styles["firstName-wrapper"]}>
                     <i className="fa-solid fa-user"></i>
                     <input type="text" className={styles["firstName"]} name="firstName" placeholder="John..."/>
                 </div>
-                <div className={styles["lastName"]}>
+                <div className={styles["lastName-wrapper"]}>
                     <i className="fa-solid fa-user"></i>
                     <input type="text" className={styles["lastName"]} name="lastName" placeholder="Smith..."/>
                 </div>
@@ -58,9 +58,6 @@ const Register = () => {
                 <div className={styles["wrapper-pass"]}>
                     <i className="fa-solid fa-lock"></i><input type="password" className={styles["pass"]} name="password" placeholder="******"/>
                 </div>
-                {/* <div className={styles["wrapper-pass"]}>
-                    <i className="fa-solid fa-lock"></i><input type="password" className={styles["repass"]} name="repass" placeholder="******"/>
-                </div> */}
                 <div className={styles["btn-container"]}>
                     <button className={styles["register-btn"]} type="submit">Register</button>
                 </div>

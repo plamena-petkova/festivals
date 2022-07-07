@@ -90,18 +90,6 @@ export async function update(festivalId, festivalData) {
     object.set('ticketPrice', festivalData.ticketPrice);
     try {
       const response = await object.save();
-      // You can use the "get" method to get the value of an attribute
-      // Ex: response.get("<ATTRIBUTE_NAME>")
-      // Access the Parse Object attributes using the .GET method
-      console.log(response.get('festivalName'));
-      console.log(response.get('imgUrlFest'));
-      console.log(response.get('summary'));
-      console.log(response.get('date'));
-      console.log(response.get('location'));
-      console.log(response.get('imgUrlLoc'));
-      console.log(response.get('ticketPrice'));
-      console.log(response.get('ownerId'));
-      console.log('festival updated', response);
 
       let result = ({...response.attributes, id: response.id});
     

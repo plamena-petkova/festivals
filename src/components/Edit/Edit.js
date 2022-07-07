@@ -1,6 +1,7 @@
 // import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import useFestivalState from "../../hooks/useFestivalState";
 // import useFestivalState from "../../hooks/useFestivalState";
 import * as festivalService from "../../services/festivalService"
 import styles from "./Edit.module.css";
@@ -12,13 +13,16 @@ export const Edit = () => {
 
     const { festivalId } = useParams();
 
-    const [festival, setFestival] = useState({});
+    const [festival, setFestival] = useFestivalState(festivalId)
 
-    useEffect(() => {
-        festivalService.getById(festivalId)
-            .then(result => setFestival(result))
+    // const [festival, setFestival] = useState({});
 
-    }, [festivalId]);
+
+    // useEffect(() => {
+    //     festivalService.getById(festivalId)
+    //         .then(result => setFestival(result))
+
+    // }, [festivalId]);
 
 
     const onEdit = (e) => {

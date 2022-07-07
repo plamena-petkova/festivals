@@ -40,14 +40,14 @@ const Login = () => {
         <form method="POST" className={styles["login"]} onSubmit={onLoginHandler}>
             <article className={styles["wrapper-login"]}>
     
-                <h1 className={styles["login-title"]}>User Login<i className={`${styles["fa-solid"]} ${styles["fa-right-to-bracket"]}`}></i></h1>
+                <h1 className={styles["login-title"]}>User Login<i className="fa-solid fa-right-to-bracket"></i></h1>
                 <div className={styles["wrapper-mail"]}>
                     <i className="fa-solid fa-envelope"></i>
                     <input type="text" className={styles["email"]} placeholder="Email" name="email" id="email" />
                 </div>
                 <div className={styles["wrapper-mail"]}>
-                    <i className="fa-solid fa-envelope"></i>
-                    <input type="text" className={styles["email"]} placeholder="Username" name="username" id="username" />
+                <i className="fa-solid fa-user"></i>
+                    <input type="text" className={styles["username"]} placeholder="Username" name="username" id="username" />
                 </div>
                 <div className={styles["wrapper-pass"]}>
                     <i className="fa-solid fa-lock" ></i><input type="password" className={styles["pass"]} placeholder="Password" name="password" id="pass" />
