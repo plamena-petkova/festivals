@@ -37,7 +37,7 @@ const Login = () => {
 
     return (
 
-        <form method="POST" className={styles["login"]} onSubmit={onLoginHandler}>
+        <form method="POST" autoComplete='off' className={styles["login"]} onSubmit={onLoginHandler}>
             <article className={styles["wrapper-login"]}>
     
                 <h1 className={styles["login-title"]}>User Login<i className="fa-solid fa-right-to-bracket"></i></h1>

@@ -89,7 +89,7 @@
 }
 
 .img-fest img {
-    width: 80%;
+    width: 79.5%;
     height: 80%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -111,7 +111,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 50px 40px;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .popular-fest-item {

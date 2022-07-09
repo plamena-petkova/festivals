@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./MyFestival.module.css"
 
-const MyTicketsCard = (props) => {
+const MyFestivalCard = (props) => {
 
     console.log(props)
 
@@ -13,4 +13,4 @@ const MyTicketsCard = (props) => {
 
 }
 
-export default MyTicketsCard;
+export default MyFestivalCard;

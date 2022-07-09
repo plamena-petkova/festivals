@@ -6,7 +6,7 @@ import styles from "./MyFestival.module.css";
 import MyFestivalCard from "./MyFestivalCard";
 
 
-const MyTickets = () => {
+const MyFestivals = () => {
 
     const {user} = useAuthContext()
     
@@ -35,9 +35,6 @@ const MyTickets = () => {
            ? festivals.map(x => <MyFestivalCard key={x.id} festival={x} />)
            : <li>No Music Festivals which you had created!</li>
            }
-
-   
-      
      
         </ul>
     </article>
@@ -45,4 +42,4 @@ const MyTickets = () => {
     );
 }
 
-export default MyTickets;
+export default MyFestivals;

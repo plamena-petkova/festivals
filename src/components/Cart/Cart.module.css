@@ -62,4 +62,5 @@
 
 .fest-text-ticket, .price, .ticket-number, .total {
     margin-top: 20px;
+    margin-left: 0;
 }

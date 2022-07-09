@@ -9,7 +9,7 @@ const SelectForm = (props) => {
 
     return (
 
-        <form action="POST">
+        <form className={styles=["location"]} action="POST">
             <label htmlFor="fest-city">Location:</label>
             <select name="location" id="location">
                 {location.map(x => <SelectOption x={x.lenght} location={x} />)}

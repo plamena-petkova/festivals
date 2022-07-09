@@ -36,7 +36,7 @@ const Register = () => {
     }
 
     return (
-        <form method="POST" className={styles["register"]} onSubmit={onRegisterHandler}>
+        <form method="POST" autoComplete='off' className={styles["register"]} onSubmit={onRegisterHandler}>
             <article className={styles["wrapper-register"]}>
                 <h1 className={styles["register-title"]}>User Register<i className="fa-solid fa-id-card"></i></h1>
                 <div className={styles["firstName-wrapper"]}>

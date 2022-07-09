@@ -4,8 +4,7 @@ import * as festivalService from '../../services/festivalService';
 import { useAuthContext } from '../../context/AuthContext';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import SelectForm from './SelectForm';
-// import SelectOption from './SelectOption';
+
 
 const AddFestival = () => {
 
@@ -56,7 +55,7 @@ const AddFestival = () => {
     }, [])
 
     return (
-        <form method="POST" className={styles["add-festival"]} onSubmit={onFestivalAdd}>
+        <form method="POST" autoComplete='off' autoCorrect='off' autoSave='off' className={styles["add-festival"]} onSubmit={onFestivalAdd}>
             <article className={styles["festival-wrapper"]}>
                 <h1 className={styles["add-festival-title"]}>Add new festival</h1>
                 <i className="fa-solid fa-music"></i>
@@ -69,17 +68,10 @@ const AddFestival = () => {
                 <label htmlFor="dates">Date:</label>
                 <input type="text" className={styles["dates"]} name="date" placeholder="01.06.2022-03.06.2022" />
                 
-                <SelectForm key={location.name} location={location} />
-                {/* <label htmlFor="fest-city">Location:</label> */}
-                {/* <input type="text" className={styles["fest-city"]} name="location" placeholder="Varna" /> */}
-                {/* <input type="text" name="city" list="cityname"/> */}
-{/* 
-                <select name="location" id="location" location={location}>
+                <label htmlFor="fest-city">Location:</label>
+                <input type="text" className={styles["fest-city"]} name="location" placeholder="Varna" />
+              
 
-                        {location.length > 0}
-                        ? {location.map(location => <SelectOption key={location.name} location={location} />)}
-                        : <input type="text" className={styles["fest-city"]} name="location" placeholder="Varna" />
-                    </select> */}
                 <label htmlFor="fest-city-img">Location Image:</label>
                 <input type="url" className={styles["fest-city-img"]} name="imgUrlLoc" placeholder="https://..." />
                 <label htmlFor="fest-price">Ticket Price:</label>
