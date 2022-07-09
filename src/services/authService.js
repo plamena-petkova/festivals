@@ -17,6 +17,7 @@ export async function register({username, password, email, firstName, lastName})
     user.set({username, password, email, firstName, lastName} );
     try {
         await user.signUp();
+        sessionStorage.setItem(user.sessionToken);
         // Hooray! Let them use the app now.
       } catch (error) {
         // Show the error message somewhere and let the user try again.
@@ -28,14 +29,14 @@ export async function register({username, password, email, firstName, lastName})
 
 export async function login(email, username, password) {
 
-
   try {
     const userData = await Parse.User.logIn(email, username, password);
     
     const user = {...userData.attributes, id: userData.id};
 
-    console.log(user  );
-    // Object.values(localStorage)[0]
+    console.log(user);
+
+    
 
     return user;
 
