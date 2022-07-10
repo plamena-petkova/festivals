@@ -18,8 +18,7 @@ const Home = () => {
         
     },
     []);
-  
-    // console.log(festivals)
+
 
     return (
     <>

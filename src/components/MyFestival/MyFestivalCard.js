@@ -3,7 +3,6 @@ import styles from "./MyFestival.module.css"
 
 const MyFestivalCard = (props) => {
 
-    console.log(props)
 
     return(
         <div className={styles["list-wrapper"]}>

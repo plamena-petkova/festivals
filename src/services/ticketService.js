@@ -40,15 +40,6 @@ export async function getAllTickets(userId) {
   query.equalTo('userId', userId);
   try {
     const results = await query.find();
-    // for (const object of results) {
-    //   // Access the Parse Object attributes using the .GET method
-    //   const festivalId = object.get('festivalId')
-    //   const ticketQuantity = object.get('ticketQuantity')
-    //   const userId = object.get('userId')
-    //   console.log(festivalId);
-    //   console.log(ticketQuantity);
-    //   console.log(userId);
-    // }
 
     const tickets = results.map((x, id) => ({...x.attributes, id: x.id}) );
 

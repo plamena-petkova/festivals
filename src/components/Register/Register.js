@@ -30,7 +30,6 @@ const Register = () => {
 
         authService.register(data)
                 .then(data => {
-                    console.log('Register');
                     navigate('/')
                 });     
     }

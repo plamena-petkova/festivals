@@ -41,7 +41,6 @@ const AddFestival = () => {
         })
             .then(festival => {
                 navigate('/home');
-                console.log(festival)
             })
 
     }
@@ -52,7 +51,7 @@ const AddFestival = () => {
                 setLocation(festivals.map(x => x.location))
                 console.log(location)
             })
-    }, [])
+    }, [location])
 
     return (
         <form method="POST" autoComplete='off' autoCorrect='off' autoSave='off' className={styles["add-festival"]} onSubmit={onFestivalAdd}>

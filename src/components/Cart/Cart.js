@@ -42,7 +42,7 @@ const Cart = () => {
             <h4 className={styles["fest-title"]}>Tickets:</h4> 
              
             {tickets.length > 0
-            ? tickets.map(x => <CartItem key={x.id} ticket={x} moveTotalSum={moveTotalSum}/>)
+            ? tickets.map(ticket => <CartItem key={ticket.id} ticket={ticket} moveTotalSum={moveTotalSum}/>)
             : <h3>No tickets in the cart</h3>}
                 <article className={styles["total-cart-wrapper"]}>
                     <p className={styles["total-cart"]}>Total:{totalPrice}lv</p>

@@ -54,10 +54,7 @@ const Details = () => {
         try {
             ticketService.addTickets({festival}, counter, user.id)
             .then((ticket) => {
-                
-                console.log(ticketItem);
                 navigate(`/cart/${user.id}`)});
-
         } catch(err) {
             console.log(err);
         }

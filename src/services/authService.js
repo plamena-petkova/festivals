@@ -32,11 +32,7 @@ export async function login(email, username, password) {
   try {
     const userData = await Parse.User.logIn(email, username, password);
     
-    const user = {...userData.attributes, id: userData.id};
-
-    console.log(user);
-
-    
+    const user = {...userData.attributes, id: userData.id};    
 
     return user;
 

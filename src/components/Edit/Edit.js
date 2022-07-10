@@ -42,7 +42,6 @@ export const Edit = () => {
 
         // let festivalData = Object.fromEntries(new FormData(e.currentTarget))
 
-        console.log(festivalData);
 
         festivalService.update(festivalId, festivalData)
             .then(data => {
