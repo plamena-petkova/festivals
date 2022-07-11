@@ -30,11 +30,12 @@ export async function register({username, password, email, firstName, lastName})
 export async function login(email, username, password) {
 
   try {
-    const userData = await Parse.User.logIn(email, username, password);
-    
-    const user = {...userData.attributes, id: userData.id};    
 
-    return user;
+      const userData = await Parse.User.logIn(email, username, password);
+    
+      const user = {...userData.attributes, id: userData.id};  
+
+      return user; 
 
   } catch (error) {
     console.error('Error while logging in user', error);
