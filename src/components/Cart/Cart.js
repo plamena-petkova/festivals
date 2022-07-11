@@ -16,8 +16,9 @@ const Cart = () => {
 //    let total = tickets.map(x => x.ticketPrice*x.ticketQuantity);
 //    let totalPricePerTickets = total.reduce((a,v) => a + v ,0);
 
-   const moveTotalSum = (totalPrices) => {
-    return setTotalPrice(totalPrices);
+   const moveTotalSum = (ticketSum) => {
+        setTotalPrice(ticketSum)
+    return ticketSum;
     }
 
     useEffect(() => {
@@ -47,7 +48,7 @@ const Cart = () => {
                 <article className={styles["total-cart-wrapper"]}>
                     <p className={styles["total-cart"]}>Total:{totalPrice}lv</p>
                 </article>
-            
+                {/* <p className={styles["total"]}>{ticketSum}lv</p>  */}
                 <article className={styles["tickets-cart"]}>
                     <button type="submit" className={styles["cart-ticket-btn"]}>Check Out</button>
                 </article>

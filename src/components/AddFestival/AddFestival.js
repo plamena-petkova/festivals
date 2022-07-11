@@ -2,14 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import styles from './AddFestival.module.css';
 import * as festivalService from '../../services/festivalService';
 import { useAuthContext } from '../../context/AuthContext';
-import { useState } from 'react';
-import { useEffect } from 'react';
+// import { useState } from 'react';
+// import { useEffect } from 'react';
 
 
 const AddFestival = () => {
 
     const navigate = useNavigate();
-    const [location, setLocation] = useState([])
+    // const [location, setLocation] = useState([])
 
     const { user } = useAuthContext();
 
@@ -45,13 +45,13 @@ const AddFestival = () => {
 
     }
 
-    useEffect(() => {
-        festivalService.getAll()
-            .then(festivals => {
-                setLocation(festivals.map(x => x.location))
-                console.log(location)
-            })
-    }, [location])
+    // useEffect(() => {
+    //     festivalService.getAll()
+    //         .then(festivals => {
+    //             setLocation(festivals.map(x => x.location))
+    //             console.log(location)
+    //         })
+    // }, [location])
 
     return (
         <form method="POST" autoComplete='off' autoCorrect='off' autoSave='off' className={styles["add-festival"]} onSubmit={onFestivalAdd}>

@@ -27,7 +27,8 @@ const Details = () => {
 
     const author = Boolean(festival.ownerId === user.id);
 
-    
+    console.log(ticketItem)
+
     const deleteHandler = (e) => {
         e.preventDefault();
 
@@ -72,7 +73,7 @@ const Details = () => {
 
     const btn = (    
                 <article className={styles["tickets"]}>
-                    {(ticketItem || !user)
+                    {((ticketItem === true) || !user)
                     ? undefined
                     : <button className={styles["ticket-btn"]} onClick={addTicket}>Buy</button>}
                     
