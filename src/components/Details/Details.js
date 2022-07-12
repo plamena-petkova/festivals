@@ -73,8 +73,8 @@ const Details = () => {
 
     const btn = (    
                 <article className={styles["tickets"]}>
-                    {((ticketItem === true) || !user)
-                    ? undefined
+                    {((ticketItem === true) || user)
+                    ? null
                     : <button className={styles["ticket-btn"]} onClick={addTicket}>Buy</button>}
                     
                 </article>

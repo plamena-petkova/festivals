@@ -30,7 +30,7 @@ const Register = () => {
             // repass
         }
 
-        console.log(data)
+       
 
         authService.register(data)
                 .then(data => {
@@ -38,13 +38,14 @@ const Register = () => {
                 });     
     }
 
+
     const firstNameChangeHandler = (event) => {
         event.preventDefault();
 
         let currentName = event.target.value;
 
         if (currentName.length < 6) {
-            setErrors(state => ({ ...state, firstName: 'Your name sould be at least 6 characters!' }))
+            setErrors(state => ({ ...state, firstName:  'Your name sould be at least 6 characters!' }))
         } else if (currentName.length > 25) {
             setErrors(state => ({ ...state, firstName: 'Your email sould be max 25 characters!' }))
         } else {
@@ -114,11 +115,12 @@ const Register = () => {
 
     return (
         <>
-        <Alert variant="danger" show={errors.username}>{errors.username}</Alert>
-        <Alert variant="danger" show={errors.firstName}>{errors.firstName}</Alert>
-        <Alert variant="danger" show={errors.lastName}>{errors.lastName}</Alert>
-        <Alert variant="danger" show={errors.email}>{errors.email}</Alert>
-        <Alert variant="danger" show={errors.pass}>{errors.pass}</Alert>
+        
+        
+
+
+
+   
         
         <form method="POST" autoComplete='off' className={styles["register"]} onSubmit={onRegisterHandler}>
             
@@ -128,28 +130,34 @@ const Register = () => {
                     <i className="fa-solid fa-user"></i>
                     <input type="text" className={styles["firstName"]} name="firstName" onChange={firstNameChangeHandler} placeholder="John..."/>
                 </div>
+                <Alert variant="danger" show={Boolean(errors.firstName)}>{errors.firstName}</Alert>
                 
                 <div className={styles["lastName-wrapper"]}>
                     <i className="fa-solid fa-user"></i>
                     <input type="text" className={styles["lastName"]} name="lastName" onChange={lastNameChangeHandler} placeholder="Smith..."/>
                 </div>
+                <Alert variant="danger"  show={Boolean(errors.lastName)}>{errors.lastName}</Alert>
                 
                 <div className={styles["wrapper-mail"]}>
                     <i className="fa-solid fa-envelope"></i>
                     <input type="text" className={styles["username"]} name="username" onChange={usernameChangeHandler} placeholder="johny123"/>
                 </div>
+                <Alert variant="danger" show={Boolean(errors.username)}>{errors.username}</Alert>
                 
                 <div className={styles["wrapper-mail"]}>
                     <i className="fa-solid fa-envelope"></i>
                     <input type="text" className={styles["email"]} name="email" onChange={emailChangeHandler} placeholder="john@mail.com"/>
                 </div>
+                <Alert variant="danger"  show={Boolean(errors.email)}>{errors.email}</Alert>
                 
                 <div className={styles["wrapper-pass"]}>
-                    <i className="fa-solid fa-lock"></i><input type="password" onChange={passChangeHandler} className={styles["pass"]} name="password" placeholder="******"/>
+                    <i className="fa-solid fa-lock"></i>
+                    <input type="password" onChange={passChangeHandler} className={styles["pass"]} name="password" placeholder="******"/>
                 </div>
+                <Alert variant="danger"  show={Boolean(errors.pass)}>{errors.pass}</Alert>
                 
                 <div className={styles["btn-container"]}>
-                    <button className={styles["register-btn"]} type="submit">Register</button>
+                    <button disabled={Boolean(errors.username) || Boolean(errors.email) || Boolean(errors.pass) || Boolean(errors.firstName) || Boolean(errors.lastName)} className={styles["register-btn"]} type="submit">Register</button>
                 </div>
                 <p className={styles["login-redirect"]}>If you have an account<Link to="/login"> click here!</Link></p>
             </article>

@@ -18,6 +18,10 @@ export async function addTickets({festival}, counter, userId) {
     tickets.set('ticketQuantity', counter);
     tickets.set('userId', userId);
     
+    if(festival.includes(userId)) {
+      console.error('Error while creating Tickets: ');
+    }
+
     try {
       const result = await tickets.save();
       // Access the Parse Object attributes using the .GET method
