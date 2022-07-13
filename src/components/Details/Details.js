@@ -14,9 +14,9 @@ const Details = () => {
     const params = useParams();
 
     const [festival, setFestival] = useState([]);
+    const [tickets, setTickets] = useState([])
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
     let [counter, setCounter] = useState(1);
-    const [ticketItem, setTicketItem] = useState([false]);
 
     useEffect(()=> {
         festivalService.getById(params.festivalId)
@@ -24,10 +24,30 @@ const Details = () => {
 
     }, [params.festivalId]);
 
+    useEffect(() => {
+        ticketService.getAllTickets(festival.id)
+                     .then(data => {
+                        console.log(data)
+                        setTickets(data);
+                     })
+    }, [festival.id])
+
+
 
     const author = Boolean(festival.ownerId === user.id);
+    let isBought = false;
 
-    console.log(ticketItem)
+    const userId = tickets.map(ticket => ticket.userId);
+    
+    if(userId.includes(user.id)) {
+        isBought = true;
+    }
+
+    console.log(isBought);
+    console.log(user);
+
+
+
 
     const deleteHandler = (e) => {
         e.preventDefault();
@@ -50,7 +70,6 @@ const Details = () => {
 
     const addTicket = (e) => {
         e.preventDefault();
-        setTicketItem(true);
 
         try {
             ticketService.addTickets({festival}, counter, user.id)
@@ -73,9 +92,10 @@ const Details = () => {
 
     const btn = (    
                 <article className={styles["tickets"]}>
-                    {((ticketItem === true) || user)
+                   {!user.username || isBought === true
                     ? null
-                    : <button className={styles["ticket-btn"]} onClick={addTicket}>Buy</button>}
+                    : <button className={styles["ticket-btn"]} onClick={addTicket}>Buy</button>
+                   }
                     
                 </article>
                 )   
@@ -92,7 +112,7 @@ const Details = () => {
     <p className={styles["catalog-summary"]}>{festival.summary}</p>
     <p className={styles["catalog-location"]}>{festival.location}</p>
  
-
+    
     <div className={styles["ticket-wrapper"]}>
         <p className={styles["price"]}>Price: {festival.ticketPrice}lv</p>
         <button disabled={counter === 1} onClick={()=> setCounter(counter => counter - 1)} className={styles["minus"]}>-</button>
