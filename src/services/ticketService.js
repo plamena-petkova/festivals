@@ -41,6 +41,24 @@ export async function addTickets({festival}, counter, userId) {
     }
 }
 
+export async function deleteTicketsById(ticketId) {
+  
+  const query = new Parse.Query('Tickets');
+  try {
+    // here you put the objectId that you want to delete
+    const object = await query.get(ticketId);
+    try {
+      const response = await object.destroy();
+      console.log('Deleted ParseObject', response);
+    } catch (error) {
+      console.error('Error while deleting ParseObject', error);
+    }
+  } catch (error) {
+    console.error('Error while retrieving ParseObject', error);
+  }
+ 
+}
+
 export async function getAllTickets(festivalId) {
 
   const Tickets = Parse.Object.extend('Tickets');

@@ -43,11 +43,6 @@ const Details = () => {
         isBought = true;
     }
 
-    console.log(isBought);
-    console.log(user);
-
-
-
 
     const deleteHandler = (e) => {
         e.preventDefault();

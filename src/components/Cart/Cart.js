@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import * as ticketService from "../../services/ticketService"
 import styles from "./Cart.module.css";
@@ -8,6 +8,7 @@ import CartItem from "./CartItem";
 const Cart = () => {
 
     const {user} = useAuthContext();
+    const navigate = useNavigate()
 
     const [tickets, setTickets] = useState([]);
     const [totalPrice, setTotalPrice] = useState([]);
@@ -17,7 +18,6 @@ const Cart = () => {
         ticketService.getAllTicketsByUserId(user.id)
                      .then(data => {
                         setTickets(data);
-                        console.log(data)
                      })
     }, [user.id]);
     
@@ -31,7 +31,20 @@ const Cart = () => {
         setTotalPrice(totalPricePerTickets)
     }, [tickets])
 
-   
+   const onCheckOut = (e) => {
+
+    e.preventDefault();
+
+        const ticketId = tickets.map(ticket => ticket.id)
+        console.log(ticketId);
+
+        for(let id of ticketId) {
+            ticketService.deleteTicketsById(id)
+                         .then(navigate('/home'))
+        }
+
+                    
+    }
 
     
 
@@ -47,7 +60,7 @@ const Cart = () => {
                     <p className={styles["total-cart"]}>Total:{totalPrice}lv</p>
                 </article>
                 <article className={styles["tickets-cart"]}>
-                    <button type="submit" className={styles["cart-ticket-btn"]}>Check Out</button>
+                    <button onClick={onCheckOut} className={styles["cart-ticket-btn"]}>Check Out</button>
                 </article>
         
         </article>
