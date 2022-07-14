@@ -13,6 +13,7 @@ const AddFestival = () => {
 
     const { user } = useAuthContext();
 
+    
     let ownerId = user.id;
 
 

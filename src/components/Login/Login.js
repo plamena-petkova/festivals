@@ -5,10 +5,14 @@ import { useAuthContext } from "../../context/AuthContext";
 import * as authService from '../../services/authService';
 import styles from "./Login.module.css";
 import { Alert } from "react-bootstrap"
+import { types, useNotificationContext } from "../../context/NotificationContext";
 
 const Login = () => {
     const { login } = useAuthContext();
+    const { addNotification } = useNotificationContext();
     let [errors, setErrors] = useState({ email: false, username: false, pass: false })
+
+
 
     const navigate = useNavigate();
 
@@ -70,7 +74,12 @@ const Login = () => {
         authService.login(username, password, email)
             .then((userData) => {
                 login(userData);
+                addNotification('You logged in successfully', types.success);
                 navigate('/home')
+            })
+            .catch(err => {
+                console.log(err)
+                addNotification(err.message)
             });
 
     }

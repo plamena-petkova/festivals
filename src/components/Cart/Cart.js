@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import {useReactToPrint} from "react-to-print"
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import * as ticketService from "../../services/ticketService"
@@ -21,9 +22,6 @@ const Cart = () => {
                      })
     }, [user.id]);
     
-    // let sum = (ticketSum) => {
-    //     setTotalPrice(ticketSum);     
-    // }
 
     useEffect(() => {
         let total = tickets.map(x => x.ticketPrice*x.ticketQuantity);
@@ -31,9 +29,18 @@ const Cart = () => {
         setTotalPrice(totalPricePerTickets)
     }, [tickets])
 
-   const onCheckOut = (e) => {
 
+ 
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current
+    });
+
+   const onCheckOut = (e) => {
     e.preventDefault();
+
+  
+
 
         const ticketId = tickets.map(ticket => ticket.id)
         console.log(ticketId);
@@ -41,16 +48,14 @@ const Cart = () => {
         for(let id of ticketId) {
             ticketService.deleteTicketsById(id)
                          .then(navigate('/home'))
-        }
-
-                    
+        }            
     }
 
     
 
     return (
     <section className={styles["cart-wrapper"]}>
-        <article className={styles["cart"]}>
+        <article ref={componentRef} className={styles["cart"]}>
             <h4 className={styles["fest-title"]}>Tickets:</h4> 
              
             {tickets.length > 0
@@ -60,7 +65,8 @@ const Cart = () => {
                     <p className={styles["total-cart"]}>Total:{totalPrice}lv</p>
                 </article>
                 <article className={styles["tickets-cart"]}>
-                    <button onClick={onCheckOut} className={styles["cart-ticket-btn"]}>Check Out</button>
+               
+                    <button  onClick={(event) => { onCheckOut(event); handlePrint();}} className={styles["cart-ticket-btn"]}>Check Out</button>
                 </article>
         
         </article>
