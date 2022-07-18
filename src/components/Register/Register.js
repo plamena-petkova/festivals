@@ -3,8 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import * as authService from '../../services/authService';
 import styles from "./Register.module.css";
 import { Alert } from "react-bootstrap"
+import { types, useNotificationContext } from "../../context/NotificationContext";
+
 
 const Register = () => {
+
+
+    const { addNotification } = useNotificationContext();
 
     const [errors, setErrors] = useState({firstName:false, lastName:false, username: false, email: false, pass: false})
 
@@ -19,23 +24,23 @@ const Register = () => {
         let email = formData.get('email');
         let firstName = formData.get('firstName');
         let lastName = formData.get('lastName');
-        // let repass = formData.get('repass');
 
         const data = {
             username,
             password,
             email,
             firstName, 
-            lastName,
-            // repass
+            lastName
         }
-
-       
 
         authService.register(data)
                 .then(data => {
                     navigate('/')
-                });     
+                    addNotification("You register successfully!", types.success)
+                })
+                .catch(err => {
+                    addNotification(err.message)
+                });   
     }
 
 
@@ -44,8 +49,8 @@ const Register = () => {
 
         let currentName = event.target.value;
 
-        if (currentName.length < 6) {
-            setErrors(state => ({ ...state, firstName:  'Your name sould be at least 6 characters!' }))
+        if (currentName.length < 3) {
+            setErrors(state => ({ ...state, firstName:  'Your name sould be at least 3 characters!' }))
         } else if (currentName.length > 25) {
             setErrors(state => ({ ...state, firstName: 'Your email sould be max 25 characters!' }))
         } else {
@@ -58,8 +63,8 @@ const Register = () => {
 
         let currentName = event.target.value;
 
-        if (currentName.length < 6) {
-            setErrors(state => ({ ...state, lastName: 'Your name sould be at least 6 characters!' }))
+        if (currentName.length < 3) {
+            setErrors(state => ({ ...state, lastName: 'Your name sould be at least 3 characters!' }))
         } else if (currentName.length > 25) {
             setErrors(state => ({ ...state, lastName: 'Your email sould be max 25 characters!' }))
         } else {
@@ -115,13 +120,6 @@ const Register = () => {
 
     return (
         <>
-        
-        
-
-
-
-   
-        
         <form method="POST" autoComplete='off' className={styles["register"]} onSubmit={onRegisterHandler}>
             
             <article className={styles["wrapper-register"]}>

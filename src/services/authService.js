@@ -17,25 +17,27 @@ export async function register({username, password, email, firstName, lastName})
     user.set({username, password, email, firstName, lastName} );
     try {
         await user.signUp();
-        sessionStorage.setItem(user.sessionToken);
+        // sessionStorage.setItem(user.sessionToken);
         // Hooray! Let them use the app now.
       } catch (error) {
         // Show the error message somewhere and let the user try again.
-
-        alert("Error: " + error.code + " " + error.message);
+        if(error) {
+          throw new Error(error.message)
+        }
+        // alert("Error: " + error.code + " " + error.message);
       }
 
 }
 
 
-export async function login(email, username, password) {
+export async function login(username, password) {
 
   try {
 
-      const userData = await Parse.User.logIn(email, username, password);
+      const userData = await Parse.User.logIn(username, password);
     
       const user = {...userData.attributes, id: userData.id};  
-
+ 
       return user; 
 
   } catch (error) {
@@ -60,8 +62,9 @@ export async function logout() {
     getCurrentUser();
     return true;
   } catch (error) {
-    alert(`Error! ${error.message}`);
-    return false;
+    throw new Error(error);
+    // alert(`Error! ${error.message}`);
+    // return false;
   }
 }
 
