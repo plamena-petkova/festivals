@@ -10,6 +10,7 @@ import { types, useNotificationContext } from "../../context/NotificationContext
 const Login = () => {
     const { login } = useAuthContext();
     const { addNotification } = useNotificationContext();
+    const [values, setValues] = useState({username: undefined, password: undefined })
     let [errors, setErrors] = useState({ username: false, pass: false })
 
 
@@ -30,6 +31,15 @@ const Login = () => {
     //         setErrors(state => ({ ...state, email: false }));
     //     }
     // }
+
+    const changeHandler = (e) => {
+        setValues(state => ({
+            ...state,
+            [e.target.name]: e.target.value
+        }));
+        console.log(values);
+
+    }
 
 
     const usernameChangeHandler = (e) => {
@@ -65,12 +75,7 @@ const Login = () => {
     const onLoginHandler = (e) => {
         e.preventDefault();
 
-        let formData = new FormData(e.currentTarget);
-
-        let username = formData.get('username');
-        let password = formData.get('password');
-
-        authService.login(username, password)
+        authService.login(values.username, values.password)
             .then((userData) => {
                 login(userData);
                 addNotification('You logged in successfully', types.success);
@@ -89,18 +94,16 @@ const Login = () => {
             <article className={styles["wrapper-login"]}>
 
                 <h1 className={styles["login-title"]}>User Login<i className="fa-solid fa-right-to-bracket"></i></h1>
-                {/* <div className={styles["wrapper-mail"]}>
-                    <i className="fa-solid fa-envelope"></i>
-                    <input type="text" className={styles["email"]} onChange={emailChangeHandler} placeholder="Email" name="email" id="email" />
-                </div>
-                <Alert  className={styles['alert']}variant="danger" show={Boolean(errors.email)}>{errors.email}</Alert> */}
+                
                 <div className={styles["wrapper-mail"]}>
                     <i className="fa-solid fa-user"></i>
-                    <input type="text" className={styles["username"]} onChange={usernameChangeHandler} placeholder="Username" name="username" id="username" />
+                    
+                    <input type="text" className={styles["username"]} value={values.username} onBlur={usernameChangeHandler } onChange={changeHandler}  placeholder="Username" name="username" id="username" />
                 </div>
                 <Alert className={styles['alert']} variant="danger" show={Boolean(errors.username)}>{errors.username}</Alert>
                 <div className={styles["wrapper-pass"]}>
-                    <i className="fa-solid fa-lock" ></i><input type="password" onChange={passChangeHandler} className={styles["pass"]} placeholder="Password" name="password" id="pass" />
+               
+                    <i className="fa-solid fa-lock" ></i><input type="password" value={values.password}  onBlur={passChangeHandler} onChange={changeHandler}  className={styles["pass"]} placeholder="Password" name="password" id="pass" />
                 </div>
                 <Alert className={styles['alert']} variant="danger" show={Boolean(errors.pass)}>{errors.pass}</Alert>
 
