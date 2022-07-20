@@ -27,7 +27,7 @@ const Register = () => {
         console.log(values);
     }
 
-    const [errors, setErrors] = useState({firstName:false, lastName:false, username: false, email: false, pass: false})
+    const [errors, setErrors] = useState({ firstName: false, lastName: false, username: false, email: false, pass: false })
 
     const navigate = useNavigate();
 
@@ -53,13 +53,13 @@ const Register = () => {
         const data = values;
 
         authService.register(data)
-                .then(data => {
-                    navigate('/')
-                    addNotification("You register successfully!", types.success)
-                })
-                .catch(err => {
-                    addNotification(err.message)
-                });   
+            .then(data => {
+                navigate('/')
+                addNotification("You register successfully!", types.success)
+            })
+            .catch(err => {
+                addNotification(err.message)
+            });
     }
 
 
@@ -69,7 +69,7 @@ const Register = () => {
         let currentName = event.target.value;
 
         if (currentName.length < 3) {
-            setErrors(state => ({ ...state, firstName:  'Your name sould be at least 3 characters!' }))
+            setErrors(state => ({ ...state, firstName: 'Your name sould be at least 3 characters!' }))
         } else if (currentName.length > 25) {
             setErrors(state => ({ ...state, firstName: 'Your email sould be max 25 characters!' }))
         } else {
@@ -137,48 +137,50 @@ const Register = () => {
     }
 
 
+    const isFormValid = !Object.values(errors).some(x => x)
+
     return (
         <>
-        <form method="POST" autoComplete='off' className={styles["register"]} onSubmit={onRegisterHandler}>
-            
-            <article className={styles["wrapper-register"]}>
-                <h1 className={styles["register-title"]}>User Register<i className="fa-solid fa-id-card"></i></h1>
-                <div className={styles["firstName-wrapper"]}>
-                    <i className="fa-solid fa-user"></i>
-                    <input type="text" className={styles["firstName"]} name="firstName" onChange={changeHandler} onBlur={firstNameChangeHandler} placeholder="John..."/>
-                </div>
-                <Alert variant="danger" show={Boolean(errors.firstName)}>{errors.firstName}</Alert>
-                
-                <div className={styles["lastName-wrapper"]}>
-                    <i className="fa-solid fa-user"></i>
-                    <input type="text" className={styles["lastName"]} name="lastName" onChange={changeHandler} onBlur={lastNameChangeHandler} placeholder="Smith..."/>
-                </div>
-                <Alert variant="danger"  show={Boolean(errors.lastName)}>{errors.lastName}</Alert>
-                
-                <div className={styles["wrapper-mail"]}>
-                    <i className="fa-solid fa-envelope"></i>
-                    <input type="text" className={styles["username"]} name="username" onChange={changeHandler} onBlur={usernameChangeHandler} placeholder="johny123"/>
-                </div>
-                <Alert variant="danger" show={Boolean(errors.username)}>{errors.username}</Alert>
-                
-                <div className={styles["wrapper-mail"]}>
-                    <i className="fa-solid fa-envelope"></i>
-                    <input type="text" className={styles["email"]} name="email" onChange={changeHandler} onBlur={emailChangeHandler} placeholder="john@mail.com"/>
-                </div>
-                <Alert variant="danger"  show={Boolean(errors.email)}>{errors.email}</Alert>
-                
-                <div className={styles["wrapper-pass"]}>
-                    <i className="fa-solid fa-lock"></i>
-                    <input type="password" onChange={changeHandler} onBlur={passChangeHandler} className={styles["pass"]} name="password" placeholder="******"/>
-                </div>
-                <Alert variant="danger"  show={Boolean(errors.pass)}>{errors.pass}</Alert>
-                
-                <div className={styles["btn-container"]}>
-                    <button disabled={Boolean(errors.username) || Boolean(errors.email) || Boolean(errors.pass) || Boolean(errors.firstName) || Boolean(errors.lastName)} className={styles["register-btn"]} type="submit">Register</button>
-                </div>
-                <p className={styles["login-redirect"]}>If you have an account<Link to="/login"> click here!</Link></p>
-            </article>
-        </form>
+            <form method="POST" autoComplete='off' className={styles["register"]} onSubmit={onRegisterHandler}>
+
+                <article className={styles["wrapper-register"]}>
+                    <h1 className={styles["register-title"]}>User Register<i className="fa-solid fa-id-card"></i></h1>
+                    <div className={styles["firstName-wrapper"]}>
+                        <i className="fa-solid fa-user"></i>
+                        <input type="text" className={styles["firstName"]} name="firstName" value={values.firstName} onChange={changeHandler} onBlur={firstNameChangeHandler} placeholder="John..." />
+                    </div>
+                    <Alert variant="danger" show={Boolean(errors.firstName)}>{errors.firstName}</Alert>
+
+                    <div className={styles["lastName-wrapper"]}>
+                        <i className="fa-solid fa-user"></i>
+                        <input type="text" className={styles["lastName"]} name="lastName" value={values.lastName} onChange={changeHandler} onBlur={lastNameChangeHandler} placeholder="Smith..." />
+                    </div>
+                    <Alert variant="danger" show={Boolean(errors.lastName)}>{errors.lastName}</Alert>
+
+                    <div className={styles["wrapper-mail"]}>
+                        <i className="fa-solid fa-envelope"></i>
+                        <input type="text" className={styles["username"]} name="username" value={values.username} onChange={changeHandler} onBlur={usernameChangeHandler} placeholder="johny123" />
+                    </div>
+                    <Alert variant="danger" show={Boolean(errors.username)}>{errors.username}</Alert>
+
+                    <div className={styles["wrapper-mail"]}>
+                        <i className="fa-solid fa-envelope"></i>
+                        <input type="text" className={styles["email"]} name="email" value={values.email} onChange={changeHandler} onBlur={emailChangeHandler} placeholder="john@mail.com" />
+                    </div>
+                    <Alert variant="danger" show={Boolean(errors.email)}>{errors.email}</Alert>
+
+                    <div className={styles["wrapper-pass"]}>
+                        <i className="fa-solid fa-lock"></i>
+                        <input type="password" onChange={changeHandler} onBlur={passChangeHandler} value={values.pass} className={styles["pass"]} name="password" placeholder="******" />
+                    </div>
+                    <Alert variant="danger" show={Boolean(errors.pass)}>{errors.pass}</Alert>
+
+                    <div className={styles["btn-container"]}>
+                        <button disabled={!isFormValid} className={styles["register-btn"]} type="submit">Register</button>
+                    </div>
+                    <p className={styles["login-redirect"]}>If you have an account<Link to="/login"> click here!</Link></p>
+                </article>
+            </form>
         </>
     );
 

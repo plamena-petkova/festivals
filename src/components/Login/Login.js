@@ -88,6 +88,8 @@ const Login = () => {
 
     }
 
+    const isFormValid = !Object.values(errors).some(x => x)
+
     return (
 
         <form method="POST" autoComplete="off" className={styles["login"]} onSubmit={onLoginHandler}>
@@ -108,7 +110,7 @@ const Login = () => {
                 <Alert className={styles['alert']} variant="danger" show={Boolean(errors.pass)}>{errors.pass}</Alert>
 
                 <div className={styles["btn-container"]}>
-                    <button disabled={Boolean(errors.username) || Boolean(errors.email) || Boolean(errors.pass)} className={styles["login-btn"]} type="submit">Login</button >
+                    <button disabled={!isFormValid} className={styles["login-btn"]} type="submit">Login</button >
                 </div>
                 <p className={styles["login-redirect"]}>If you don't have an account<Link to="/register"> click here!</Link></p>
             </article>

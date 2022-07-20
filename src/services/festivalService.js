@@ -102,7 +102,7 @@ export async function update(festivalId, festivalData) {
 
 }
 
-export async function addFestival(data) {
+export async function addFestival(data, ownerId) {
 
     const Festival = Parse.Object.extend("festival");
     const festival = new Festival();
@@ -115,7 +115,7 @@ export async function addFestival(data) {
         location: data.location,
         imgUrlLoc: data.imgUrlLoc,
         ticketPrice: Number(data.ticketPrice),
-        ownerId: data.ownerId
+        ownerId: ownerId
     });
 
 
