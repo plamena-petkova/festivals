@@ -38,7 +38,7 @@ const CartItem = (props) => {
         
         {/* <button className={styles["plus"]} disabled={ticketQty === 5} onChange={moveTotalSumHandler()}  onClick={increase}>+</button> */}
         <p className={styles["total"]}>{ticketSum}lv</p> 
-    </div>
+       </div>
     );
 }
 

@@ -57,10 +57,19 @@ const Cart = () => {
     <section className={styles["cart-wrapper"]}>
         <article ref={componentRef} className={styles["cart"]}>
             <h4 className={styles["fest-title"]}>Tickets:</h4> 
-             
-            {tickets.length > 0
-            ? tickets.map(ticket => <CartItem key={ticket.id} ticket={ticket}  />)
-            : <h3>No tickets in the cart</h3>}
+             <table>
+                <tr>
+                    <th>Festival Name</th>
+                    <th>Festival Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                </tr>
+                <tr>
+                    {tickets.length > 0
+                    ? tickets.map(ticket => <td key={ticket.id}><CartItem  ticket={ticket}  /></td>)
+                    : <h3>No tickets in the cart</h3>}
+                </tr>
+            </table>
                 <article className={styles["total-cart-wrapper"]}>
                     <p className={styles["total-cart"]}>Total:{totalPrice}lv</p>
                 </article>

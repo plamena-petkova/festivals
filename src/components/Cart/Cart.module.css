@@ -40,8 +40,12 @@
 .ticket-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: start;
-    gap: 10px;
+    /* justify-content: start; */
+    /* gap: 10px; */
+}
+
+tr, th {
+    padding: 8px;
 }
 
 .plus, .minus {
