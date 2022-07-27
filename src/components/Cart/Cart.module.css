@@ -28,7 +28,9 @@
 
 .total-cart-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    margin-top: 30px;
+  
 }
 
 .tickets-cart {
@@ -61,7 +63,7 @@ td {
 }
 
 tr:nth-child(2) {
-    background-color: lightsalmon;
+    background-color: #CEA581;
 }
 
 .plus, .minus {
@@ -80,7 +82,13 @@ tr:nth-child(2) {
     text-align: center;
 }
 
-.fest-text-ticket, .price, .ticket-number, .total {
+.no-tickets {
+    margin-top: 30px;
+    width: 450px;
+    text-align: center;
+}
+
+/* .fest-text-ticket, .price, .ticket-number, .total {
     margin-top: 20px;
     margin-left: 0;
-}
+} */

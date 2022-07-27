@@ -30,6 +30,7 @@ const CartItem = (props) => {
 
     return (
         <>
+     
         <td>
             <p className={styles["fest-text-ticket"]}>{props.ticket.festivalName}</p>
         </td>
