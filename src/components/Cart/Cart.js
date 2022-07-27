@@ -64,11 +64,9 @@ const Cart = () => {
                     <th>Quantity</th>
                     <th>Total Price</th>
                 </tr>
-                <tr>
                     {tickets.length > 0
-                    ? tickets.map(ticket => <td key={ticket.id}><CartItem  ticket={ticket}  /></td>)
+                    ? tickets.map(ticket => <tr key={ticket.id}> <CartItem  ticket={ticket}  /></tr>)
                     : <h3>No tickets in the cart</h3>}
-                </tr>
             </table>
                 <article className={styles["total-cart-wrapper"]}>
                     <p className={styles["total-cart"]}>Total:{totalPrice}lv</p>

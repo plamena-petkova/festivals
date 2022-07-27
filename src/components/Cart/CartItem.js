@@ -29,16 +29,22 @@ const CartItem = (props) => {
 
 
     return (
-        <div className={styles["ticket-wrapper"]}>
-        <p className={styles["fest-text-ticket"]}>{props.ticket.festivalName}</p>
-        <p className={styles["price"]}>Price: {props.ticket.ticketPrice}lv</p>
-        
+        <>
+        <td>
+            <p className={styles["fest-text-ticket"]}>{props.ticket.festivalName}</p>
+        </td>
+        <td>
+            <p className={styles["price"]}>Price: {props.ticket.ticketPrice}lv</p>
+        </td>
         {/* <button className={styles["minus"]} disabled={ticketQty === 1} onChange={moveTotalSumHandler()} onClick={decrease}>-</button> */}
-        <p className={styles["ticket-number"]}>{ticketQty}</p>
-        
+        <td>
+            <p className={styles["ticket-number"]}>{ticketQty}</p>
+        </td>
         {/* <button className={styles["plus"]} disabled={ticketQty === 5} onChange={moveTotalSumHandler()}  onClick={increase}>+</button> */}
-        <p className={styles["total"]}>{ticketSum}lv</p> 
-       </div>
+        <td>
+            <p className={styles["total"]}>{ticketSum}lv</p> 
+        </td>
+        </>
     );
 }
 

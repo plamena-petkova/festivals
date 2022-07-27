@@ -37,15 +37,31 @@
     justify-content: flex-end;
 }
 
-.ticket-wrapper {
+/* .ticket-wrapper {
     display: flex;
     flex-direction: row;
-    /* justify-content: start; */
-    /* gap: 10px; */
-}
+    background-color: lightblue;
+    padding: 10px 10px;
+    border: 1px solid grey;
+    justify-content: start; 
+    gap: 10px;
+} */
 
 tr, th {
-    padding: 8px;
+    padding: 0px 10px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    margin: 0;
+}
+
+td {
+    padding: 0px 2px;
+    border: 1px solid grey;
+    text-align: center;
+}
+
+tr:nth-child(2) {
+    background-color: lightsalmon;
 }
 
 .plus, .minus {
