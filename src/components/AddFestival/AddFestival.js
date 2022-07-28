@@ -4,11 +4,14 @@ import styles from './AddFestival.module.css';
 import * as festivalService from '../../services/festivalService';
 import { useAuthContext } from '../../context/AuthContext';
 import { useState } from 'react';
+import { types, useNotificationContext } from "../../context/NotificationContext";
 // import { useState } from 'react';
 // import { useEffect } from 'react';
 
 
 const AddFestival = () => {
+
+    const { addNotification } = useNotificationContext();
 
     const [values, setValues] = useState({
         festivalName: '',
@@ -41,29 +44,13 @@ const AddFestival = () => {
 
     function onFestivalAdd(e) {
         e.preventDefault();
-        // const formData = new FormData(e.currentTarget);
-
-        // const festivalName = formData.get('festivalName');
-        // const imgUrlFest = formData.get('imgUrlFest');
-        // const summary = formData.get('summary');
-        // const date = formData.get('date');
-        // const location = formData.get('location');
-        // const imgUrlLoc = formData.get('imgUrlLoc');
-        // const ticketPrice = formData.get('ticketPrice');
-
 
         festivalService.addFestival(
-            // values.festivalName,
-            // values.imgUrlFest,
-            // values.summary,
-            // values.date,
-            // values.location,
-            // values.imgUrlLoc,
-            // values.ticketPrice,
             values,
             ownerId
         )
             .then(festival => {
+                addNotification('You added new festival!', types.success);
                 navigate('/home');
             })
 

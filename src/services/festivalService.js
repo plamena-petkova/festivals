@@ -123,7 +123,7 @@ export async function addFestival(data, ownerId) {
         .then((festival) => {
             
             // Execute any logic that should take place after the object is saved.
-        alert('New object created with objectId: ' + festival.id);
+        // alert('New object created with objectId: ' + festival.id);
         }, (error) => {
             // Execute any logic that should take place if the save fails.
             // error is a Parse.Error with an error code and message.
