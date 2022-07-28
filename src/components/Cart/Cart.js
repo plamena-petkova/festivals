@@ -75,7 +75,7 @@ const Cart = () => {
                     ? null
                     : <>
                         <article className={styles["total-cart-wrapper"]}>
-                            <p className={styles["total-cart"]}>Total:{totalPrice}lv</p>
+                            <p className={styles["total-cart"]}>Total: {totalPrice}lv</p>
                         </article>
                         <article className={styles["tickets-cart"]}>
                             <button onClick={(event) => { onCheckOut(event); handlePrint(); }} className={styles["cart-ticket-btn"]}>Check Out</button>

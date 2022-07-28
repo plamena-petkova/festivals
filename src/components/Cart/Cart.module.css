@@ -5,8 +5,8 @@
 }
 
 .cart {
-    width: 500px;
-    height: 300px;
+    width: 700px;
+    height: 500px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px;
     padding: 30px 30px;
@@ -15,7 +15,7 @@
 
 .cart-ticket-btn {
     padding: 10px 25px;
-    margin: 20px 20px;
+    margin: 0px 20px;
     border-radius: 25px;
     background-color: #704632;
     color: white;
@@ -25,12 +25,27 @@
     cursor: pointer;
 }
 
+table {
+   margin-left: 70px;
+}
+
 
 .total-cart-wrapper {
     display: flex;
     justify-content: start;
     margin-top: 30px;
+   
   
+}
+
+.total-cart {
+    margin-left: 70px;
+    font-weight: bold;
+    background-color: #704632;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    margin-right: 10px;
 }
 
 .tickets-cart {
@@ -51,18 +66,18 @@
 
 tr, th {
     padding: 0px 10px;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     border-radius: 15px;
     margin: 0;
 }
 
 td {
     padding: 0px 2px;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     text-align: center;
 }
 
-tr:nth-child(2) {
+tr:nth-child(even) {
     background-color: #CEA581;
 }
 
