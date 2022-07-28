@@ -16,9 +16,11 @@ const Logout = () => {
             .then(() => {
                 logout();
                 navigate('/home');
+                addNotification('You logged out successfully', types.success)
             })
             .catch(err => {
-                addNotification('You logged out successfully', types.success)
+                addNotification(err, types.error)
+                
             })
     }, [logout, navigate, addNotification])
 

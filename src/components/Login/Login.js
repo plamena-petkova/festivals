@@ -37,7 +37,6 @@ const Login = () => {
             ...state,
             [e.target.name]: e.target.value
         }));
-        console.log(values);
 
     }
 

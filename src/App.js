@@ -12,7 +12,7 @@ import Parse from 'parse/dist/parse.min.js';
 import Logout from "./components/Logout/Logout";
 import Details from "./components/Details/Details";
 import Edit from "./components/Edit/Edit"
-import Notification from "./components/common/modal/Notification";
+import Notification from "./components/common/notification/Notification";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthProvider } from "./context/AuthContext";
 import { NotificationProvider } from "./context/NotificationContext";

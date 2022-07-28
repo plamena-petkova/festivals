@@ -8,7 +8,6 @@ import { types, useNotificationContext } from "../../context/NotificationContext
 
 const Register = () => {
 
-
     const { addNotification } = useNotificationContext();
 
     const [values, setValues] = useState({
@@ -16,7 +15,7 @@ const Register = () => {
         lastName: '',
         username: '',
         email: '',
-        pass: '',
+        password: '',
     });
 
     const changeHandler = (e) => {
@@ -24,10 +23,9 @@ const Register = () => {
             ...state,
             [e.target.name]: e.target.value
         }));
-        console.log(values);
     }
 
-    const [errors, setErrors] = useState({ firstName: false, lastName: false, username: false, email: false, pass: false })
+    const [errors, setErrors] = useState({ firstName: false, lastName: false, username: false, email: false, password: false })
 
     const navigate = useNavigate();
 
@@ -35,31 +33,17 @@ const Register = () => {
         e.preventDefault();
 
 
-        // let formData = new FormData(e.currentTarget);
-        // let password = formData.get('password');
-        // let username = formData.get('username');
-        // let email = formData.get('email');
-        // let firstName = formData.get('firstName');
-        // let lastName = formData.get('lastName');
-
-        // const data = {
-        //     values.username,
-        //     values.password,
-        //     values.email,
-        //     values.firstName, 
-        //     values.lastName
-        // }
-
         const data = values;
 
         authService.register(data)
-            .then(data => {
+            .then((userData) => {
+                addNotification("You register successfully!", types.success);
                 navigate('/')
-                addNotification("You register successfully!", types.success)
             })
             .catch(err => {
                 addNotification(err.message)
             });
+        
     }
 
 
@@ -171,7 +155,7 @@ const Register = () => {
 
                     <div className={styles["wrapper-pass"]}>
                         <i className="fa-solid fa-lock"></i>
-                        <input type="password" onChange={changeHandler} onBlur={passChangeHandler} value={values.pass} className={styles["pass"]} name="password" placeholder="******" />
+                        <input type="password" onChange={changeHandler} onBlur={passChangeHandler} value={values.password} className={styles["pass"]} name="password" placeholder="******" />
                     </div>
                     <Alert variant="danger" show={Boolean(errors.pass)}>{errors.pass}</Alert>
 

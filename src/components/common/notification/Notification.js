@@ -16,9 +16,9 @@ const Notification = () => {
                 <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
                 <strong className="me-auto">{notification.message}</strong>
             </Toast.Header>
-            <Toast.Body>
+            {/* <Toast.Body>
                 {notification.message}
-            </Toast.Body>
+            </Toast.Body> */}
         </Toast>
     );
 };

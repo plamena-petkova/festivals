@@ -56,7 +56,7 @@ export async function logout() {
     // To verify that current user is now empty, currentAsync can be used
     const currentUser = await Parse.User.current();
     if (currentUser === null) {
-      alert('Success! No user is logged in anymore!');
+      console.log('Success! No user is logged in anymore!');
     }
     // Update state variable holding current user
     getCurrentUser();
