@@ -6,10 +6,10 @@ import { createContext } from "react";
 export const NotificationContext = createContext();
 
 export const types = {
-    error: 'error',
+    error: 'Error',
     info: 'info',
     warn: 'warn',
-    success: 'success'
+    success: 'Success'
 }
 
 const initialNotificationState = { show: false, message: '', types: types.error };

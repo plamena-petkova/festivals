@@ -114,7 +114,7 @@ const Details = () => {
         <p  className={styles["ticket-number"]}>{counter}</p>
         <button disabled={counter === 5} onClick={()=> setCounter(counter => counter + 1)} className={styles["plus"]}>+</button>
     </div>
-
+        
         { author
         ? ownerBtn
         : btn
