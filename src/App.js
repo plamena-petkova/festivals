@@ -17,6 +17,7 @@ import Notification from "./components/common/notification/Notification";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthProvider } from "./context/AuthContext";
 import { NotificationProvider } from "./context/NotificationContext";
+import NotFound from "./components/NotFound/NotFound";
 
 
 
@@ -42,32 +43,22 @@ function App() {
     <main>
     <Routes>
     <Route path="/" element={<Home />} />   
+      
       <Route path="/home" element={<Home />} />   
       <Route path="/login" element={<Login />} />     
       <Route path="/register" element={<Register />} />
-      <Route path="/add-festival" element={(
-            <PrivateRoute>
-                <AddFestival />
-            </PrivateRoute>
-          )} />
+      
       <Route path="/festivals" element={<Festivals />} />
       <Route path="/festivals/:festivalId" element={<Details />} />
-      <Route path="/edit/:festivalId" element={(
-            <PrivateRoute>
-               <Edit />
-            </PrivateRoute>
-      )} />
-      <Route path="/my-profile" element={(
-            <PrivateRoute>
-                <MyFestival />
-            </PrivateRoute>
-      )} />
-      <Route path="/cart/:userId" element={(
-            <PrivateRoute>
-                <Cart />
-           </PrivateRoute>
-      )} />
-      <Route path="/logout" element={<Logout />} />
+      
+      <Route element={<PrivateRoute />}>
+              <Route path="/add-festival" element={(<AddFestival />)} />
+              <Route path="/edit/:festivalId" element={(<Edit />)} />
+              <Route path="/my-profile" element={(<MyFestival />)} />
+              <Route path="/cart/:userId" element={(<Cart />  )} />
+              <Route path="/logout" element={<Logout />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes> 
     </main>
     <Footer />

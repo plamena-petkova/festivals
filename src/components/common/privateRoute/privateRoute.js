@@ -1,5 +1,5 @@
 import { useAuthContext} from "../../../context/AuthContext";
-import {Navigate} from "react-router-dom"
+import {Navigate, Outlet} from "react-router-dom"
 
 const PrivateRoute = ({children}) => {
 
@@ -9,11 +9,7 @@ const PrivateRoute = ({children}) => {
         return <Navigate to="/login" replace/>
     }
 
-    return (
-        <>
-        {children}
-        </>
-    )
+    return <Outlet />
 
 
 }

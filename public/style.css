@@ -2,10 +2,14 @@ body {
     margin:0;
     font-family: 'Lato', 'sans-serif';
     background-color: #F4E4D8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
   }
   
   *, **, ::before, ::after {
     box-sizing: border-box;
   }
+
 
