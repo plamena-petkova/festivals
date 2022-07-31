@@ -16,7 +16,7 @@ const isUser = Boolean(user.username);
         <li className={`${styles["user"]} ${styles["nav-links"]}`}>Hello, {user.username}</li>  
         <li className={styles["nav-links"]}><Link to="/festivals" className={styles["links"]}>Festivals</Link></li>  
         <li className={styles["nav-links"]}><Link to="/add-festival" className={styles["links"]}>Add Festival</Link></li>   
-        <li className={styles["nav-links"]}><Link to={`/my-tickets`} className={styles["links"]}>My festivals</Link></li>
+        <li className={styles["nav-links"]}><Link to={`/my-profile`} className={styles["links"]}>My festivals</Link></li>
         <li className={styles["nav-links"]}><Link to="/cart/:userId" className={styles["links"]}><i className="fa-solid fa-cart-shopping"></i></Link></li>
         <li className={styles["nav-links"]}><Link to="/logout" className={styles["links"]}>Logout</Link></li>
         </>

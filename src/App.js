@@ -11,7 +11,8 @@ import Cart from "./components/Cart/Cart";
 import Parse from 'parse/dist/parse.min.js';
 import Logout from "./components/Logout/Logout";
 import Details from "./components/Details/Details";
-import Edit from "./components/Edit/Edit"
+import Edit from "./components/Edit/Edit";
+import PrivateRoute from "./components/common/privateRoute/privateRoute";
 import Notification from "./components/common/notification/Notification";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthProvider } from "./context/AuthContext";
@@ -44,12 +45,28 @@ function App() {
       <Route path="/home" element={<Home />} />   
       <Route path="/login" element={<Login />} />     
       <Route path="/register" element={<Register />} />
-      <Route path="/add-festival" element={<AddFestival />} />
+      <Route path="/add-festival" element={(
+            <PrivateRoute>
+                <AddFestival />
+            </PrivateRoute>
+          )} />
       <Route path="/festivals" element={<Festivals />} />
       <Route path="/festivals/:festivalId" element={<Details />} />
-      <Route path="/edit/:festivalId" element={<Edit />} />
-      <Route path="/my-tickets" element={<MyFestival />} />
-      <Route path="/cart/:userId" element={<Cart />} />
+      <Route path="/edit/:festivalId" element={(
+            <PrivateRoute>
+               <Edit />
+            </PrivateRoute>
+      )} />
+      <Route path="/my-profile" element={(
+            <PrivateRoute>
+                <MyFestival />
+            </PrivateRoute>
+      )} />
+      <Route path="/cart/:userId" element={(
+            <PrivateRoute>
+                <Cart />
+           </PrivateRoute>
+      )} />
       <Route path="/logout" element={<Logout />} />
     </Routes> 
     </main>
