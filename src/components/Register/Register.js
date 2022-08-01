@@ -47,10 +47,10 @@ const Register = () => {
     }
 
 
-    const firstNameChangeHandler = (event) => {
-        event.preventDefault();
+    const firstNameChangeHandler = (e) => {
+        e.preventDefault();
 
-        let currentName = event.target.value;
+        let currentName = values.firstName;
 
         if (currentName.length < 3) {
             setErrors(state => ({ ...state, firstName: 'Your name sould be at least 3 characters!' }))
@@ -61,10 +61,10 @@ const Register = () => {
         }
     }
 
-    const lastNameChangeHandler = (event) => {
-        event.preventDefault();
+    const lastNameChangeHandler = (e) => {
+        e.preventDefault();
 
-        let currentName = event.target.value;
+        let currentName = values.lastName;
 
         if (currentName.length < 3) {
             setErrors(state => ({ ...state, lastName: 'Your name sould be at least 3 characters!' }))
@@ -75,10 +75,10 @@ const Register = () => {
         }
     }
 
-    const emailChangeHandler = (event) => {
-        event.preventDefault();
+    const emailChangeHandler = (e) => {
+        e.preventDefault();
 
-        let currentEmail = event.target.value;
+        let currentEmail = e.target.value;
 
         if (currentEmail.length < 3) {
             setErrors(state => ({ ...state, email: 'Your email sould be at least 3 characters!' }))
@@ -93,7 +93,7 @@ const Register = () => {
     const usernameChangeHandler = (e) => {
         e.preventDefault();
 
-        let currentUsername = e.target.value;
+        let currentUsername = values.username;
 
 
         if (currentUsername.length < 3) {
@@ -108,7 +108,7 @@ const Register = () => {
     const passChangeHandler = (e) => {
         e.preventDefault();
 
-        let currentPass = e.target.value;
+        let currentPass = values.password;
 
 
         if (currentPass.length < 6) {

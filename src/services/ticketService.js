@@ -99,4 +99,44 @@ export async function getAllTicketsByUserId(userId) {
 
 }
 
+export async function getTicketOwner(festivalId, currentUser) {
+  const Tickets = Parse.Object.extend('Tickets');
+  const query = new Parse.Query(Tickets);
+
+  query.equalTo('userId', currentUser);
+  // You can also query by using a parameter of an object
+
+  
+  try {
+
+    const results = await query.find();
+    
+    const userTickets = results.map((x, id) => ({...x.attributes, id: x.id}) );
+
+    if(festivalId === userTickets.festivalId) {
+      return currentUser;
+    } else {
+      return null;
+    }
+
+
+    // console.log(userTickets);
+
+
+    // const tickets = results.map((x, id) => ({...x.attributes, id: x.id}) );
+
+    // const userId = results.map((x, id) => ({...x.userId, id: x.id}) );
+    // console.log(userId);
+
+    // return tickets;
+
+    // return results;
+
+  } catch (error) {
+    console.error('Error while fetching Tickets', error);
+  }
+
+
+}
+
 

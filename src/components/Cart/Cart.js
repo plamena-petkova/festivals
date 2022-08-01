@@ -69,13 +69,13 @@ const Cart = () => {
                 
                     {tickets.length > 0
                         ? tickets.map(ticket => <tr key={ticket.id}> <CartItem ticket={ticket} /></tr>)
-                        : <h3 className={styles["no-tickets"]}>No tickets in the cart</h3>}
+                        : <tr className={styles["no-tickets"]}>No tickets in the cart</tr>}
                 </table>
                 {totalPrice < 1
                     ? null
                     : <>
                         <article className={styles["total-cart-wrapper"]}>
-                            <p className={styles["total-cart"]}>Total: {totalPrice}lv</p>
+                            <p className={styles["total-cart"]}>Total:{totalPrice}lv</p>
                         </article>
                         <article className={styles["tickets-cart"]}>
                             <button onClick={(event) => { onCheckOut(event); handlePrint(); }} className={styles["cart-ticket-btn"]}>Check Out</button>

@@ -10,27 +10,11 @@ import { types, useNotificationContext } from "../../context/NotificationContext
 const Login = () => {
     const { login } = useAuthContext();
     const { addNotification } = useNotificationContext();
-    const [values, setValues] = useState({username: undefined, password: undefined })
+    const [values, setValues] = useState({ username: '', password: '' })
     let [errors, setErrors] = useState({ username: false, pass: false })
 
 
-
     const navigate = useNavigate();
-
-
-    // const emailChangeHandler = (event) => {
-    //     event.preventDefault();
-
-    //     let currentEmail = event.target.value;
-
-    //     if (currentEmail.length < 3) {
-    //         setErrors(state => ({ ...state, email: 'Your email sould be at least 3 characters!' }))
-    //     } else if (currentEmail.length > 20) {
-    //         setErrors(state => ({ ...state, email: 'Your email sould be max 20 characters!' }))
-    //     } else {
-    //         setErrors(state => ({ ...state, email: false }));
-    //     }
-    // }
 
     const changeHandler = (e) => {
         setValues(state => ({
@@ -44,7 +28,7 @@ const Login = () => {
     const usernameChangeHandler = (e) => {
         e.preventDefault();
 
-        let currentUsername = e.target.value;
+        let currentUsername = values.username;
 
 
         if (currentUsername.length < 3) {
@@ -59,8 +43,7 @@ const Login = () => {
     const passChangeHandler = (e) => {
         e.preventDefault();
 
-        let currentPass = e.target.value;
-
+        let currentPass = values.password;
 
         if (currentPass.length < 6) {
             setErrors(state => ({ ...state, pass: 'Your password sould be at least 6 characters!' }))
@@ -94,19 +77,42 @@ const Login = () => {
         <form method="POST" autoComplete="off" className={styles["login"]} onSubmit={onLoginHandler}>
             <article className={styles["wrapper-login"]}>
 
-                <h1 className={styles["login-title"]}>User Login<i className="fa-solid fa-right-to-bracket"></i></h1>
-                
+                <h1 className={styles["login-title"]}>
+                    User Login
+                    <i className="fa-solid fa-right-to-bracket"></i>
+                </h1>
+
                 <div className={styles["wrapper-mail"]}>
                     <i className="fa-solid fa-user"></i>
-                    
-                    <input type="text" className={styles["username"]} value={values.username} onBlur={usernameChangeHandler } onChange={changeHandler}  placeholder="Username" name="username" id="username" />
+
+                    <input type="text" className={styles["username"]} 
+                        value={values.username} 
+                        onBlur={usernameChangeHandler} 
+                        onChange={changeHandler} 
+                        placeholder="Username" name="username" id="username" 
+                    />
                 </div>
-                <Alert className={styles['alert']} variant="danger" show={Boolean(errors.username)}>{errors.username}</Alert>
+                <Alert className={styles['alert']} 
+                    variant="danger" 
+                    show={Boolean(errors.username)}
+                >
+                    {errors.username}
+                </Alert>
                 <div className={styles["wrapper-pass"]}>
-               
-                    <i className="fa-solid fa-lock" ></i><input type="password" value={values.password}  onBlur={passChangeHandler} onChange={changeHandler}  className={styles["pass"]} placeholder="Password" name="password" id="pass" />
+                    <i className="fa-solid fa-lock" ></i>
+                    <input type="password" 
+                        value={values.password} 
+                        onBlur={passChangeHandler} 
+                        onChange={changeHandler} 
+                        className={styles["pass"]} placeholder="Password" name="password" id="pass" 
+                    />
                 </div>
-                <Alert className={styles['alert']} variant="danger" show={Boolean(errors.pass)}>{errors.pass}</Alert>
+                <Alert className={styles['alert']} 
+                    variant="danger" 
+                    show={Boolean(errors.pass)}
+                >
+                    {errors.pass}
+                </Alert>
 
                 <div className={styles["btn-container"]}>
                     <button disabled={!isFormValid} className={styles["login-btn"]} type="submit">Login</button >
