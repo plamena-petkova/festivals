@@ -32,7 +32,6 @@ const Details = () => {
         setLoading(true);
         ticketService.getAllTickets(festival.id)
                      .then(data => {
-                        console.log(data)
                         setTickets(data);
                         setLoading(false);
                      })
@@ -57,9 +56,9 @@ const Details = () => {
             .then(() => {
                 navigate('/home')
             })
-            .finally(() => {
-                showDeleteDialog(false);
-        });
+            // .finally(() => {
+            //     showDeleteDialog(false);
+        // });
         }
     };
 
@@ -74,7 +73,7 @@ const Details = () => {
         try {
             ticketService.addTickets({festival}, counter, user.id)
             .then((ticket) => {
-                navigate(`/cart/${user.id}`)});
+                navigate(`/cart`)});
         } catch(err) {
             console.log(err);
         }
@@ -115,9 +114,22 @@ const Details = () => {
     
     <div className={styles["ticket-wrapper"]}>
         <p className={styles["price"]}>Price: {festival.ticketPrice}lv</p>
-        <button disabled={counter === 1} onClick={()=> setCounter(counter => counter - 1)} className={styles["minus"]}>-</button>
-        <p  className={styles["ticket-number"]}>{counter}</p>
-        <button disabled={counter === 5} onClick={()=> setCounter(counter => counter + 1)} className={styles["plus"]}>+</button>
+        
+            <button 
+                disabled={counter === 1} 
+                onClick={()=> setCounter(counter => counter - 1)} 
+                className={styles["minus"]}
+            >
+            -
+            </button>
+            <p  className={styles["ticket-number"]}>{counter}</p>
+            <button 
+                disabled={counter === 5} 
+                onClick={()=> setCounter(counter => counter + 1)} 
+                className={styles["plus"]}
+            >
+            +
+            </button>
     </div>
         
         { ticketOwner ? ownerBtn : btn}

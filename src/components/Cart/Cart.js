@@ -39,11 +39,7 @@ const Cart = () => {
     const onCheckOut = (e) => {
         e.preventDefault();
 
-
-
-
         const ticketId = tickets.map(ticket => ticket.id)
-        console.log(ticketId);
 
         for (let id of ticketId) {
             ticketService.deleteTicketsById(id)
@@ -52,24 +48,28 @@ const Cart = () => {
     }
 
 
-
     return (
         <section className={styles["cart-wrapper"]}>
             <article ref={componentRef} className={styles["cart"]}>
                 <h4 className={styles["fest-title"]}>Tickets:</h4>
                 <table>
                     {tickets.length > 0 
-                    ? <tr>
+                    ? (
+                    <thead>
+                    <tr>
                         <th>Festival Name</th>
                         <th>Festival Price</th>
                         <th>Quantity</th>
                         <th>Total Price</th>
                     </tr>
+                    </thead>
+                    )
                     : null}
-                
+                <tbody>
                     {tickets.length > 0
-                        ? tickets.map(ticket => <tr key={ticket.id}> <CartItem ticket={ticket} /></tr>)
-                        : <tr className={styles["no-tickets"]}>No tickets in the cart</tr>}
+                        ? tickets.map(ticket =><tr key={ticket.id}><CartItem ticket={ticket} /></tr>)
+                        : <tr><td className={styles["no-tickets"]}>No tickets in the cart</td></tr>}
+                </tbody>
                 </table>
                 {totalPrice < 1
                     ? null
@@ -78,12 +78,10 @@ const Cart = () => {
                             <p className={styles["total-cart"]}>Total:{totalPrice}lv</p>
                         </article>
                         <article className={styles["tickets-cart"]}>
-                            <button onClick={(event) => { onCheckOut(event); handlePrint(); }} className={styles["cart-ticket-btn"]}>Check Out</button>
+                            <button onClick={(event) => { onCheckOut(event); handlePrint();  }} className={styles["cart-ticket-btn"]}>Check Out</button>
                         </article>
                     </>
                 }
-
-
 
             </article>
         </section>

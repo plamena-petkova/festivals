@@ -5,6 +5,8 @@
 }
 
 .cart {
+    display: flex;
+    flex-direction: column;
     width: 700px;
     height: 500px;
     border-radius: 15px;
@@ -15,7 +17,7 @@
 
 .cart-ticket-btn {
     padding: 10px 25px;
-    margin: 0px 20px;
+    margin: 0px 10px;
     border-radius: 25px;
     background-color: #704632;
     color: white;
@@ -25,24 +27,20 @@
     cursor: pointer;
 }
 
-table {
-   margin-left: 70px;
-}
 
 
 .total-cart-wrapper {
     display: flex;
-    justify-content: start;
+    justify-content: flex-end;
     margin-top: 30px;
-   
-  
 }
 
 .total-cart {
-    margin-left: 70px;
+    align-items: end;
+    /* margin-left: 70px; */
     font-weight: bold;
-    background-color: #704632;
-    color: white;
+    background-color: #CEA581;
+    color: black;
     padding: 10px 25px;
     border-radius: 25px;
     margin-right: 10px;
@@ -54,31 +52,37 @@ table {
     justify-content: flex-end;
 }
 
-/* .ticket-wrapper {
-    display: flex;
-    flex-direction: row;
-    background-color: lightblue;
-    padding: 10px 10px;
-    border: 1px solid grey;
-    justify-content: start; 
-    gap: 10px;
-} */
 
 tr, th {
     padding: 0px 10px;
-    /* border: 1px solid grey; */
-    border-radius: 15px;
     margin: 0;
 }
 
-td {
-    padding: 0px 2px;
-    /* border: 1px solid grey; */
+table {
+    /* border: 1px solid black; */
+    border-radius: 25px;
+}
+
+.no-tickets {
+    padding: 15px 2px;
     text-align: center;
+    font-size: 40px;
+    margin-top: 30px;
+    width: 450px;
+}
+
+td {
+    padding: 0 10px;
+    text-align: start;
 }
 
 tr:nth-child(even) {
     background-color: #CEA581;
+}
+
+thead {
+    background-color: #CEA581;
+    border: 1px solid black;
 }
 
 .plus, .minus {
@@ -97,11 +101,7 @@ tr:nth-child(even) {
     text-align: center;
 }
 
-.no-tickets {
-    margin-top: 30px;
-    width: 450px;
-    text-align: center;
-}
+
 
 /* .fest-text-ticket, .price, .ticket-number, .total {
     margin-top: 20px;

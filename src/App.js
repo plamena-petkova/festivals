@@ -55,7 +55,7 @@ function App() {
               <Route path="/add-festival" element={(<AddFestival />)} />
               <Route path="/edit/:festivalId" element={(<Edit />)} />
               <Route path="/my-profile" element={(<MyFestival />)} />
-              <Route path="/cart/:userId" element={(<Cart />  )} />
+              <Route path="/cart" element={(<Cart />  )} />
               <Route path="/logout" element={<Logout />} />
       </Route>
       <Route path="*" element={<NotFound />} />

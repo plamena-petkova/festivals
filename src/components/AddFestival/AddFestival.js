@@ -60,7 +60,7 @@ const AddFestival = () => {
     const festivalErrorHandler = (e) => {
         e.preventDefault();
 
-        let current = e.target.value;
+        let current = values.festivalName;
 
         if (current.length < 6) {
             setErrors(state => ({ ...state, festivalName: 'Festival name sould be at least 6 characters!' }))
@@ -74,7 +74,7 @@ const AddFestival = () => {
     const imgErrorhandler = (e) => {
         e.preventDefault();
 
-        let current = e.target.value;
+        let current = values.imgUrlFest;
 
         if (!current.includes('https://')) {
             if(e.target.name === 'imgUrlFest') {
@@ -96,12 +96,12 @@ const AddFestival = () => {
     const summaryErrorHandler = (e) => {
         e.preventDefault();
 
-        let current = e.target.value;
+        let current = values.summary;
 
         if(current.length < 10) {
             setErrors(state => ({...state, summary:'Summary should be at least 10 charachters long!'}))
-        } else if (current.length > 20) {
-            setErrors(state => ({ ...state, summary: 'Summary should be max 20 charachters long!' }))
+        } else if (current.length > 50) {
+            setErrors(state => ({ ...state, summary: 'Summary should be max 50 charachters long!' }))
         } else {
             setErrors(state => ({ ...state, summary: false }));
         }
@@ -110,7 +110,7 @@ const AddFestival = () => {
     const dateErrorHandler = (e) => {
         e.preventDefault();
 
-        let current = e.target.value;
+        let current = values.date;
 
         if(current.length < 4) {
             setErrors(state => ({...state, date:'Dates should be at least 4 charachters long!'}))
@@ -124,7 +124,7 @@ const AddFestival = () => {
     const locationErrorHandler = (e) => {
         e.preventDefault();
 
-        let current = e.target.value;
+        let current = values.location;
 
         if(current.length < 4) {
             setErrors(state => ({...state, location:'Location should be at least 4 charachters long!'}))
@@ -138,7 +138,7 @@ const AddFestival = () => {
     const priceErrorhandler = (e) => {
         e.preventDefault();
 
-        let number = Number(e.target.value);
+        let number = Number(values.ticketPrice);
     
 
         // let current = Number(e.target.value);
