@@ -21,11 +21,8 @@ const Details = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(()=> {
-        // setLoading(true);
         festivalService.getById(params.festivalId)
         .then(result => setFestival(result))
-        setLoading(false);
-
     }, [params.festivalId]);
 
     useEffect(() => {
@@ -56,9 +53,9 @@ const Details = () => {
             .then(() => {
                 navigate('/home')
             })
-            // .finally(() => {
-            //     showDeleteDialog(false);
-        // });
+            .finally(() => {
+                setShowDeleteDialog(false);
+        });
         }
     };
 
@@ -101,9 +98,10 @@ const Details = () => {
 
     return (
         <>
+   
+    <ConfirmDialog show={showDeleteDialog} onClose={()=> setShowDeleteDialog(false)} onSave={deleteHandler} />
     { loading ? <LoadingSpinner /> : 
     (<>
-    <ConfirmDialog show={showDeleteDialog} onClose={()=> setShowDeleteDialog(false)} onSave={deleteHandler} />
     <article className={styles["fest-item"]}>
                 <article className={styles["img-fest"]}>
                     <img src={festival.imgUrlFest} alt="fest"/>
@@ -135,6 +133,7 @@ const Details = () => {
     </div>
         
         { ticketOwner ? ownerBtn : btn}
+    
 
     </article>
     </>)}

@@ -27,9 +27,16 @@ const Cart = () => {
         let total = tickets.map(x => x.ticketPrice * x.ticketQuantity);
         let totalPricePerTickets = total.reduce((a, v) => a + v, 0);
         setTotalPrice(totalPricePerTickets)
-    }, [tickets])
+    }, [tickets]);
 
+    const onDelete = (ticketId) => {
 
+            ticketService.deleteTicketsById(ticketId)
+                .then(navigate('/home'))
+        }
+
+ 
+   
 
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
@@ -61,13 +68,14 @@ const Cart = () => {
                         <th>Festival Price</th>
                         <th>Quantity</th>
                         <th>Total Price</th>
+                        <th>Remove</th>
                     </tr>
                     </thead>
                     )
                     : null}
                 <tbody>
                     {tickets.length > 0
-                        ? tickets.map(ticket =><tr key={ticket.id}><CartItem ticket={ticket} /></tr>)
+                        ? tickets.map(ticket =><tr key={ticket.id}><CartItem ticket={ticket} onDelete={onDelete} /></tr>)
                         : <tr><td className={styles["no-tickets"]}>No tickets in the cart</td></tr>}
                 </tbody>
                 </table>

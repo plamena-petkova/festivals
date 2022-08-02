@@ -151,3 +151,4 @@ export async function remove(festivalId) {
           console.error('Error while retrieving ParseObject', error);
         }
 }
+
