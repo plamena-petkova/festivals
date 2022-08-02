@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import ConfirmDialog from "../common/modal/ConfirmDialog";
 import styles from "./Details.module.css";
@@ -62,10 +62,12 @@ const Details = () => {
         }
     };
 
-    const deleteClickHandler = (e) => {
+    const deleteClickHandler = useCallback((e) => {
         e.preventDefault();
         setShowDeleteDialog(true);
-    }
+    }, []);
+
+
 
     const addTicket = (e) => {
         e.preventDefault();

@@ -45,14 +45,20 @@ const AddFestival = () => {
     function onFestivalAdd(e) {
         e.preventDefault();
 
-        festivalService.addFestival(
-            values,
-            ownerId
-        )
-            .then(festival => {
-                addNotification('You added new festival!', types.success);
-                navigate('/home');
-            })
+        try {
+            festivalService.addFestival(
+                values,
+                ownerId
+            )
+                .then(festival => {
+                    addNotification('You added new festival!', types.success);
+                    navigate('/home');
+                })
+
+        } catch(err) {
+            addNotification('Failed to create festival', types.error)
+        }
+    
 
     }
 
@@ -141,13 +147,11 @@ const AddFestival = () => {
         let number = Number(values.ticketPrice);
     
 
-        // let current = Number(e.target.value);
-
-        // if(current === isNaN) {
-        //     setErrors(state => ({...state, ticketPrice:'Ticket price should be a number!'}))
-        // } else {
-        //     setErrors(state => ({ ...state, ticketPrice: false }));
-        // }
+        if(number === isNaN) {
+            setErrors(state => ({...state, ticketPrice:'Ticket price should be a number!'}))
+        } else {
+            setErrors(state => ({ ...state, ticketPrice: false }));
+        }
     }
 
     const isFormValid = !Object.values(errors).some(x => x)
@@ -163,34 +167,135 @@ const AddFestival = () => {
     // }, [location])
 
     return (
-        <form method="POST" autoComplete='off' autoCorrect='off' autoSave='off' className={styles["add-festival"]} onSubmit={onFestivalAdd}>
+        <form method="POST" 
+              autoComplete='off' 
+              autoCorrect='off' 
+              autoSave='off' 
+              className={styles["add-festival"]} 
+              onSubmit={onFestivalAdd}
+        >
             <article className={styles["festival-wrapper"]}>
                 <h1 className={styles["add-festival-title"]}>Add new festival</h1>
                 <i className="fa-solid fa-music"></i>
                 <label htmlFor="fest-title-title">Music Festival:</label>
-                <input type="text" name="festivalName" className={styles["add-fest-title"]} value={values.festivalName} onChange={changeHandler} onBlur={festivalErrorHandler} placeholder="Varna Summer" />
-                <Alert className={styles['alert']} variant="danger" show={Boolean(errors.festivalName)}>{errors.festivalName}</Alert>
+                <input type="text" 
+                       name="festivalName" 
+                       className={styles["add-fest-title"]} 
+                       value={values.festivalName} 
+                       onChange={changeHandler} 
+                       onBlur={festivalErrorHandler} 
+                       placeholder="Varna Summer" 
+                />
+                <Alert className={styles['alert']} 
+                       variant="danger" 
+                       show={Boolean(errors.festivalName)}
+                >
+                    {errors.festivalName}
+                </Alert>
+                
                 <label htmlFor="fest-img">Music Festival Image:</label>
-                <input type="url" name="imgUrlFest" className={styles["fest-img"]} placeholder="https://..." value={values.imgUrlFest} onChange={changeHandler} onBlur={imgErrorhandler} />
-                <Alert className={styles['alert']} variant="danger" show={Boolean(errors.imgUrlFest)}>{errors.imgUrlFest}</Alert>
+                <input type="url" 
+                    name="imgUrlFest" 
+                    className={styles["fest-img"]} 
+                    placeholder="https://..." 
+                    value={values.imgUrlFest} 
+                    onChange={changeHandler} 
+                    onBlur={imgErrorhandler} 
+                />
+                <Alert className={styles['alert']} 
+                        variant="danger" 
+                        show={Boolean(errors.imgUrlFest)}
+                >
+                    {errors.imgUrlFest}
+                </Alert>
+                
                 <label htmlFor="summary">Summary:</label>
-                <input type="text" name="summary" className={styles["summary"]} placeholder="Music Festival in Varna!" value={values.summary} onBlur={summaryErrorHandler} onChange={changeHandler} />
-                <Alert className={styles['alert']} variant="danger" show={Boolean(errors.summary)}>{errors.summary}</Alert>
+                <input type="text" 
+                    name="summary" 
+                    className={styles["summary"]} 
+                    placeholder="Music Festival in Varna!" 
+                    value={values.summary}
+                    onChange={changeHandler} 
+                    onBlur={summaryErrorHandler}  
+                />
+                <Alert className={styles['alert']} 
+                       variant="danger" 
+                       show={Boolean(errors.summary)}
+                >
+                    {errors.summary}
+                </Alert>
+                
                 <label htmlFor="dates">Date:</label>
-                <input type="text" className={styles["dates"]} name="date" placeholder="01.06.2022-03.06.2022" value={values.date} onBlur={dateErrorHandler} onChange={changeHandler} />
-                <Alert className={styles['alert']} variant="danger" show={Boolean(errors.date)}>{errors.date}</Alert>
+                <input type="text" 
+                       className={styles["dates"]} 
+                       name="date" placeholder="01.06.2022-03.06.2022" 
+                       value={values.date} 
+                       onChange={changeHandler}
+                       onBlur={dateErrorHandler} 
+                />
+                <Alert className={styles['alert']} 
+                       variant="danger" 
+                       show={Boolean(errors.date)}
+                >
+                    {errors.date}
+                </Alert>
+                
                 <label htmlFor="fest-city">Location:</label>
-                <input type="text" className={styles["fest-city"]} name="location" placeholder="Varna" value={values.location} onBlur={locationErrorHandler} onChange={changeHandler}  />
-                <Alert className={styles['alert']} variant="danger" show={Boolean(errors.location)}>{errors.location}</Alert>
+                <input type="text" 
+                       className={styles["fest-city"]} 
+                       name="location" placeholder="Varna" 
+                       value={values.location} 
+                       onChange={changeHandler} 
+                       onBlur={locationErrorHandler} 
+                />
+                <Alert className={styles['alert']} 
+                       variant="danger" 
+                       show={Boolean(errors.location)}
+                >
+                    {errors.location}
+                </Alert>
+                
                 <label htmlFor="fest-city-img">Location Image:</label>
-                <input type="url" className={styles["fest-city-img"]} name="imgUrlLoc" placeholder="https://..." value={values.imgUrlLoc} onBlur={imgErrorhandler} onChange={changeHandler} />
-                <Alert className={styles['alert']} variant="danger" show={Boolean(errors.imgUrlLoc)}>{errors.imgUrlLoc}</Alert>
+                <input type="url" 
+                       className={styles["fest-city-img"]} 
+                       name="imgUrlLoc" 
+                       placeholder="https://..." 
+                       value={values.imgUrlLoc} 
+                       onChange={changeHandler}
+                       onBlur={imgErrorhandler} 
+                />
+                <Alert className={styles['alert']} 
+                       variant="danger" 
+                       show={Boolean(errors.imgUrlLoc)}
+                >
+                    {errors.imgUrlLoc}
+                </Alert>
+                
                 <label htmlFor="fest-price">Ticket Price:</label>
-                <input type="text" className={styles["fest-price"]} name="ticketPrice" placeholder="25lv" value={values.ticketPrice} onBlur={priceErrorhandler} onChange={changeHandler} />
-                <Alert className={styles['alert']} variant="danger" show={Boolean(errors.ticketPrice)}>{errors.ticketPrice}</Alert>
+                <input type="text" 
+                       className={styles["fest-price"]} 
+                       name="ticketPrice" 
+                       placeholder="25lv" 
+                       value={values.ticketPrice} 
+                       onBlur={priceErrorhandler} 
+                       onChange={changeHandler} 
+                />
+                <Alert className={styles['alert']} 
+                       variant="danger" 
+                       show={Boolean(errors.ticketPrice)}
+                >
+                    {errors.ticketPrice}
+                </Alert>
+                
                 <div className={styles["btn-add-fest"]}>
-                    <button disabled={!isFormValid} className={styles["fest-btn"]} type="submit">Add festval</button>
+                    <button disabled={!isFormValid} 
+                            className={styles["fest-btn"]} 
+                            type="submit"
+                    >
+                        Add festval
+                    </button>
                 </div>
+
             </article>
         </form>
     );
