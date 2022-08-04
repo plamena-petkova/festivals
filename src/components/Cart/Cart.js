@@ -14,7 +14,7 @@ const Cart = () => {
 
     const [tickets, setTickets] = useState([]);
     const [totalPrice, setTotalPrice] = useState([]);
-    const [infoCode, setInfoCode] = useState('');
+    const [infoCode, setInfoCode] = useState('tickets');
     const [src, setSrc] = useState('');
 
 
@@ -24,9 +24,10 @@ const Cart = () => {
                 setTickets(data);
                 const infoQr = data.map(x => [x.ticketQuantity, x.festivalName]);
                 let arr = Array.prototype.concat.apply([], infoQr);
-                setInfoCode(arr.join(' '))
+                setInfoCode(arr.join(' '));
+                QRCode.toDataURL(infoCode).then(data => setSrc(data))
             })
-    }, [user.id]);
+    }, [user.id, infoCode]);
 
 
 
@@ -37,10 +38,6 @@ const Cart = () => {
 
     }, [tickets]);
 
-    useEffect(() => {
-        QRCode.toDataURL(infoCode).then(data => setSrc(data))
-
-    }, [infoCode])
 
     const onDelete = (ticketId) => {
 
@@ -102,7 +99,7 @@ const Cart = () => {
                         </article>
                     </>
                 }
-                
+
                 {src 
                     ? 
                     (<div>
