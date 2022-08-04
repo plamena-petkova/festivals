@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useReactToPrint } from "react-to-print"
+import  QRCode  from "qrcode";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import * as ticketService from "../../services/ticketService"
@@ -13,21 +14,33 @@ const Cart = () => {
 
     const [tickets, setTickets] = useState([]);
     const [totalPrice, setTotalPrice] = useState([]);
+    const [infoCode, setInfoCode] = useState('');
+    const [src, setSrc] = useState('');
 
 
     useEffect(() => {
         ticketService.getAllTicketsByUserId(user.id)
             .then(data => {
                 setTickets(data);
+                const infoQr = data.map(x => [x.ticketQuantity, x.festivalName]);
+                let arr = Array.prototype.concat.apply([], infoQr);
+                setInfoCode(arr.join(' '))
             })
     }, [user.id]);
+
 
 
     useEffect(() => {
         let total = tickets.map(x => x.ticketPrice * x.ticketQuantity);
         let totalPricePerTickets = total.reduce((a, v) => a + v, 0);
-        setTotalPrice(totalPricePerTickets)
+        setTotalPrice(totalPricePerTickets);
+
     }, [tickets]);
+
+    useEffect(() => {
+        QRCode.toDataURL(infoCode).then(data => setSrc(data))
+
+    }, [infoCode])
 
     const onDelete = (ticketId) => {
 
@@ -58,6 +71,7 @@ const Cart = () => {
             <article ref={componentRef} className={styles["cart"]}>
                 <h4 className={styles["fest-title"]}>Tickets:</h4>
                 <table>
+             
                     {tickets.length > 0 
                     ? (
                     <thead>
@@ -88,7 +102,14 @@ const Cart = () => {
                         </article>
                     </>
                 }
-
+                
+                {src 
+                    ? 
+                    (<div>
+                    <img className={styles['qrcode']} src={src} alt="qrcode" />
+                    </div>) 
+                    : null}
+                    
             </article>
         </section>
     );

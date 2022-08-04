@@ -101,6 +101,28 @@ thead {
     text-align: center;
 }
 
+.btn-del {
+    border: none;
+    background-color: transparent;
+    margin-top: -10px;
+}
+
+td:nth-child(5) i {
+    padding: 0;
+    margin-left: 15px;
+    align-items: center;
+}
+
+td:nth-child(5) button { 
+    margin-top: -20px;
+}
+
+
+
+.qrCode {
+    margin-top: -40px;
+}
+
 
 
 /* .fest-text-ticket, .price, .ticket-number, .total {
