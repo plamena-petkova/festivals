@@ -10,7 +10,7 @@ Simple catalog of Festivals
     - view register
     - view catalog page
     - view page not found 404
-    - details page without buttons
+    - view details page without buttons
 
 ## Logged in users
     - view home page
@@ -24,7 +24,7 @@ Simple catalog of Festivals
     - view cart - can have tickets or not
         ++ cart has list of all tickets put in the cart with button BUY and total sum
         ++ ticket could be removed from cart
-        ++ when checkout - the list of tickets with qrcode is printed
+        ++ when checkout - the list of tickets with qrcode(includes ticket quantity and festival name) is printed
     - view logout button
 
 ## Additional Info
@@ -32,8 +32,7 @@ Simple catalog of Festivals
     - all forms has validation - react bootstrap templates
     - notification handler for the backend errors or main actions giving indication to the user - success or error
     - spinner is added while waiting response - react bootstrap template
-    
-
+    - all users routes are protected with private guard if there is no logged in user
 
 # Technologies
 
@@ -47,7 +46,3 @@ Simple catalog of Festivals
 ## BackEnd
 
     - Back4App 
-
-    
-     
-

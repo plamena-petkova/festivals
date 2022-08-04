@@ -36,7 +36,9 @@ export async function login(username, password) {
 
       const userData = await Parse.User.logIn(username, password);
     
-      const user = {...userData.attributes, id: userData.id};  
+      const user = {...userData.attributes, id: userData.id}; 
+      
+      console.log(user.sessionToken);
  
       return user; 
 

@@ -4,11 +4,13 @@ import * as authService from '../../services/authService';
 import styles from "./Register.module.css";
 import { Alert } from "react-bootstrap"
 import { types, useNotificationContext } from "../../context/NotificationContext";
+import { useAuthContext } from "../../context/AuthContext"
 
 
 const Register = () => {
 
     const { addNotification } = useNotificationContext();
+    const { login } = useAuthContext()
 
     const [values, setValues] = useState({
         firstName: '',
@@ -37,6 +39,7 @@ const Register = () => {
 
         authService.register(data)
             .then((userData) => {
+                login(userData);
                 addNotification("You register successfully!", types.success);
                 navigate('/')
             })
@@ -133,31 +136,31 @@ const Register = () => {
                         <i className="fa-solid fa-user"></i>
                         <input type="text" className={styles["firstName"]} name="firstName" value={values.firstName} onChange={changeHandler} onBlur={firstNameChangeHandler} placeholder="John..." />
                     </div>
-                    <Alert variant="danger" show={Boolean(errors.firstName)}>{errors.firstName}</Alert>
+                    <Alert className={styles['error']} variant="danger" show={Boolean(errors.firstName)}>{errors.firstName}</Alert>
 
                     <div className={styles["lastName-wrapper"]}>
                         <i className="fa-solid fa-user"></i>
                         <input type="text" className={styles["lastName"]} name="lastName" value={values.lastName} onChange={changeHandler} onBlur={lastNameChangeHandler} placeholder="Smith..." />
                     </div>
-                    <Alert variant="danger" show={Boolean(errors.lastName)}>{errors.lastName}</Alert>
+                    <Alert className={styles['error']} variant="danger" show={Boolean(errors.lastName)}>{errors.lastName}</Alert>
 
                     <div className={styles["wrapper-mail"]}>
                         <i className="fa-solid fa-envelope"></i>
                         <input type="text" className={styles["username"]} name="username" value={values.username} onChange={changeHandler} onBlur={usernameChangeHandler} placeholder="johny123" />
                     </div>
-                    <Alert variant="danger" show={Boolean(errors.username)}>{errors.username}</Alert>
+                    <Alert className={styles['error']} variant="danger" show={Boolean(errors.username)}>{errors.username}</Alert>
 
                     <div className={styles["wrapper-mail"]}>
                         <i className="fa-solid fa-envelope"></i>
                         <input type="text" className={styles["email"]} name="email" value={values.email} onChange={changeHandler} onBlur={emailChangeHandler} placeholder="john@mail.com" />
                     </div>
-                    <Alert variant="danger" show={Boolean(errors.email)}>{errors.email}</Alert>
+                    <Alert className={styles['error']} variant="danger" show={Boolean(errors.email)}>{errors.email}</Alert>
 
                     <div className={styles["wrapper-pass"]}>
                         <i className="fa-solid fa-lock"></i>
                         <input type="password" onChange={changeHandler} onBlur={passChangeHandler} value={values.password} className={styles["pass"]} name="password" placeholder="******" />
                     </div>
-                    <Alert variant="danger" show={Boolean(errors.pass)}>{errors.pass}</Alert>
+                    <Alert className={styles['error']} variant="danger" show={Boolean(errors.pass)}>{errors.pass}</Alert>
 
                     <div className={styles["btn-container"]}>
                         <button disabled={!isFormValid} className={styles["register-btn"]} type="submit">Register</button>
