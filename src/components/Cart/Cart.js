@@ -35,8 +35,6 @@ const Cart = () => {
                 .then(navigate('/home'))
         }
 
- 
-   
 
     const componentRef = useRef();
     const handlePrint = useReactToPrint({

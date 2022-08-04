@@ -40,8 +40,17 @@
 
 footer{
     background-color: #CEA581;
-    /* position:absolute;
-    left:0;
-    bottom:0;
-    right:0; */
+}
+
+
+@media (max-width: 420px) {
+    .socials {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .contact {
+        flex-direction: column;
+        align-items: center;
+    }
 }

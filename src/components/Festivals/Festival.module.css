@@ -72,3 +72,8 @@
 }
 
 
+@media (max-width: 420px) {
+    .catalog {
+        margin: 50px 20px;
+    }
+}

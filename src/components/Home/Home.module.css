@@ -1,3 +1,4 @@
+
 .img-background {
     display: flex;
     justify-content: center;
@@ -59,7 +60,6 @@
 
 .fest-city {
     display: flex;
-    /* flex-wrap: wrap; */
     margin: 0px 60px;
     /* justify-content: space-between; */
     justify-content: center;
@@ -133,3 +133,22 @@
     justify-content: center;
     margin: 0 0;
 }
+
+
+@media (max-width: 420px) {
+
+    .popular-fests {
+        margin: 0;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        
+    }
+
+    .fest-city {
+        flex-wrap: wrap;    
+    }
+}
+
+
