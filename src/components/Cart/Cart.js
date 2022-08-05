@@ -14,7 +14,7 @@ const Cart = () => {
 
     const [tickets, setTickets] = useState([]);
     const [totalPrice, setTotalPrice] = useState([]);
-    const [infoCode, setInfoCode] = useState('tickets');
+    const [infoCode, setInfoCode] = useState('');
     const [src, setSrc] = useState('');
 
 

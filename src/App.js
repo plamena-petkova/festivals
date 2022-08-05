@@ -38,8 +38,9 @@ function App() {
 
    <AuthProvider>
     <NotificationProvider>
+    <Notification />
      <Header />
-     <Notification />
+     
     <main>
     <Routes>
     <Route path="/" element={<Home />} />   
