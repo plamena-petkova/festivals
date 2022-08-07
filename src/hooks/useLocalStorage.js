@@ -4,7 +4,6 @@ const useLocalStorage = (key, initialValue) => {
     const [state, setState] = useState(() => {
         try {
             let item = localStorage.getItem(key);
-
             return item 
                 ? JSON.parse(item) 
                 : initialValue;

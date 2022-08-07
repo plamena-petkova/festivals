@@ -17,15 +17,18 @@ export async function register({username, password, email, firstName, lastName})
     user.set({username, password, email, firstName, lastName} );
     try {
         await user.signUp();
-        // sessionStorage.setItem(user.sessionToken);
-        // Hooray! Let them use the app now.
+        
+        const newUser = {...user.attributes, id: user.id}; 
+        console.log(newUser)
+        return newUser; 
+
+
       } catch (error) {
-        // Show the error message somewhere and let the user try again.
         if(error) {
           throw new Error(error.message)
         }
-        // alert("Error: " + error.code + " " + error.message);
       }
+     
 
 }
 

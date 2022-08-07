@@ -39,7 +39,7 @@ const Register = () => {
 
         authService.register(data)
             .then((userData) => {
-                login(userData);
+                login(userData)
                 addNotification("You register successfully!", types.success);
                 navigate('/')
             })
