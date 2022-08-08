@@ -46,3 +46,6 @@ Simple catalog of Festivals
 ## BackEnd
 
     - Back4App 
+
+## Hosting 
+    - Firebase - you can reach the SPA here - https://festivals-6b2ff.web.app/
