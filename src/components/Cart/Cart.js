@@ -21,11 +21,16 @@ const Cart = () => {
     useEffect(() => {
         ticketService.getAllTicketsByUserId(user.id)
             .then(data => {
-                setTickets(data);
-                const infoQr = data.map(x => [x.ticketQuantity, x.festivalName]);
-                let arr = Array.prototype.concat.apply([], infoQr);
-                setInfoCode(arr.join(' '));
-                QRCode.toDataURL(infoCode).then(data => setSrc(data))
+                    setTickets(data);
+                    const infoQr = data.map(x => [`${x.ticketQuantity} tickets`, `${x.festivalName} festival`]);
+                    let arr = Array.prototype.concat.apply([], infoQr);
+                    setInfoCode(arr.join(' '));
+                    if(infoCode !== '') {
+                        QRCode.toDataURL(infoCode).then(data => setSrc(data))
+                    } else {
+                        return;
+                    }
+                    
             })
     }, [user.id, infoCode]);
 
@@ -40,7 +45,6 @@ const Cart = () => {
 
 
     const onDelete = (ticketId) => {
-
             ticketService.deleteTicketsById(ticketId)
                 .then(navigate('/home'))
         }
@@ -84,7 +88,10 @@ const Cart = () => {
                     : null}
                 <tbody>
                     {tickets.length > 0
-                        ? tickets.map(ticket =><tr key={ticket.id}><CartItem ticket={ticket} onDelete={onDelete} /></tr>)
+                        ? tickets.map(ticket =>
+                                        <tr key={ticket.id}>
+                                            <CartItem ticket={ticket} onDelete={onDelete} />
+                                        </tr>)
                         : <tr><td className={styles["no-tickets"]}>No tickets in the cart</td></tr>}
                 </tbody>
                 </table>
@@ -100,7 +107,7 @@ const Cart = () => {
                     </>
                 }
 
-                {src 
+                {src
                     ? 
                     (<div>
                     <img className={styles['qrcode']} src={src} alt="qrcode" />

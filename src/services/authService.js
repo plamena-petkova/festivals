@@ -19,7 +19,6 @@ export async function register({username, password, email, firstName, lastName})
         await user.signUp();
         
         const newUser = {...user.attributes, id: user.id}; 
-        console.log(newUser)
         return newUser; 
 
 
@@ -40,8 +39,6 @@ export async function login(username, password) {
       const userData = await Parse.User.logIn(username, password);
     
       const user = {...userData.attributes, id: userData.id}; 
-      
-      console.log(user.sessionToken);
  
       return user; 
 
@@ -75,7 +72,6 @@ export async function logout() {
 
 export async function getCurrentUser() {
   const currentUser = await Parse.User.current();
-  console.log(currentUser);
   return currentUser;
 
 };

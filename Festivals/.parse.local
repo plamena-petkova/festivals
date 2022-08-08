@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Festivals": {
+      "applicationId": "N7Xz8vuxjzsKbiffxZeYoXrjo7nBno2e3pksZnai"
+    },
+    "_default": {
+      "link": "Festivals"
+    }
+  }
+}

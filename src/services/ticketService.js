@@ -15,26 +15,16 @@ export async function addTickets({festival}, counter, userId) {
     tickets.set('festivalName', festival.festivalName);
     tickets.set('ticketQuantity', counter);
     tickets.set('userId', userId);
-
-    const addedTicket = Object.values({...tickets.attributes});
-
-    console.log(addedTicket)
     
   
-
     try {
 
-      // if(addedTicket.includes(userId)) {
-      //   console.error('You have already bought a ticket!');
-      // } else {
         const result = await tickets.save();
-        // Access the Parse Object attributes using the .GET method
-        console.log('Tickets created', result);
   
         const ticketItem = {...result.attributes,id: result.id }
   
         return ticketItem;
-      // }
+   
       
     } catch (error) {
       console.error('Error while creating Tickets: ', error);
@@ -119,18 +109,6 @@ export async function getTicketOwner(festivalId, currentUser) {
       return null;
     }
 
-
-    // console.log(userTickets);
-
-
-    // const tickets = results.map((x, id) => ({...x.attributes, id: x.id}) );
-
-    // const userId = results.map((x, id) => ({...x.userId, id: x.id}) );
-    // console.log(userId);
-
-    // return tickets;
-
-    // return results;
 
   } catch (error) {
     console.error('Error while fetching Tickets', error);

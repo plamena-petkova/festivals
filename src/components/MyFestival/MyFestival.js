@@ -17,7 +17,6 @@ const MyFestivals = () => {
     useEffect(() => {
         festivalService.getByOwner(user.id)
                        .then(festivalData => {
-                        console.log(festivalData);
                         setFestivals(festivalData);
                         
                        })

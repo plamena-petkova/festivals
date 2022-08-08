@@ -5,8 +5,6 @@ import * as festivalService from '../../services/festivalService';
 import { useAuthContext } from '../../context/AuthContext';
 import { useState } from 'react';
 import { types, useNotificationContext } from "../../context/NotificationContext";
-// import { useState } from 'react';
-// import { useEffect } from 'react';
 
 
 const AddFestival = () => {
@@ -23,10 +21,17 @@ const AddFestival = () => {
         ticketPrice: ''
     });
 
-    const [errors, setErrors] = useState({festivalName:false, imgUrlFest: false, summary: false, date: false, location: false, imgUrlLoc: false, ticketPrice: false})
+    const [errors, setErrors] = useState
+        ({festivalName:false, 
+         imgUrlFest: false, 
+         summary: false, 
+         date: false, 
+         location: false, 
+         imgUrlLoc: false, 
+         ticketPrice: false
+        })
 
     const navigate = useNavigate();
-    // const [location, setLocation] = useState([])
 
     const { user } = useAuthContext();
 
@@ -40,8 +45,6 @@ const AddFestival = () => {
     }))
     }
 
-
-
     function onFestivalAdd(e) {
         e.preventDefault();
 
@@ -54,12 +57,9 @@ const AddFestival = () => {
                     addNotification('You added new festival!', types.success);
                     navigate('/home');
                 })
-
         } catch(err) {
             addNotification('Failed to create festival', types.error)
         }
-    
-
     }
 
 
@@ -156,15 +156,6 @@ const AddFestival = () => {
 
     const isFormValid = !Object.values(errors).some(x => x)
 
-
-
-    // useEffect(() => {
-    //     festivalService.getAll()
-    //         .then(festivals => {
-    //             setLocation(festivals.map(x => x.location))
-    //             console.log(location)
-    //         })
-    // }, [location])
 
     return (
         <form method="POST" 

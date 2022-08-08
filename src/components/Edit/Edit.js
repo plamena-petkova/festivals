@@ -46,7 +46,6 @@ export const Edit = () => {
         festivalService.update(festivalId, festivalData)
             .then(data => {
                 setFestival(data);
-                console.log(data);
                 navigate(`/festivals/${festivalId}`);
             })
 

@@ -5,11 +5,9 @@ import styles from "./Cart.module.css"
 
 
 const CartItem = (props) => {
-
-    console.log(props)
  
     const [ticketSum, setTicketSum] = useState(0);
-    const [ticketQty, setTicketQty] = useState(Number(props.ticket.ticketQuantity));
+    const ticketQty = Number(props.ticket.ticketQuantity);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
 
@@ -25,9 +23,7 @@ const CartItem = (props) => {
     e.preventDefault();
     setShowDeleteDialog(true);
 }, []);
-
-   
-
+  
 
     return (
         <>

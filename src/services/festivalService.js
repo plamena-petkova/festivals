@@ -58,13 +58,7 @@ export async function getByOwner(ownerId) {
 
     const result = Festival.map((x, id) => ({...x.attributes, id: x.id}) );
 
-    console.log(result);
-
     const filtered = result.filter(x => x.ownerId === ownerId);
-
-    console.log(filtered);
-    //add id to the result
-    // const result = Festival.map((x, id) => ({...x.attributes, id: x.id}) );
    
     return filtered;
 
