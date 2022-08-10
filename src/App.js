@@ -20,9 +20,6 @@ import { NotificationProvider } from "./context/NotificationContext";
 import NotFound from "./components/NotFound/NotFound";
 
 
-
-
-
 const PARSE_APPLICATION_ID = 'N7Xz8vuxjzsKbiffxZeYoXrjo7nBno2e3pksZnai';
 const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
 const PARSE_JAVASCRIPT_KEY = 'aLbkqUoj7IW2es6QQwiMLdxa9Ly8MYY4UhLqE3dO';
@@ -48,10 +45,9 @@ function App() {
       <Route path="/home" element={<Home />} />   
       <Route path="/login" element={<Login />} />     
       <Route path="/register" element={<Register />} />
-      
       <Route path="/festivals" element={<Festivals />} />
       <Route path="/festivals/:festivalId" element={<Details />} />
-      
+     
       <Route element={<PrivateRoute />}>
               <Route path="/add-festival" element={(<AddFestival />)} />
               <Route path="/edit/:festivalId" element={(<Edit />)} />
@@ -59,6 +55,7 @@ function App() {
               <Route path="/cart" element={(<Cart />  )} />
               <Route path="/logout" element={<Logout />} />
       </Route>
+      
       <Route path="*" element={<NotFound />} />
     </Routes> 
     </main>
